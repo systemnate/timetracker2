@@ -2,7 +2,7 @@ class PrioritiesController < ApplicationController
   before_action :find_priority, only: [:show, :edit, :update, :destroy]
 
   def index
-    @priorities = Priority.all
+    @priorities = Priority.all.order("name")
   end
 
   def show

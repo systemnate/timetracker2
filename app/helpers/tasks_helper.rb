@@ -54,6 +54,14 @@ module TasksHelper
       content_tag(:span, class: "label label-default") do
         show_status(task)
       end
+    elsif task.status.color.name == "Light Blue"
+      content_tag(:span, class: "label label-info") do
+        show_status(task)
+      end
+    elsif task.status.color.name == "Orange"
+      content_tag(:span, class: "label label-warning") do
+        show_status(task)
+      end        
     else
       'NA'
     end
@@ -76,6 +84,14 @@ module TasksHelper
       content_tag(:span, class: "label label-default") do
         show_priority(task)
       end
+    elsif task.priority.color.name == "Light Blue"
+      content_tag(:span, class: "label label-info") do
+        show_priority(task)
+      end
+    elsif task.priority.color.name == "Orange"
+      content_tag(:span, class: "label label-warning") do
+        show_priority(task)
+      end      
     else
       'NA'
     end
@@ -106,6 +122,14 @@ module TasksHelper
       end
     elsif task.product.color.name == "Grey"
       content_tag(:span, class: "label label-default") do
+        show_product(task)
+      end
+    elsif task.product.color.name == "Light Blue"
+      content_tag(:span, class: "label label-info") do
+        show_product(task)
+      end
+    elsif task.product.color.name == "Orange"
+      content_tag(:span, class: "label label-warning") do
         show_product(task)
       end
     else
