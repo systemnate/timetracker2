@@ -2,7 +2,7 @@
 <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
 <% if @tasks.count == 0 %>
   <h2>No tasks!</h2>
-  <h3>To get started, click on Configuration and perform some basic setup!</h3>
+  <h3>To get started, click on Configuration to perform some basic setup!</h3>
 <% else %>
 <div class="table-responsive">
   <table class="table table-striped table-hover">
@@ -21,7 +21,7 @@
         <td><%= task.title %></td>
         <td><%= label_status(task) %></td>
         <td><%= show_client(task) %></td>
-        <td><%= show_product(task)  %></td>
+        <td><%= label_product(task)  %></td>
         <td><%= label_priority(task) %></td>
         <td><%= truncate(task.summary, length: 50, separator: " ") %></td>
         <td><%= link_to task, class: "btn btn-primary" do %>

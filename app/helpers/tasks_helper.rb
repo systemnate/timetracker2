@@ -81,6 +81,28 @@ module TasksHelper
     end
   end
 
+  def label_product(task)
+    if task.product.color.name == "Green"
+      content_tag(:span, class: "label label-success") do
+        show_product(task)
+      end
+    elsif task.product.color.name == "Red"
+      content_tag(:span, class: "label label-danger") do
+        show_product(task)
+      end
+    elsif task.product.color.name == "Blue"
+      content_tag(:span, class: "label label-primary") do
+        show_product(task)
+      end
+    elsif task.product.color.name == "Grey"
+      content_tag(:span, class: "label label-default") do
+        show_product(task)
+      end
+    else
+      'NA'
+    end
+  end  
+
   def label_client(task)
     content_tag(:span, class: "label label-default") do
       show_client(task)
