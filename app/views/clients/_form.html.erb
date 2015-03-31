@@ -1,18 +1,22 @@
 <%= form_for @client do |f| %>
-  <p>
+  <div class="form-group">
     <%= f.label :name %><br/>
-    <%= f.text_field :name %>
-  </p>
-  <p>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
     <%= f.label :contact %><br/>
-    <%= f.text_area :contact %><br/>
-  </p>
-  <p>
+    <%= f.text_area :contact, rows: 10, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
     <%= f.label :connect_info %><br/>
-    <%= f.text_area :connect_info %>
-  </p>
-  <p>
+    <%= f.text_area :connect_info, rows: 10, class: "form-control" %>
+  </div>
+ 
+  <div class="form-group">
     <%= f.submit "Submit", class: "btn btn-primary" %>
-  </p>
+  </div>
 <% end %>
 <%= link_to "All Clients", clients_path, class: "btn btn-info" %>
+<%= link_to "Configuration", pages_index_path, class: "btn btn-info" %>

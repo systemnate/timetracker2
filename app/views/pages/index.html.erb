@@ -8,10 +8,16 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= link_to "Show All Clients", clients_path %></td>
-      <td><%= link_to "Show All Products", products_path %></td>
-      <td><%= link_to "Show All Statuses", statuses_path %></td>
-      <td><%= link_to "Show All Priorites", priorities_path %></td>
+      <td><%= link_to "Show All Clients", clients_path, class: "btn btn-info" %></td>
+      <td><%= link_to "Show All Products", products_path, class: "btn btn-info" %></td>
+      <td><%= link_to "Show All Statuses", statuses_path, class: "btn btn-info" %></td>
+      <td><%= link_to "Show All Priorites", priorities_path, class: "btn btn-info" %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Add New Client", new_client_path, class: "btn btn-primary" %></td>
+      <td><%= link_to "Add New Product", new_product_path, class: "btn btn-primary" %></td>
+      <td><%= link_to "Add New Status", new_status_path, class: "btn btn-primary" %></td>
+      <td><%= link_to "Add New Priority", new_priority_path, class: "btn btn-primary" %></td>
     </tr>
   </tbody>
 </table>

@@ -1,5 +1,5 @@
 <h1>Client Details</h1>
-<table class="table">
+<table class="table table-striped table-responsive table-hover">
   <thead>
     <th>Name</th>
     <th>Contact</th>
@@ -13,6 +13,8 @@
     </tr>
   </tbody>
 </table>
-
-<%= link_to "All Clients", clients_path, class: "btn btn-primary" %>
-<%= link_to "Back", root_path, class: "btn btn-primary" %>
+<p>
+  <%= link_to "New Client", new_client_path, class: "btn btn-success" %>
+</p>
+<%= link_to "All Clients", clients_path, class: "btn btn-info" %>
+<%= link_to "Configuration", pages_index_path, class: "btn btn-info" %>
