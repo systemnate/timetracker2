@@ -1,2 +1,60 @@
-<h1>Tasks#new</h1>
-<p>Find me in app/views/tasks/new.html.erb</p>
+<%= form_for @task do |f| %>
+  <% if @task.errors.any? %>
+    <section id="errors">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <ul>
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </section>
+  <% end %>
+  <div class="dark-matter">
+  <h1>New Task 
+      <span>Start by entering some basic information about the task</span>
+  </h1>
+  <label>
+    <%= f.label :title %>
+    <%= f.text_field :title, placeholder: "Title" %>
+  </label>
+  
+  <label>
+    <p>Summary</p>
+    <%= f.text_area :summary, rows: 8, placeholder: "Summary" %>
+  </label>
+
+  <label>
+    <p>Client</p>
+    <%= f.collection_select :client_id, Client.all, :id, :name, { prompt: "Choose Client..." } %>
+  </label>
+    
+  <label>
+    <p>Status</p>
+    <%= f.collection_select :status_id, Status.all, :id, :name, { prompt: "Choose Status..." } %>
+  </label>
+  
+  <label>
+    <p>Product</p>
+    <%= f.collection_select :product_id, Product.all, :id, :name, { prompt: "Choose Product..." } %>
+  </label>
+
+  <label>
+    <p>Priority</p>
+    <%= f.collection_select :priority_id, Priority.all, :id, :name, { prompt: "Choose Priority..." } %>
+  </label>
+  
+  <label>
+    <span>&nbsp;</span> 
+    <button class="btn btn-default">Submit</button>
+    <%= link_to "Cancel", tasks_path, class: "btn btn-warning" %>
+  </label>  
+<% end %>
+</div>
+<%= link_to "All Tasks", tasks_path %>
+<script src="tinymce.min.js"></script>
+<script>
+  $(document).ready(function() {
+          tinymce.remove()
+          tinymce.init({selector:'textarea'});
+      });
+</script>

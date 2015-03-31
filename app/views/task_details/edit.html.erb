@@ -1,0 +1,43 @@
+<%= form_for([@task, @task_detail], html: { class: "dark-matter", id: "edit-detail" }) do |f| %>
+  <h1>Edit Detail 
+      <span>Enter case details and click save when done.</span>
+      <span>Checking important will render the view in a red color.</span>
+  </h1>
+  <div id="timer">
+    
+  </div>
+  <label>
+    <%= f.text_area :body %>
+  </label>
+
+  <label>
+    <%= f.hidden_field :time_spent, value: @task_detail.time_spent %>
+  </label>
+
+  <label>
+    <%= f.check_box :important %>
+    Important?
+  </label>
+    
+  <label>
+    <span>&nbsp;</span> 
+    <button class="btn btn-default">Save</button>
+    <%= link_to "Cancel", @task, class: "btn btn-warning" %>
+  </label>
+
+
+<% end %>
+<script>
+  $('#timer').timer();
+  var startTime = new Date();
+  $( "#edit-detail" ).submit(function( event ) {
+    var endTime = new Date();
+    var timeDiff = endTime - startTime;
+    timeDiff /= 1000;
+    timeDiff = Math.floor(timeDiff / 60);
+    var oldTime = $("#task_detail_time_spent").val();
+    var newTime = parseInt(oldTime) + parseInt(timeDiff);
+    $("#task_detail_time_spent").val(newTime);
+    return true;
+  });
+</script>

@@ -15,6 +15,10 @@ Rails.application.routes.draw do
     root 'tasks#index', as: :subdomain_root
     devise_for :users
     resources :users, only: :index
+    resources :tasks do
+      resources :task_details
+    end
+    resources :clients
   end
 
   constraints(SubdomainBlank) do
