@@ -1,0 +1,18 @@
+<h1>Client Details</h1>
+<table class="table">
+  <thead>
+    <th>Name</th>
+    <th>Contact</th>
+    <th>Connect Info</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @client.name %></td>
+      <td><%= @client.contact %></td>
+      <td><%= @client.connect_info %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to "All Clients", clients_path, class: "btn btn-primary" %>
+<%= link_to "Back", root_path, class: "btn btn-primary" %>

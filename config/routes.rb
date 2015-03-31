@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     end
     resources :clients
     resources :statuses
+    resources :priorities
+    resources :products
+    get 'pages/index'
   end
 
   constraints(SubdomainBlank) do

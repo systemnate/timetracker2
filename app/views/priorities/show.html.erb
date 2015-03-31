@@ -1,0 +1,5 @@
+<h2>Priority: <%= @priority.name %></h2>
+<h3>Color: <%= @priority.color.name %></h2>
+<%= link_to "All Priorities", priorities_path, class: "btn btn-primary" %>
+<%= link_to "Edit", edit_priority_path(@priority), class: "btn btn-primary" %>
+<%= link_to "Back", root_path, class: "btn btn-primary" %>

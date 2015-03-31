@@ -60,26 +60,24 @@ module TasksHelper
   end
 
   def label_priority(task)
-    if task.priority
-      if task.priority.name == "1 - URGENT"
-        content_tag(:span, class: "label label-danger") do
-          show_priority(task)
-        end
-      elsif task.priority.name == "2 - HIGH"
-        content_tag(:span, class: "label label-warning") do
-          show_priority(task)
-        end
-      elsif task.priority.name == "3 - MEDIUM"
-        content_tag(:span, class: "label label-primary") do
-          show_priority(task)
-        end
-      else
-        content_tag(:span, class: "label label-default") do
-          show_priority(task)
-        end
+    if task.priority.color.name == "Green"
+      content_tag(:span, class: "label label-success") do
+        show_priority(task)
+      end
+    elsif task.priority.color.name == "Red"
+      content_tag(:span, class: "label label-danger") do
+        show_priority(task)
+      end
+    elsif task.priority.color.name == "Blue"
+      content_tag(:span, class: "label label-primary") do
+        show_priority(task)
+      end
+    elsif task.priority.color.name == "Grey"
+      content_tag(:span, class: "label label-default") do
+        show_priority(task)
       end
     else
-      'N/A'
+      'NA'
     end
   end
 
