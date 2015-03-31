@@ -15,6 +15,7 @@ gem 'devise_invitable', '~> 1.4.2'
 gem 'apartment', '~> 1.0.0'
 gem 'simple_form'
 gem 'launchy', '~> 2.4.3'
+gem 'searchkick', '~> 0.8.7'
 
 group :development, :test do
   gem 'byebug'

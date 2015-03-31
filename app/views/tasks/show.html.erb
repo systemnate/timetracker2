@@ -1,6 +1,8 @@
 <h1 class="page-header"><%= @task.title %></h1>
 <table class="table">
   <thead>
+    <th>ID</th>
+    <th>Alt. ID</th>
     <th>Status</th>
     <th>Client</th>
     <th>Product</th>
@@ -9,6 +11,8 @@
   </thead>
   <tbody>
     <tr>
+      <td><%= label_id(@task) %></td>
+      <td><%= label_alternate_id(@task) %></td>
       <td><%= label_status(@task) %></td>
       <td><%= label_client(@task) %></td>
       <td><span class="label label-primary"><%= show_product(@task) %></span></td>

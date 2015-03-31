@@ -81,6 +81,16 @@ module TasksHelper
     end
   end
 
+  def label_alternate_id(task)
+    if task.alternate_id
+      content_tag(:span, class: "label label-default") do
+        task.alternate_id
+      end
+    else
+      ""
+    end
+  end
+
   def label_product(task)
     if task.product.color.name == "Green"
       content_tag(:span, class: "label label-success") do

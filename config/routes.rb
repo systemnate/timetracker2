@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     devise_for :users
     resources :users, only: :index
     resources :tasks do
+      collection do
+        get 'search'
+      end
+    end
+    resources :tasks do
       resources :task_details
     end
     resources :clients

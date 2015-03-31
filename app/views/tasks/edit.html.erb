@@ -13,6 +13,11 @@
   </label>
 
   <label>
+    <p>Alternate ID</p>
+    <%= f.text_field :alternate_id, placeholder: "Alternate ID" %>  
+  </label>
+
+  <label>
     <p>Client</p>
     <%= f.collection_select :client_id, Client.all, :id, :name, { prompt: "Choose Client..." } %>
   </label>

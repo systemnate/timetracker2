@@ -38,9 +38,22 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def search
+    begin
+      if params[:search].present?
+        @tasks = Task.search params[:search], fields: [:title, :alternate_id]
+      else
+        @tasks = Task.all
+      end
+    rescue Exception
+      Task.reindex
+      @tasks = Task.search params[:search], fields: [:title, :alternate_id]
+    end
+  end
+
   private
     def task_params
-      params.require(:task).permit(:title, :status_id, :product_id, :priority_id, :summary, :client_id)
+      params.require(:task).permit(:title, :status_id, :product_id, :priority_id, :summary, :client_id, :alternate_id)
     end
 
     def set_task
