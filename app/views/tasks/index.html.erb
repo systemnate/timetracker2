@@ -1,8 +1,10 @@
-<h1>All Tasks</h1>
-<%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
 <% if @tasks.count == 0 %>
   <h2>No tasks!</h2>
   <h3>To get started, click on Configuration to perform some basic setup!</h3>
+  <hr/>
+  <h1>All Tasks</h1>
+  <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
+
 <% else %>
 <div class="table-responsive">
   <table class="table table-striped table-hover">

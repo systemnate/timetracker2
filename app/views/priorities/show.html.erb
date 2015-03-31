@@ -1,5 +1,18 @@
-<h2>Priority: <%= @priority.name %></h2>
-<h3>Color: <%= @priority.color.name %></h2>
-<%= link_to "All Priorities", priorities_path, class: "btn btn-primary" %>
-<%= link_to "Edit", edit_priority_path(@priority), class: "btn btn-primary" %>
-<%= link_to "Back", root_path, class: "btn btn-primary" %>
+<h1>Priority Details</h1>
+<table class="table table-striped table-responsive table-hover">
+  <thead>
+    <th>Name</th>
+    <th>Color</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @priority.name %></td>
+      <td><%= @priority.color.name %></td>
+    </tr>
+  </tbody>
+</table>
+<p>
+  <%= link_to "New Priority", new_priority_path, class: "btn btn-success" %>
+</p>
+<%= link_to "All Priorities", priorities_path, class: "btn btn-info" %>
+<%= link_to "Configuration", pages_index_path, class: "btn btn-info" %>
