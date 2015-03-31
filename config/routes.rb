@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       resources :task_details
     end
     resources :clients
+    resources :statuses
   end
 
   constraints(SubdomainBlank) do
