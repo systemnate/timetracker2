@@ -31,23 +31,31 @@ module TasksHelper
     end
   end
 
+  def label_id(task)
+    content_tag(:span, class: "label label-default") do
+      task.id.to_s
+    end
+  end
+
   def label_status(task)
-    if task.status
-      if task.status.name == 'Open'
-        content_tag(:span, class: "label label-success") do
-          show_status(task)
-        end
-      elsif task.status.name == 'Closed'
-        content_tag(:span, class: "label label-danger") do
-          show_status(task)
-        end
-      else
-        content_tag(:span, class: "label label-primary") do
-          show_status(task)
-        end
+    if task.status.color.name == "Green"
+      content_tag(:span, class: "label label-success") do
+        show_status(task)
+      end
+    elsif task.status.color.name == "Red"
+      content_tag(:span, class: "label label-danger") do
+        show_status(task)
+      end
+    elsif task.status.color.name == "Blue"
+      content_tag(:span, class: "label label-primary") do
+        show_status(task)
+      end
+    elsif task.status.color.name == "Grey"
+      content_tag(:span, class: "label label-default") do
+        show_status(task)
       end
     else
-      'N/A'
+      'NA'
     end
   end
 

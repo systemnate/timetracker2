@@ -1,0 +1,13 @@
+<%= form_for @status do |f| %>
+  <p>
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :color_id %>
+    <%= f.collection_select :color_id, Color.all, :id, :name, { prompt: "Choose Color..." } %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

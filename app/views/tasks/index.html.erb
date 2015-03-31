@@ -17,7 +17,7 @@
     </thead>
     <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.id %></td>
+        <td><%= label_id(task) %></td>
         <td><%= task.title %></td>
         <td><%= label_status(task) %></td>
         <td><%= show_client(task) %></td>

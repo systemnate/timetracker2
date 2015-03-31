@@ -1,0 +1,15 @@
+<h1>Statuses</h1>
+<table class="table">
+  <thead>
+    <th>Status</th>
+    <th>Color</th>
+  </thead>
+  <tbody>
+  <% @statuses.each do |status| %>
+    <tr>
+      <td><%= link_to status.name, status %></td>
+      <td><%= status.color.name %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
