@@ -31,6 +31,14 @@ module TasksHelper
     end
   end
 
+  def show_summary(task)
+    if task.summary
+      content_tag(:p, task.summary.html_safe)
+    else
+      "N/A"
+    end
+  end
+
   def label_id(task)
     content_tag(:span, class: "label label-default") do
       task.id.to_s
@@ -149,7 +157,7 @@ module TasksHelper
       time_spent += detail.time_spent
     end
     if time_spent < 60
-      content_tag(:strong, pluralize(time_spent, "minutes"), class: "label label-default")
+      content_tag(:strong, pluralize(time_spent, "minute"), class: "label label-default")
     else
       content_tag(:strong, pluralize(number_with_precision(time_spent/60.0, precision: 2), "hour"), class: "label label-default")
     end

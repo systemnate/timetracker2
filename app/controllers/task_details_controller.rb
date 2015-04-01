@@ -2,11 +2,13 @@ class TaskDetailsController < ApplicationController
   def new
     @task = Task.find(params[:task_id])
     @task_detail = @task.task_details.new
+    @task_detail.user = current_user
   end
 
   def create
     @task = Task.find(params[:task_id])
     @task_detail = @task.task_details.new(detail_params)
+    @task_detail.user = current_user
     if @task_detail.save
       redirect_to @task, notice: "New detail successfully created!"
     else
@@ -32,6 +34,6 @@ class TaskDetailsController < ApplicationController
 
   private
     def detail_params
-      params.require(:task_detail).permit(:body, :time_spent, :important)
+      params.require(:task_detail).permit(:body, :time_spent, :important, :user_id)
     end
 end

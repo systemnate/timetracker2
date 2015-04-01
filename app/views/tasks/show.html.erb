@@ -22,7 +22,7 @@
   </tbody>
 </table>
 <h2>Summary:</h2>
-<p><%= @task.summary %></p>
+<%= show_summary(@task) %>
 <% @task.task_details.each do |detail| %>
   <%= link_to [:edit, @task, detail], class: "btn btn-default btn-xs edit" do %>
     Edit

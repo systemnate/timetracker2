@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150331175252) do
+ActiveRecord::Schema.define(version: 20150401184341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,10 @@ ActiveRecord::Schema.define(version: 20150331175252) do
     t.boolean  "important",  default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "user_id"
   end
+
+  add_index "task_details", ["user_id"], name: "index_task_details_on_user_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.string   "title"
@@ -110,4 +113,5 @@ ActiveRecord::Schema.define(version: 20150331175252) do
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "task_details", "users"
 end
