@@ -171,3 +171,17 @@ section#errors {
     font-weight: bold;
   }
 }
+
+#tag_cloud {
+ .label-default {
+  font-size: 0.9em;
+ }
+
+ .label-success {
+  font-size: 1.1em;
+ }
+
+ .label-danger {
+  font-size: 1.4em;
+ }
+}

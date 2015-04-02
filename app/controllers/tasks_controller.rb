@@ -2,7 +2,11 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
-    @tasks = Task.all
+    if params[:tag]
+      @tasks = Task.tagged_with(params[:tag])
+    else
+      @tasks = Task.all
+    end
   end
 
   def show
@@ -53,7 +57,7 @@ class TasksController < ApplicationController
 
   private
     def task_params
-      params.require(:task).permit(:title, :status_id, :product_id, :priority_id, :summary, :client_id, :alternate_id)
+      params.require(:task).permit(:title, :status_id, :product_id, :priority_id, :summary, :client_id, :alternate_id, :tag_list)
     end
 
     def set_task

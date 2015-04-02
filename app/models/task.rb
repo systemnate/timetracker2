@@ -1,4 +1,5 @@
 class Task < ActiveRecord::Base
+  acts_as_taggable
   searchkick index_name: -> { [Apartment::Tenant.current, model_name.plural, Rails.env].join('_') }
   belongs_to :status
   belongs_to :product

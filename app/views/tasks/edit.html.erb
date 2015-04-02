@@ -2,6 +2,7 @@
   <h1>Edit Task 
       <span>Modify the fields that you would like to edit</span>
   </h1>
+  
   <label>
     <p>Title</p>
     <%= f.text_field :title, placeholder: "Title" %>
@@ -10,6 +11,11 @@
   <label>
     <p>Summary</p>
     <%= f.text_area :summary, rows: 8, placeholder: "Summary" %>
+  </label>
+
+  <label>
+    <p>Tags (separated by commas)</p>
+    <%= f.text_field :tag_list, value: @task.tag_list.to_s %>
   </label>
 
   <label>

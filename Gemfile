@@ -16,6 +16,7 @@ gem 'apartment', '~> 1.0.0'
 gem 'simple_form'
 gem 'launchy', '~> 2.4.3'
 gem 'searchkick', '~> 0.8.7'
+gem 'acts-as-taggable-on', '~> 3.5.0'
 
 group :development, :test do
   gem 'byebug'

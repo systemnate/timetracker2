@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     resources :products
     get 'pages/index'
     resources :billings, only: [:new, :show, :create]
+    get 'tags/:tag', to: 'tasks#index', as: :tag
   end
 
   constraints(SubdomainBlank) do
