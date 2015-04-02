@@ -1,0 +1,19 @@
+<h1>Generate Billing Total Report</h1>
+<p>This report will generate a billing report for the current signed in user based on the time spent for the specified period.</p>
+<%= form_tag billings_path do |f| %>
+  <div class="form-group">
+    <%= label_tag 'start_date' %><br/>
+    <%= date_field_tag 'start_date', class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= label_tag 'end_date' %><br/>
+    <%= date_field_tag 'end_date', class: "form-control" %>
+  </div>
+  <div class="form-group">  
+    <%= label_tag 'pay_rate' %><br/>
+    <%= number_field_tag 'pay_rate', class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag 'Submit', class: "btn btn-primary" %>
+  </div>
+<% end %>

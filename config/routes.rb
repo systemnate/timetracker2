@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :priorities
     resources :products
     get 'pages/index'
+    resources :billings, only: [:new, :show, :create]
   end
 
   constraints(SubdomainBlank) do

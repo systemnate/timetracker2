@@ -1,0 +1,64 @@
+<script src="excellentexport.js"></script>
+<h1>Billing Total Report</h1>
+<% @start_date = params[:start_date] %>
+<% @end_date = params[:end_date] %>
+<% @pay_rate = params[:pay_rate].to_f %>
+<table class="table table-striped table-hover table-responsive">
+  <thead>
+    <th>Start Date</th>
+    <th>End Date</th>
+    <th>Pay Rate</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @start_date %></td>
+      <td><%= @end_date %></td>
+      <td><%= number_to_currency @pay_rate %></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Cases billed for:</h2>
+<table class="table table-striped table-hover table-responsive" id="billing">
+  <thead>
+    <th>ID</th>
+    <th>Alt. ID</th>
+    <th>Title</th>
+    <th>Detail Text</th>
+    <th align="center">Time Spent (Minutes)</th>
+  </thead>
+  <tbody>
+  <% @total_minutes = 0 %>
+  <% @task_details.each do |td| %>
+  <% @total_minutes += td.time_spent %>
+    <tr>
+      <td><%= td.id %></td>
+      <td><%= td.task.alternate_id %></td>
+      <td><%= td.task.title %></td>
+      <td><%= truncate(strip_tags(td.body), length: 50, separator: " ") %></td>
+      <td><%= td.time_spent %></td>
+    </tr>
+  <% end %>
+  </tbody>
+  <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>Total (Hours): <%= number_with_precision(@total_minutes / 60.0, precision: 2) %></th>
+  </thead>
+  <thead>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>Amount Owed: <%= number_to_currency ((@total_minutes / 60.0) * @pay_rate) %></th>
+  </thead>  
+</table>
+<a download="billingreport.xls" href="#" 
+  onclick="return ExcellentExport.excel(this, 'billing', 'Billing');" 
+  class="btn btn-primary">Export to Excel</a>
+<br/><br/>
+<a download="billingreport.csv" href="#" 
+  onclick="return ExcellentExport.csv(this, 'billing');" 
+  class="btn btn-primary">Export to CSV</a>
