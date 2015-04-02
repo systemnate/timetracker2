@@ -23,10 +23,13 @@
 </table>
 <h2>Summary:</h2>
 <%= show_summary(@task) %>
-<h2>Tags:</h2>
-<p>
-  <%= raw @task.tag_list.map{ |t| link_to t, tag_path(t) }.join(', ') %>
-</p>
+  <div id="tag_cloud">
+    <h2>Tags</h2>
+    <% tag_cloud @task.tag_counts, ['label label-warning', 'label label-warning', 'label label-warning'] do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+    <hr/>
+  </div>
 <% @task.task_details.each do |detail| %>
   <%= link_to [:edit, @task, detail], class: "btn btn-default btn-xs edit" do %>
     Edit

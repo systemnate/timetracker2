@@ -173,15 +173,13 @@ section#errors {
 }
 
 #tag_cloud {
- .label-default {
-  font-size: 0.9em;
- }
-
- .label-success {
-  font-size: 1.1em;
- }
-
- .label-danger {
-  font-size: 1.4em;
- }
+  .sm {
+    font-size: 0.7em;
+  }
+  .md {
+    font-size: 1.2em;
+  }
+  .lg {
+    font-size: 2.0em;
+  }
 }

@@ -11,10 +11,21 @@
 
   <div id="tag_cloud">
     <h2>Tags</h2>
-    <% tag_cloud Task.tag_counts, ['label label-default', 'label label-success', 'label label-danger'] do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% tag_cloud Task.tag_counts, ['btn btn-primary btn-xs','btn btn-success btn-sm','btn btn-danger'] do |tag, css_class| %>
+      <%= link_to tag_path(tag.name), class: css_class do %>
+        <%= content_tag(:span, tag.name + " ").concat(content_tag(:span, tag.count, class: "badge")) %>
+      <% end %>
     <% end %>
     <hr/>
+  </div>
+
+  <div class="filters">
+    <h2>Filters</h2>
+    <% Status.all.each do |status| %>
+      <%= link_to "/tasks/filters/#{status.name}".downcase do %>
+        <%= filter_status(status) %>
+      <% end %>
+    <% end %>
   </div>
 
 <div class="table-responsive">

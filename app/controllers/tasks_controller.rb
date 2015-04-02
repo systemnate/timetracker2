@@ -5,7 +5,11 @@ class TasksController < ApplicationController
     if params[:tag]
       @tasks = Task.tagged_with(params[:tag])
     else
-      @tasks = Task.all
+      if params[:scope]
+        @tasks = Task.send(params[:scope])
+      else
+        @tasks = Task.all.order('created_at DESC')
+      end
     end
   end
 
