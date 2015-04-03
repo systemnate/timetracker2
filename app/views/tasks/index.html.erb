@@ -6,12 +6,9 @@
   <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
 
 <% else %>
-  <h1>All Tasks</h1>
-  <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
-
   <div id="tag_cloud">
     <h2>Tags</h2>
-    <% tag_cloud Task.tag_counts, ['btn btn-primary btn-xs','btn btn-success btn-sm','btn btn-danger'] do |tag, css_class| %>
+    <% tag_cloud Task.tag_counts, ['label label-primary btn-xs','label label-success label-sm','label label-danger'] do |tag, css_class| %>
       <%= link_to tag_path(tag.name), class: css_class do %>
         <%= content_tag(:span, tag.name + " ").concat(content_tag(:span, tag.count, class: "badge")) %>
       <% end %>
@@ -27,7 +24,9 @@
       <% end %>
     <% end %>
   </div>
-
+  <h1>All Tasks</h1>
+  <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
+  <hr/>
 <div class="table-responsive">
   <table class="table table-striped table-hover">
     <thead>

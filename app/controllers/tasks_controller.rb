@@ -50,12 +50,15 @@ class TasksController < ApplicationController
     begin
       if params[:search].present?
         @tasks = Task.search params[:search], fields: [:title, :alternate_id]
+        @task_details = TaskDetail.search params[:search], fields: [:body]
       else
         @tasks = Task.all
       end
     rescue Exception
       Task.reindex
+      TaskDetail.reindex
       @tasks = Task.search params[:search], fields: [:title, :alternate_id]
+      @task_details = TaskDetail.search params[:search], fields: [:body]
     end
   end
 

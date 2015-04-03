@@ -173,13 +173,23 @@ section#errors {
 }
 
 #tag_cloud {
-  .sm {
-    font-size: 0.7em;
+  .label {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 2px;
   }
-  .md {
+
+  .label-danger {
     font-size: 1.2em;
   }
-  .lg {
-    font-size: 2.0em;
+
+  .label-primary {
+    font-size: 0.8em;
+  }
+
+  .label-success {
+    font-size: 1.0em;
   }
 }
