@@ -1,31 +1,31 @@
-module StatusesHelper
-  def filter_status(status)
-    if status.color.name == "Green"
+module ProductsHelper
+  def filter_product(product)
+    if product.color.name == "Green"
       content_tag(:span, class: "label label-success") do
-        status.name
+        product.name
       end
-    elsif status.color.name == "Red"
+    elsif product.color.name == "Red"
       content_tag(:span, class: "label label-danger") do
-        status.name
+        product.name
       end
-    elsif status.color.name == "Blue"
+    elsif product.color.name == "Blue"
       content_tag(:span, class: "label label-primary") do
-        status.name
+        product.name
       end
-    elsif status.color.name == "Grey"
+    elsif product.color.name == "Grey"
       content_tag(:span, class: "label label-default") do
-        status.name
+        product.name
       end
-    elsif status.color.name == "Light Blue"
+    elsif product.color.name == "Light Blue"
       content_tag(:span, class: "label label-info") do
-        status.name
+        product.name
       end
-    elsif status.color.name == "Orange"
+    elsif product.color.name == "Orange"
       content_tag(:span, class: "label label-warning") do
-        status.name
+        product.name
       end        
     else
       'NA'
     end
-  end
+  end  
 end

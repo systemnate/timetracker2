@@ -13,6 +13,14 @@ class Task < ActiveRecord::Base
     scope "#{status.name}".downcase, -> { where('status_id = ?', status.id).order('created_at') }
   end
 
+  Priority.all.each do |priority|
+    scope "#{priority.name}".downcase, -> { where('priority_id = ?', priority.id).order('created_at') }
+  end
+
+  Product.all.each do |product|
+    scope "#{product.name}".downcase, -> { where('product_id = ?', product.id).order('created_at') }
+  end
+  
   def self.searchkick_index
     index_name = [Apartment::Tenant.current, model_name.plural, Rails.env].join('_')
     Searchkick::Index.new(index_name)

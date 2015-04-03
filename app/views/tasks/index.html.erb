@@ -6,23 +6,68 @@
   <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
 
 <% else %>
-  <div id="tag_cloud">
-    <h2>Tags</h2>
-    <% tag_cloud Task.tag_counts, ['label label-primary btn-xs','label label-success label-sm','label label-danger'] do |tag, css_class| %>
-      <%= link_to tag_path(tag.name), class: css_class do %>
-        <%= content_tag(:span, tag.name + " ").concat(content_tag(:span, tag.count, class: "badge")) %>
-      <% end %>
-    <% end %>
-    <hr/>
-  </div>
-
-  <div class="filters">
-    <h2>Filters</h2>
-    <% Status.all.each do |status| %>
-      <%= link_to "/tasks/filters/#{status.name}".downcase do %>
-        <%= filter_status(status) %>
-      <% end %>
-    <% end %>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#tagcloud" aria-expanded="true" aria-controls="tagcloud">
+            <strong>Tags</strong>
+          </a>
+        </h4>
+      </div>
+      <div id="tagcloud" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          <div id="tag_cloud">
+            <% tag_cloud Task.tag_counts, ['label label-primary btn-xs','label label-success label-sm','label label-danger'] do |tag, css_class| %>
+              <%= link_to tag_path(tag.name), class: css_class do %>
+                <%= content_tag(:span, tag.name + " ").concat(content_tag(:span, tag.count, class: "badge")) %>
+              <% end %>
+            <% end %>
+          </div>      
+        </div>
+      </div>
+    </div>
+   <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingTwo">
+        <h4 class="panel-title">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <strong>Filters</strong>
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+        <div class="panel-body">
+          <div class="filters">
+            <div class="row">
+              <div class="col-md-3">
+                <p><strong>Status</strong></p>
+                <% @statuses.all.each do |status| %>
+                  <%= link_to "/tasks/filters/status/#{status.name}".downcase do %>
+                    <%= filter_status(status) %>
+                  <% end %>
+                <% end %>      
+              </div>
+              <div class="col-md-3">
+                <p><strong>Priority</strong></p>
+                <% @priorities.all.each do |priority| %>
+                  <%= link_to "/tasks/filters/priority/#{priority.name}".downcase do %>
+                    <%= filter_priority(priority) %>
+                  <% end %>
+                <% end %>      
+              </div>
+              <div class="col-md-3">
+                <p><strong>Product</strong></p>
+                <% @products.all.each do |product| %>
+                  <%= link_to "/tasks/filters/product/#{product.name}".downcase do %>
+                    <%= filter_product(product) %>
+                  <% end %>
+                <% end %>      
+              </div>       
+            </div>
+          </div>
+        </div>
+      </div>    
+    </div>
   </div>
   <h1>All Tasks</h1>
   <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>

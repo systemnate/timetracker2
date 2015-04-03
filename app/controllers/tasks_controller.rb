@@ -2,6 +2,9 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def index
+    @statuses = Status.all.order('name')
+    @priorities = Priority.all.order('name')
+    @products = Product.all.order('name')
     if params[:tag]
       @tasks = Task.tagged_with(params[:tag])
     else

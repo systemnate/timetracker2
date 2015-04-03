@@ -20,7 +20,9 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
-    get 'tasks/filters/:scope' => "tasks#index"
+    get 'tasks/filters/status/:scope' => "tasks#index"
+    get 'tasks/filters/priority/:scope' => "tasks#index"
+    get 'tasks/filters/product/:scope' => "tasks#index"
     resources :tasks do
       resources :task_details
     end
