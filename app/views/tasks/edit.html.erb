@@ -14,6 +14,12 @@
   </label>
 
   <label>
+    <p>Assigned To</p>
+    <%= f.collection_select :assigned_to, User.all, :id, :name,
+      { selected: current_user.name }  %>    
+  </label>
+
+  <label>
     <p>Tags (separated by commas)</p>
     <%= f.text_field :tag_list, value: @task.tag_list.to_s %>
   </label>

@@ -10,8 +10,10 @@ class TasksController < ApplicationController
     else
       if params[:scope]
         @tasks = Task.send(params[:scope])
-      else
+      elsif params[:showall]
         @tasks = Task.all.order('created_at DESC')
+      else
+        @tasks = Task.all.where('assigned_to = ?', current_user).order('created_at DESC')
       end
     end
   end
@@ -67,7 +69,8 @@ class TasksController < ApplicationController
 
   private
     def task_params
-      params.require(:task).permit(:title, :status_id, :product_id, :priority_id, :summary, :client_id, :alternate_id, :tag_list)
+      params.require(:task).permit(:title, :status_id, 
+        :product_id, :priority_id, :summary, :client_id, :alternate_id, :tag_list, :assigned_to)
     end
 
     def set_task
