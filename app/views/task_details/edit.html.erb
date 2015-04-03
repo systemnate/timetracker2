@@ -7,7 +7,7 @@
     
   </div>
   <label>
-    <%= f.text_area :body %>
+    <%= f.text_area :body, class: "tinymce" %>
   </label>
 
   <label>
@@ -41,3 +41,5 @@
     return true;
   });
 </script>
+<%= tinymce_assets %>
+<%= tinymce %>

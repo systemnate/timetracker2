@@ -10,6 +10,7 @@
   <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>  
   <link rel="stylesheet" 
     href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="/path/to/jquery.tablesorter.js"></script>     
 </head>
 <body>
 <%= render 'layouts/header' %>
@@ -17,6 +18,12 @@
   <%= flash_messages if show_layout_flash? %>
     <%= yield %>
 </div>
-
+<script>
+  $(document).ready(function() 
+    { 
+        $("#sorted-table").tablesorter(); 
+    } 
+  ); 
+</script>
 </body>
 </html>

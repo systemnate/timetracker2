@@ -17,6 +17,8 @@ gem 'simple_form'
 gem 'launchy', '~> 2.4.3'
 gem 'searchkick', '~> 0.8.7'
 gem 'acts-as-taggable-on', '~> 3.5.0'
+gem 'tinymce-rails'
+gem 'jquery-turbolinks'
 
 group :development, :test do
   gem 'byebug'
