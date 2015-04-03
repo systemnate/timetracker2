@@ -1,60 +1,8 @@
-<%= form_for @task, html: { class: "dark-matter" } do |f| %>
+<%= render 'errors' %>
+<div class="dark-matter">
   <h1>Edit Task 
       <span>Modify the fields that you would like to edit</span>
   </h1>
-  
-  <label>
-    <p>Title</p>
-    <%= f.text_field :title, placeholder: "Title" %>
-  </label>
-  
-  <label>
-    <p>Summary</p>
-    <%= f.text_area :summary, rows: 8, placeholder: "Summary" %>
-  </label>
-
-  <label>
-    <p>Assigned To</p>
-    <%= f.collection_select :assigned_to, User.all, :id, :name,
-      { selected: current_user.name }  %>    
-  </label>
-
-  <label>
-    <p>Tags (separated by commas)</p>
-    <%= f.text_field :tag_list, value: @task.tag_list.to_s %>
-  </label>
-
-  <label>
-    <p>Alternate ID</p>
-    <%= f.text_field :alternate_id, placeholder: "Alternate ID" %>  
-  </label>
-
-  <label>
-    <p>Client</p>
-    <%= f.collection_select :client_id, Client.all, :id, :name, { prompt: "Choose Client..." } %>
-  </label>
-        
-  <label>
-    <p>Status</p>
-    <%= f.collection_select :status_id, Status.all, :id, :name, { prompt: "Choose Status..." } %>
-  </label>
-  
-  <label>
-    <p>Product</p>
-    <%= f.collection_select :product_id, Product.all, :id, :name, { prompt: "Choose Product..." } %>
-  </label>
-
-  <label>
-    <p>Priority</p>
-    <%= f.collection_select :priority_id, Priority.all, :id, :name, { prompt: "Choose Priority..." } %>
-  </label>
-  
-  <label>
-    <span>&nbsp;</span> 
-    <button class="btn btn-default">Submit</button>
-    <%= link_to "Cancel", tasks_path, class: "btn btn-warning" %>
-  </label>  
-<% end %>
-
-<%= link_to "New Detail", new_task_task_detail_path(@task) %>
+  <%= render 'form' %>
+</div>
 <%= link_to "All Tasks", tasks_path %>
