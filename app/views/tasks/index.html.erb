@@ -42,7 +42,7 @@
               <div class="col-md-3">
                 <p><strong>Status</strong></p>
                 <% @statuses.all.each do |status| %>
-                  <%= link_to "/tasks/filters/status/#{status.name}".downcase do %>
+                  <%= link_to "/tasks/filters/status/#{status.name}".downcase.delete(' ') do %>
                     <%= filter_status(status) %>
                   <% end %>
                 <% end %>      
@@ -50,7 +50,7 @@
               <div class="col-md-3">
                 <p><strong>Priority</strong></p>
                 <% @priorities.all.each do |priority| %>
-                  <%= link_to "/tasks/filters/priority/#{priority.name}".downcase do %>
+                  <%= link_to "/tasks/filters/priority/#{priority.name}".downcase.delete(' ') do %>
                     <%= filter_priority(priority) %>
                   <% end %>
                 <% end %>      
@@ -58,7 +58,7 @@
               <div class="col-md-3">
                 <p><strong>Product</strong></p>
                 <% @products.all.each do |product| %>
-                  <%= link_to "/tasks/filters/product/#{product.name}".downcase do %>
+                  <%= link_to "/tasks/filters/product/#{product.name}".downcase.delete(' ') do %>
                     <%= filter_product(product) %>
                   <% end %>
                 <% end %>      
@@ -75,17 +75,20 @@
 <div class="table-responsive">
   <table class="table table-striped table-hover" id="sorted-table">
     <thead>
-      <th>ID</th>
-      <th>Alt. ID</th>
-      <th>Title</th>
-      <th>Status</th>
-      <th>Client</th>
-      <th>Product</th>
-      <th>Priority</th>
-      <th>Summary</th>
-      <th>Date Created</th>
-      <th>Time</th>
+      <tr>
+        <th>ID</th>
+        <th>Alt. ID</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Client</th>
+        <th>Product</th>
+        <th>Priority</th>
+        <th>Summary</th>
+        <th>Date Created</th>
+        <th>Time</th>
+      </tr>
     </thead>
+    <tbody>
     <% @tasks.each do |task| %>
       <tr>
         <td><%= label_id(task) %></td>
@@ -112,6 +115,7 @@
           <% end %></td>
       </tr>
     <% end %>
+  </tbody>
   </table>
   <% end %>
 </div>

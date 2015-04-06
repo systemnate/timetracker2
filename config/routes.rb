@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     get 'tasks/filters/status/:scope' => "tasks#index"
     get 'tasks/filters/priority/:scope' => "tasks#index"
     get 'tasks/filters/product/:scope' => "tasks#index"
-    get '/:scope' => 'tasks#index'
+    #get '/:scope' => 'tasks#index'
     resources :tasks do
       resources :task_details
     end

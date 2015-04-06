@@ -10,15 +10,15 @@ class Task < ActiveRecord::Base
   validates :status, :product, :priority, :title, :summary, presence: true
 
   Status.all.each do |status|
-    scope "#{status.name}".downcase, -> { where('status_id = ?', status.id).order('created_at DESC') }
+    scope "#{status.name}".downcase.delete(' '), -> { where('status_id = ?', status.id).order('created_at DESC') }
   end
 
   Priority.all.each do |priority|
-    scope "#{priority.name}".downcase, -> { where('priority_id = ?', priority.id).order('created_at DESC') }
+    scope "#{priority.name}".downcase.delete(' '), -> { where('priority_id = ?', priority.id).order('created_at DESC') }
   end
 
   Product.all.each do |product|
-    scope "#{product.name}".downcase, -> { where('product_id = ?', product.id).order('created_at DESC') }
+    scope "#{product.name}".downcase.delete(' '), -> { where('product_id = ?', product.id).order('created_at DESC') }
   end
 
   scope :alltasks, -> {}
