@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403181317) do
+ActiveRecord::Schema.define(version: 20150406152501) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,12 +86,16 @@ ActiveRecord::Schema.define(version: 20150403181317) do
 
   create_table "task_details", force: :cascade do |t|
     t.text     "body"
-    t.integer  "time_spent", default: 1
+    t.integer  "time_spent",                   default: 1
     t.integer  "task_id"
-    t.boolean  "important",  default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "important",                    default: false
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
     t.integer  "user_id"
+    t.string   "task_attachment_file_name"
+    t.string   "task_attachment_content_type"
+    t.integer  "task_attachment_file_size"
+    t.datetime "task_attachment_updated_at"
   end
 
   add_index "task_details", ["user_id"], name: "index_task_details_on_user_id", using: :btree
@@ -107,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150403181317) do
     t.datetime "updated_at",   null: false
     t.string   "alternate_id"
     t.integer  "assigned_to"
+    t.boolean  "billable"
   end
 
   add_index "tasks", ["assigned_to"], name: "index_tasks_on_assigned_to", using: :btree

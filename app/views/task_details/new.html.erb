@@ -1,4 +1,4 @@
-<%= form_for([@task, @task_detail], html: { class: "dark-matter" }) do |f| %>
+<%= form_for([@task, @task_detail], html: { class: "dark-matter", multipart: true }) do |f| %>
   <h1>New Detail 
       <span>Enter case details and click save when done.</span>
       <span>Checking important will render the view in a red color.</span>
@@ -12,6 +12,11 @@
 
   <label>
     <%= f.hidden_field :time_spent, value: @task_detail.time_spent %>
+  </label>
+
+  <label>
+    <p>Attachment</p>
+    <%= f.file_field :task_attachment %>
   </label>
 
   <label>

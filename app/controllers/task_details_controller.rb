@@ -34,6 +34,6 @@ class TaskDetailsController < ApplicationController
 
   private
     def detail_params
-      params.require(:task_detail).permit(:body, :time_spent, :important, :user_id)
+      params.require(:task_detail).permit(:body, :time_spent, :important, :user_id, :task_attachment)
     end
 end

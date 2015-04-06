@@ -20,4 +20,15 @@ module TaskDetailsHelper
       end      
     end
   end
+
+  def attachment_count(task)
+    count = 0
+    task.task_details.all.each do |td|
+      if td.task_attachment_file_name
+        count += 1
+      end
+    end
+    count
+  end
+
 end

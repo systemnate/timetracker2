@@ -19,6 +19,7 @@ gem 'searchkick', '~> 0.8.7'
 gem 'acts-as-taggable-on', '~> 3.5.0'
 gem 'tinymce-rails'
 gem 'jquery-turbolinks'
+gem "paperclip", "~> 4.2"
 
 group :development, :test do
   gem 'byebug'

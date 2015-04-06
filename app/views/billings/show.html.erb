@@ -30,14 +30,16 @@
   <tbody>
   <% @total_minutes = 0 %>
   <% @task_details.each do |td| %>
-  <% @total_minutes += td.time_spent %>
-    <tr>
-      <td><%= td.id %></td>
-      <td><%= td.task.alternate_id %></td>
-      <td><%= td.task.title %></td>
-      <td><%= truncate(strip_tags(td.body), length: 50, separator: " ") %></td>
-      <td><%= td.time_spent %></td>
-    </tr>
+  <% if td.task.billable %>
+    <% @total_minutes += td.time_spent %>
+      <tr>
+        <td><%= td.id %></td>
+        <td><%= td.task.alternate_id %></td>
+        <td><%= td.task.title %></td>
+        <td><%= truncate(strip_tags(td.body), length: 50, separator: " ") %></td>
+        <td><%= td.time_spent %></td>
+      </tr>
+    <% end %>
   <% end %>
   </tbody>
   <thead>

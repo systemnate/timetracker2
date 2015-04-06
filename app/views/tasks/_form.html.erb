@@ -44,6 +44,10 @@
     <p>Priority</p>
     <%= f.collection_select :priority_id, Priority.all, :id, :name, { prompt: "Choose Priority..." } %>
   </label>
+
+  <label>
+    <p>Billable?&nbsp;&nbsp;<%= f.check_box :billable %></p>
+  </label>
   
   <label>
     <span>&nbsp;</span> 

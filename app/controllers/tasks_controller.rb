@@ -70,7 +70,7 @@ class TasksController < ApplicationController
   private
     def task_params
       params.require(:task).permit(:title, :status_id, 
-        :product_id, :priority_id, :summary, :client_id, :alternate_id, :tag_list, :assigned_to)
+        :product_id, :priority_id, :summary, :client_id, :alternate_id, :tag_list, :assigned_to, :billable)
     end
 
     def set_task
