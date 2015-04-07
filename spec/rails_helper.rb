@@ -6,16 +6,15 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'database_cleaner'
 require 'capybara/rspec'
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
-ActiveRecord::Migration.maintain_test_schema!
+ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
-  config.use_transactional_fixtures = true
-  config.infer_spec_type_from_file_location!
+  config.include Capybara::DSL
+  config.include Rails.application.routes.url_helpers
   config.include FactoryGirl::Syntax::Methods
-
-  #config.include Devise::TestHelpers, type: :controller
+  config.include Devise::TestHelpers, type: :controller
   config.order = "random"
 
   config.before(:suite) do
@@ -29,8 +28,5 @@ RSpec.configure do |config|
 
   config.after(:each) do
     DatabaseCleaner.clean
-    Apartment::Database.reset
-    drop_schemas
-    Capybara.app_host = 'http://example.com'
   end
 end

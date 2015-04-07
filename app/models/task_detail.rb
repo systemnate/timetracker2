@@ -4,6 +4,7 @@ class TaskDetail < ActiveRecord::Base
   belongs_to :user
   has_attached_file :task_attachment
   do_not_validate_attachment_file_type :task_attachment
+  validates :body, presence: true
   def self.important?
     important
   end
