@@ -3,11 +3,13 @@
   <thead>
     <th>Name</th>
     <th>Color</th>
+    <th>Show on Default View?</th>
   </thead>
   <tbody>
     <tr>
       <td><%= @status.name %></td>
       <td><%= @status.color.name %></td>
+      <td><%= show_on_default_view(@status) %></td>
     </tr>
   </tbody>
 </table>

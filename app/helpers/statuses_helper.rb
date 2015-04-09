@@ -28,4 +28,12 @@ module StatusesHelper
       'NA'
     end
   end
+
+  def show_on_default_view(status)
+    if status.default_view == true
+      'Yes'
+    else
+      'No'
+    end
+  end
 end
