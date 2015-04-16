@@ -1,11 +1,8 @@
 <% if @tasks.count == 0 %>
-  <h2>No tasks assigned to you! <%= link_to "View All?", "/tasks/filters/all/alltasks" %></h2>
+  <h2>No tasks assigned to you with the given filter! <%= link_to "View All?", "/tasks/filters/all/alltasks" %></h2>
   <h3>Read the <%= link_to "documentation", "#" %> if you need help getting started.</h3>
   <hr/>
-  <h1>All Tasks</h1>
-  <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
-
-<% else %>
+<% end %>
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
       <div class="panel-heading" role="tab" id="headingOne">
@@ -117,5 +114,5 @@
     <% end %>
   </tbody>
   </table>
-  <% end %>
+  
 </div>

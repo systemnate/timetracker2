@@ -27,6 +27,7 @@
       <%= simple_form_for(User.new, url: user_invitation_path,
                                     html: { class: 'form-inline' }) do |f| %>
         <%= f.input :email, placeholder: 'Email', label: false %>
+        <%= f.collection_select :role_id, Role.all, :id, :name, {} %>
         <%= f.button :submit, 'Invite User', class: 'btn-primary' %>
       <% end %>
     </div>

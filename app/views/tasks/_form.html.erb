@@ -11,7 +11,7 @@
 
   <label>
     <p>Assigned To</p>
-    <%= f.collection_select :assigned_to, User.all, :id, :name,
+    <%= f.collection_select :assigned_to, User.all.where('name is not ?', nil), :id, :name,
       { selected: current_user.id }  %>    
   </label>
 

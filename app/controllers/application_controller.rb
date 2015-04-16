@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:accept_invitation).concat([:name])
+    devise_parameter_sanitizer.for(:invite) << :role_id
   end
 
   private
