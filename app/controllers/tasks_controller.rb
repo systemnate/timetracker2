@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @statuses = Status.all.order('name')
@@ -23,11 +23,9 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
   end
 
   def create
-    @task = Task.new(task_params)
     if @task.save
       redirect_to new_task_task_detail_path(@task), notice: "Task created successfully!"
     else
@@ -72,9 +70,5 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :status_id, 
         :product_id, :priority_id, :summary, :client_id, :alternate_id, :tag_list, :assigned_to, :billable)
-    end
-
-    def set_task
-      @task = Task.find(params[:id])
     end
 end

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @products = Product.all.order("name")
@@ -9,14 +9,12 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
   end
 
   def edit
   end
 
   def create
-    @product = Product.new(product_params)
     if @product.save
       redirect_to @product, notice: "Product successfully created!"
     else
@@ -35,15 +33,12 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    redirect_to products_path
   end
 
   private
 
   def product_params
     params.require(:product).permit(:name, :color_id)
-  end
-
-  def set_product
-    @product = Product.find(params[:id])
   end
 end

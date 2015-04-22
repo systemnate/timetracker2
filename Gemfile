@@ -20,6 +20,7 @@ gem 'acts-as-taggable-on', '~> 3.5.0'
 gem 'tinymce-rails'
 gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.2"
+gem 'cancancan', '~> 1.10.1'
 
 group :development, :test do
   gem 'byebug'

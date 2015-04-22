@@ -1,5 +1,5 @@
 class PrioritiesController < ApplicationController
-  before_action :find_priority, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   def index
     @priorities = Priority.all.order("name")
@@ -9,14 +9,12 @@ class PrioritiesController < ApplicationController
   end
 
   def new
-    @priority = Priority.new
   end
 
   def edit
   end
 
   def create
-    @priority = Priority.new(priority_params)
     if @priority.save
       redirect_to @priority, notice: "Priority successfully created!"
     else
@@ -35,15 +33,12 @@ class PrioritiesController < ApplicationController
 
   def destroy
     @priority.destroy
+    redirect_to priorities_path
   end
 
   private
 
   def priority_params
     params.require(:priority).permit(:name, :color_id)
-  end
-
-  def find_priority
-    @priority = Priority.find(params[:id])
   end
 end

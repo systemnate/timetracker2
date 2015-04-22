@@ -1,22 +1,20 @@
 class StatusesController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @statuses = Status.all.order("name")
   end
 
   def show
-    @status = Status.find(params[:id])
   end
 
   def new
-    @status = Status.new
   end
 
   def edit
-    @status = Status.find(params[:id])
   end
 
   def create
-    @status = Status.new(status_params)
     if @status.save
       redirect_to status_path(@status), notice: "Status successfully created!"
     else
@@ -25,7 +23,6 @@ class StatusesController < ApplicationController
   end
 
   def update
-    @status = Status.find(params[:id])
     @status.update(status_params)
     if @status.save
       redirect_to status_path(@status), notice: "Status successfully update!"

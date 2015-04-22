@@ -4,4 +4,28 @@ class User < ActiveRecord::Base
   belongs_to :role
   devise :invitable, :database_authenticatable, :recoverable, :rememberable, :validatable
   validates :name, presence: true
+
+  def admin?
+    begin
+      self.role.name == "Administrator"
+    rescue
+      true
+    end
+  end
+
+  def regular?
+    begin
+      self.role.name == "Regular"
+    rescue
+      true
+    end
+  end
+
+  def viewer?
+    begin
+      self.role.name == "Viewer"
+    rescue
+      true
+    end
+  end
 end
