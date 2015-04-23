@@ -1,0 +1,11 @@
+<h1>Edit User</h1>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :email %>
+  <%= f.text_field :email %><br>
+  <%= f.label :role_id %>
+  <%= f.collection_select :role_id, Role.all, :id, :name, {} %><br>
+  <%= f.submit %>
+<% end %>

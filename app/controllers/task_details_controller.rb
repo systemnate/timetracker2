@@ -1,14 +1,12 @@
 class TaskDetailsController < ApplicationController
+  load_and_authorize_resource :task
+  load_and_authorize_resource :task_detail, :through => :task
+
   def new
-    @task = Task.find(params[:task_id])
-    @task_detail = @task.task_details.new
     @task_detail.user = current_user
   end
 
   def create
-    @task = Task.find(params[:task_id])
-    @task_detail = @task.task_details.new(detail_params)
-    @task_detail.user = current_user
     if @task_detail.save
       redirect_to @task, notice: "New detail successfully created!"
     else
@@ -17,14 +15,10 @@ class TaskDetailsController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:task_id])
-    @task_detail = @task.task_details.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:task_id])
-    @task_detail = TaskDetail.find(params[:id])
-    @task_detail.update(detail_params)
+    @task_detail.update(task_detail_params)
     if @task_detail.save
       redirect_to @task, notice: "Detail successfully updated!"
     else
@@ -33,7 +27,7 @@ class TaskDetailsController < ApplicationController
   end
 
   private
-    def detail_params
+    def task_detail_params
       params.require(:task_detail).permit(:body, :time_spent, :important, :user_id, :task_attachment)
     end
 end

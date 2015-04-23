@@ -17,6 +17,19 @@
               <td><%= user.name %></td>
               <td><%= user.email %></td>
               <td><%= user_status(user) %></td>
+              <% if can? :destroy, user %>
+              <td><%= link_to edit_user_path(user), class: "btn btn-info" do %>
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit Details"></span>
+                <% end %>
+              </td>
+              <% end %>
+              <% if can? :destroy, user %>
+              <td><%= link_to user, method: :delete, data: { confirm: "Are you sure?" },
+                class: "btn btn-danger" do %>
+                  <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
+                <% end %>
+              </td>
+              <% end %>              
             </tr>
           <% end %>
         </tbody>
