@@ -26,6 +26,11 @@ class TaskDetailsController < ApplicationController
     end
   end
 
+  def destroy
+    @task_detail.destroy
+    redirect_to @task, alert: "Detail successfully deleted!"
+  end
+
   private
     def task_detail_params
       params.require(:task_detail).permit(:body, :time_spent, :important, :user_id, :task_attachment)
