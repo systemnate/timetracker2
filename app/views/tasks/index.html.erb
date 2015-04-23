@@ -3,72 +3,72 @@
   <h3>Read the <%= link_to "documentation", "#" %> if you need help getting started.</h3>
   <hr/>
 <% end %>
-  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingOne">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#tagcloud" aria-expanded="true" aria-controls="tagcloud">
-            <strong><i class="fa fa-tags"></i> Tags</strong>
-          </a>
-        </h4>
-      </div>
-      <div id="tagcloud" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-        <div class="panel-body">
-          <div id="tag_cloud">
-            <% tag_cloud Task.tag_counts, ['label label-primary btn-xs','label label-success label-sm','label label-danger'] do |tag, css_class| %>
-              <%= link_to tag_path(tag.name), class: css_class do %>
-                <%= content_tag(:span, tag.name + " ").concat(content_tag(:span, tag.count, class: "badge")) %>
-              <% end %>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#tagcloud" aria-expanded="true" aria-controls="tagcloud">
+          <strong><i class="fa fa-tags"></i> Tags</strong>
+        </a>
+      </h4>
+    </div>
+    <div id="tagcloud" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <div id="tag_cloud">
+          <% tag_cloud Task.tag_counts, ['label label-primary btn-xs','label label-success label-sm','label label-danger'] do |tag, css_class| %>
+            <%= link_to tag_path(tag.name), class: css_class do %>
+              <%= content_tag(:span, tag.name + " ").concat(content_tag(:span, tag.count, class: "badge")) %>
             <% end %>
-          </div>      
+          <% end %>
         </div>
       </div>
     </div>
-   <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingTwo">
-        <h4 class="panel-title">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#filters" aria-expanded="false" aria-controls="filters">
-            <strong><i class="fa fa-th-large"></i> Filters</strong>
-          </a>
-        </h4>
-      </div>
-      <div id="filters" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-        <div class="panel-body">
-          <div class="filters">
-            <div class="row">
-              <div class="col-md-3">
-                <p><strong>Status</strong></p>
-                <% @statuses.all.each do |status| %>
-                  <%= link_to "/tasks/filters/status/#{status.name}".downcase.delete(' ') do %>
-                    <%= filter_status(status) %>
-                  <% end %>
-                <% end %>      
-              </div>
-              <div class="col-md-3">
-                <p><strong>Priority</strong></p>
-                <% @priorities.all.each do |priority| %>
-                  <%= link_to "/tasks/filters/priority/#{priority.name}".downcase.delete(' ') do %>
-                    <%= filter_priority(priority) %>
-                  <% end %>
-                <% end %>      
-              </div>
-              <div class="col-md-3">
-                <p><strong>Product</strong></p>
-                <% @products.all.each do |product| %>
-                  <%= link_to "/tasks/filters/product/#{product.name}".downcase.delete(' ') do %>
-                    <%= filter_product(product) %>
-                  <% end %>
-                <% end %>      
-              </div>       
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#filters" aria-expanded="false" aria-controls="filters">
+          <strong><i class="fa fa-th-large"></i> Filters</strong>
+        </a>
+      </h4>
+    </div>
+    <div id="filters" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <div class="filters">
+          <div class="row">
+            <div class="col-md-3">
+              <p><strong>Status</strong></p>
+              <% @statuses.all.each do |status| %>
+                <%= link_to "/tasks/filters/status/#{status.name}".downcase.delete(' ') do %>
+                  <%= filter_status(status) %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="col-md-3">
+              <p><strong>Priority</strong></p>
+              <% @priorities.all.each do |priority| %>
+                <%= link_to "/tasks/filters/priority/#{priority.name}".downcase.delete(' ') do %>
+                  <%= filter_priority(priority) %>
+                <% end %>
+              <% end %>
+            </div>
+            <div class="col-md-3">
+              <p><strong>Product</strong></p>
+              <% @products.all.each do |product| %>
+                <%= link_to "/tasks/filters/product/#{product.name}".downcase.delete(' ') do %>
+                  <%= filter_product(product) %>
+                <% end %>
+              <% end %>
             </div>
           </div>
         </div>
-      </div>    
+      </div>
     </div>
   </div>
-    <h1 class="header"><%= link_to "Your Tasks", tasks_path %> <small><%= link_to "Show All", "/tasks/filters/all/alltasks" %></small></h1>
-  <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
-  <hr/>
+</div>
+<h1 class="header"><%= link_to "Your Tasks", tasks_path %> <small><%= link_to "Show All", "/tasks/filters/all/alltasks" %></small></h1>
+<%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
+<hr/>
 <div class="table-responsive">
   <table class="table table-striped table-hover" id="sorted-table">
     <thead>
@@ -86,38 +86,37 @@
       </tr>
     </thead>
     <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= label_id(task) %></td>
-        <td><%= label_alternate_id(task) %></td>
-        <td><%= task.title %></td>
-        <td><%= label_status(task) %></td>
-        <td><%= show_client(task) %></td>
-        <td><%= label_product(task)  %></td>
-        <td><%= label_priority(task) %></td>
-        <td><%= truncate(sanitize(task.summary), length: 70, separator: " ") %></td>
-        <td><%= task.created_at.getlocal %></td>
-        <td><%= show_time(task) %></td>
-        <td><%= link_to task, class: "btn btn-primary" do %>
-          <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= label_id(task) %></td>
+          <td><%= label_alternate_id(task) %></td>
+          <td><%= task.title %></td>
+          <td><%= label_status(task) %></td>
+          <td><%= show_client(task) %></td>
+          <td><%= label_product(task)  %></td>
+          <td><%= label_priority(task) %></td>
+          <td><%= truncate(sanitize(task.summary), length: 70, separator: " ") %></td>
+          <td><%= task.created_at.getlocal %></td>
+          <td><%= show_time(task) %></td>
+          <td><%= link_to task, class: "btn btn-primary" do %>
+              <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
+            <% end %>
+          </td>
+          <% if can? :update, @task %>
+            <td><%= link_to edit_task_path(task), class: "btn btn-info" do %>
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit Details"></span>
+              <% end %>
+            </td>
           <% end %>
-        </td>
-        <% if can? :update, @task %>
-        <td><%= link_to edit_task_path(task), class: "btn btn-info" do %>
-          <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit Details"></span>
-          <% end %>
-        </td>
-        <% end %>
-        <% if can? :destroy, @task %>
-        <td><%= link_to task, method: :delete, data: { confirm: "Are you sure?" },
+          <% if can? :destroy, @task %>
+            <td><%= link_to task, method: :delete, data: { confirm: "Are you sure?" },
           class: "btn btn-danger" do %>
-            <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
+              <% end %>
+            </td>
           <% end %>
-        </td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
-  
 </div>

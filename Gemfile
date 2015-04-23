@@ -21,6 +21,7 @@ gem 'tinymce-rails'
 gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.2"
 gem 'cancancan', '~> 1.10.1'
+gem 'htmlbeautifier'
 
 group :development, :test do
   gem 'byebug'

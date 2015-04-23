@@ -3,55 +3,45 @@
     <%= f.label :title %>
     <%= f.text_field :title, placeholder: "Title" %>
   </label>
-  
   <label>
     <p>Summary</p>
     <%= f.text_area :summary, rows: 8, placeholder: "Summary" %>
   </label>
-
   <label>
     <p>Assigned To</p>
     <%= f.collection_select :assigned_to, User.all.where('name is not ?', nil), :id, :name,
-      { selected: current_user.id }  %>    
+      { selected: current_user.id }  %>
   </label>
-
   <label>
     <p>Tags (separated by commas)</p>
     <%= f.text_field :tag_list, value: @task.tag_list.to_s %>
   </label>
-
   <label>
     <p>Alternate ID</p>
-    <%= f.text_field :alternate_id, placeholder: "Alternate ID" %>  
+    <%= f.text_field :alternate_id, placeholder: "Alternate ID" %>
   </label>
-
   <label>
     <p>Client</p>
     <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { prompt: "Choose Client..." } %>
   </label>
-    
   <label>
     <p>Status</p>
     <%= f.collection_select :status_id, Status.all.order('name'), :id, :name, { prompt: "Choose Status..." } %>
   </label>
-  
   <label>
     <p>Product</p>
     <%= f.collection_select :product_id, Product.all.order('name'), :id, :name, { prompt: "Choose Product..." } %>
   </label>
-
   <label>
     <p>Priority</p>
     <%= f.collection_select :priority_id, Priority.all.order('name'), :id, :name, { prompt: "Choose Priority..." } %>
   </label>
-
   <label>
     <p>Billable?&nbsp;&nbsp;<%= f.check_box :billable %></p>
   </label>
-  
   <label>
-    <span>&nbsp;</span> 
+    <span>&nbsp;</span>
     <button class="btn btn-default">Submit</button>
     <%= link_to "Cancel", tasks_path, class: "btn btn-warning" %>
-  </label>  
+  </label>
 <% end %>

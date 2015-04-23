@@ -1,10 +1,10 @@
   <% if @task.errors.any? %>
-    <section id="errors">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-      <ul>
+  <section id="errors">
+    <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+    <ul>
       <% @task.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </section>
-  <% end %>
+    </ul>
+  </section>
+<% end %>
