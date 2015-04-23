@@ -1,4 +1,4 @@
-<h1 class="page-header"><%= @task.title %></h1>
+<h1 class="page-header"><%= link_to @task.title, edit_task_path(@task) %></h1>
 <table class="table">
   <thead>
     <th>ID</th>
