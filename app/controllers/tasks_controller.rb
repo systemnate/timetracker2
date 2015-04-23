@@ -53,7 +53,7 @@ class TasksController < ApplicationController
   def search
     begin
       if params[:search].present?
-        @tasks = Task.search params[:search], fields: [:title, :alternate_id]
+        @tasks = Task.search params[:search], fields: [:title, :alternate_id, :summary]
         @task_details = TaskDetail.search params[:search], fields: [:body]
       else
         @tasks = Task.all
