@@ -9,8 +9,8 @@
   <% @clients.each do |client| %>
     <tr>
       <td><%= client.name %></td>
-      <td><%= client.contact %></td>
-      <td><%= client.connect_info %></td>
+      <td><%= simple_format client.contact %></td>
+      <td><%= simple_format client.connect_info %></td>
       <td><%= link_to client, class: "btn btn-primary" do %>
         <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
         <% end %>
