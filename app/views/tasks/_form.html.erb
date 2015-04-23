@@ -27,22 +27,22 @@
 
   <label>
     <p>Client</p>
-    <%= f.collection_select :client_id, Client.all, :id, :name, { prompt: "Choose Client..." } %>
+    <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { prompt: "Choose Client..." } %>
   </label>
     
   <label>
     <p>Status</p>
-    <%= f.collection_select :status_id, Status.all, :id, :name, { prompt: "Choose Status..." } %>
+    <%= f.collection_select :status_id, Status.all.order('name'), :id, :name, { prompt: "Choose Status..." } %>
   </label>
   
   <label>
     <p>Product</p>
-    <%= f.collection_select :product_id, Product.all, :id, :name, { prompt: "Choose Product..." } %>
+    <%= f.collection_select :product_id, Product.all.order('name'), :id, :name, { prompt: "Choose Product..." } %>
   </label>
 
   <label>
     <p>Priority</p>
-    <%= f.collection_select :priority_id, Priority.all, :id, :name, { prompt: "Choose Priority..." } %>
+    <%= f.collection_select :priority_id, Priority.all.order('name'), :id, :name, { prompt: "Choose Priority..." } %>
   </label>
 
   <label>
