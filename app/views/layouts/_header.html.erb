@@ -17,11 +17,28 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li>
-            <%= link_to new_task_path do %>
-              <i class="fa fa-file-text-o fa-lg">&nbsp;</i>New Task
-            <% end %>
+         <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-file-o fa-lg">&nbsp;</i>New <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <%= link_to new_task_path do %>
+                  <i class="fa fa-file-text-o fa-lg">&nbsp;</i>
+                  Task
+                <% end %>
+              </li>
+              <li>
+                <%= link_to new_project_path do %>
+                  <i class="fa fa-list-ol fa-lg">&nbsp;</i>
+                  Project
+                <% end %>
+              </li>              
+            </ul>
           </li>
+          <li>
+            <%= link_to projects_path do %>
+              <i class="fa fa-folder-o fa-lg">&nbsp;</i>Projects
+            <% end %>
+          </li>          
           <li>
             <%= link_to pages_index_path do %>
               <i class="fa fa-cog fa-lg">&nbsp;</i>Configuration
