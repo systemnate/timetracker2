@@ -1,0 +1,10 @@
+<%= form_for @project do |f| %>
+  <%= f.label "Project Manager" %><br>
+  <%= f.collection_select :user_id, User.all.where('name is not ?', nil), :id, :name,
+      { selected: current_user.id } %><br>
+  <%= f.label "Allotted time in minutes" %><br>
+  <%= f.number_field :allotted_time %><br>
+  <%= f.label :due_date %><br>
+  <%= f.date_select :due_date %><br><br>
+  <%= f.submit %>
+<% end %>
