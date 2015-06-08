@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  load_and_authorize_resource
   protect_from_forgery with: :exception
 
   before_filter :load_schema, :authenticate_user!, :set_mailer_host
