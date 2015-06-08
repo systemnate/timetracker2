@@ -30,8 +30,8 @@ class ApplicationController < ActionController::Base
     if current_account
       Apartment::Tenant.switch!(current_account.subdomain)
     else
-      redirect_to root_url(subdomain: nil)
-      #render 'welcome/index'
+      #redirect_to root_url(subdomain: false)
+      render 'welcome/index'
     end
   end
 
