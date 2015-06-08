@@ -25,13 +25,13 @@ class ApplicationController < ActionController::Base
 
   def load_schema
     Apartment::Tenant.switch!('public')
-    return unless request.subdomain.present?
+    return unless request.subdomain.present? and request.subdomain != 'www'
 
     if current_account
       Apartment::Tenant.switch!(current_account.subdomain)
     else
-      #redirect_to root_url(subdomain: false)
-      render 'welcome/index'
+      redirect_to root_url(subdomain: false)
+      #render 'welcome/index'
     end
   end
 
