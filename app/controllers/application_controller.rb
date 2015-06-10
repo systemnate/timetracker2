@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   def load_schema
     Apartment::Tenant.switch!('public')
     return unless request.subdomain.present?
-    flash[:error] = request.subdomain
+    #flash[:error] = request.subdomain
     if current_account
       Apartment::Tenant.switch!(current_account.subdomain)
     else
