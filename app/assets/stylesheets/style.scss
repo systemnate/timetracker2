@@ -1,0 +1,44 @@
+.tagline {
+margin-bottom: 60px;
+}
+
+#headerwrap {
+  background-color: #FDF3E7;
+  min-height: 400px;
+  padding-top: 25px;
+  padding-bottom: 0px;
+  text-align: center;
+  h1 {
+    font-size: 2.2em;
+    color: #C63D0F;
+    font-family: 'Gloria Hallelujah', cursive;    
+  }
+}
+
+h3 {
+  color: white;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+#services {
+  background-color: #C63D0F;
+  padding-bottom: 20px;
+}
+
+#services h2 {
+  text-align: center;
+  color: #FDF3E7;
+}
+
+.callout {
+  background-color: #3B3738;
+  color: #FDF3E7;
+  text-align: center;
+}
+
+.col-md-4 {
+  img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

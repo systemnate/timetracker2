@@ -1,5 +1,84 @@
-  <div class="jumbotron">
-    <h1> Task Clash</h1>
-    <p>A ridiculously simple and easy-to-use CRM/Time Tracking tool aimed at small businesses!</p>
-    <p><%= link_to "Create Account", new_account_path, class: "btn btn-primary btn-lg" %></p>
-  </div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>  
+    <%= csrf_meta_tags %>
+    <title>Task Clash</title>
+  </head>
+  <body>
+    <div id="headerwrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 tagline">
+            <h1>Simple Time Tracking and Case Management</h1>
+          </div>
+        </div><!--row -->
+        <div class="row">
+          <div class="col-lg-4"></div>
+          <div class="col-lg-4">
+            <%= image_tag('taskclash-large.png') %>
+          </div>
+          <div class="col-lg-4"></div>
+        </div>   
+        <hr/>
+        <div class="row">
+          <div class="col-lg-4"></div>
+          <div class="col-lg-4">
+            <%= link_to "Create Account", new_account_path, class: "btn btn-primary btn-lg" %></p></div>
+          </div>
+          <div class="col-lg-4"></div>
+        </div>          
+      </div>
+    </div>
+      <div class="section" id="services">
+        <div class="container">
+          <h2>How can Task Clash help my business?</h2>
+          <div class="row">
+            <div class="col-md-4">
+              <h2>Keep track of time</h2>
+              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+            </div>
+
+            <div class="col-md-4">
+              <h2>Filter, Search, and Tag</h2>  
+              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+            </div>
+
+            <div class="col-md-4">
+              <h2>Create Invoices</h2>
+              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+            </div>                        
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <h2>Assign Tasks</h2>
+              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+            </div>
+
+            <div class="col-md-4">
+              <h2>Create Projects</h2>  
+              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+            </div>
+
+            <div class="col-md-4">
+              <h2>Customize</h2>
+              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+            </div>                        
+          </div>          
+        </div>
+      </div>
+      <div class="callout section">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+              <h2>Task Clash is <em>easy</em> to use!</h2>
+              <p>View everything from a browser or smartphone!</p>
+              <p>Require additional features?  Send us an email!</p>
+            </div>      
+          </div>
+        </div>
+      </div>         
+  </body>
+</html>
