@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
     if current_account
       Apartment::Tenant.switch!(current_account.subdomain)
     else
+      flash[:error] = "Else block"
       #redirect_to root_url(subdomain: false)
       render 'welcome/index', subdomain: false
     end
