@@ -1,3 +1,14 @@
+<% if @status.errors.any? %>
+  <section id="errors">
+    <h2><%= pluralize(@status.errors.count, "error") %> prohibited this status from being saved:</h2>
+    <ul>
+      <% @status.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
 <%= form_for @status do |f| %>
   <div class="form-group">
     <%= f.label :name %><br/>

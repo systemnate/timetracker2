@@ -1,3 +1,14 @@
+<% if @priority.errors.any? %>
+  <section id="errors">
+    <h2><%= pluralize(@priority.errors.count, "error") %> prohibited this priority from being saved:</h2>
+    <ul>
+      <% @priority.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
+
 <%= form_for @priority do |f| %>
   <div class="form-group">
     <%= f.label :name %><br/>
