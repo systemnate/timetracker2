@@ -41,5 +41,6 @@ Rails.application.routes.draw do
     root 'welcome#index'
     resources :accounts, only: [:new, :create]
     get 'pages/test' => 'pages#test'
+    get 'welcome/index' => 'welcome#index'
   end
 end
