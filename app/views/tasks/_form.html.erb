@@ -1,10 +1,11 @@
 <%= form_for @task do |f| %>
+  <p>* = Required</p>
   <label>
-    <%= f.label :title %>
+    <p>Title *</p>
     <%= f.text_field :title, placeholder: "Title" %>
   </label>
   <label>
-    <p>Summary</p>
+    <p>Summary *</p>
     <%= f.text_area :summary, rows: 8, placeholder: "Summary" %>
   </label>
   <label>
@@ -21,19 +22,19 @@
     <%= f.text_field :alternate_id, placeholder: "Alternate ID" %>
   </label>
   <label>
-    <p>Client</p>
+    <p>Client *</p>
     <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { selected: params[:client_id], prompt: "Choose Client..." } %>
   </label>
   <label>
-    <p>Status</p>
+    <p>Status *</p>
     <%= f.collection_select :status_id, Status.all.order('name'), :id, :name, { prompt: "Choose Status..." } %>
   </label>
   <label>
-    <p>Product</p>
+    <p>Product *</p>
     <%= f.collection_select :product_id, Product.all.order('name'), :id, :name, { prompt: "Choose Product..." } %>
   </label>
   <label>
-    <p>Priority</p>
+    <p>Priority *</p>
     <%= f.collection_select :priority_id, Priority.all.order('name'), :id, :name, { prompt: "Choose Priority..." } %>
   </label>
   <label>
