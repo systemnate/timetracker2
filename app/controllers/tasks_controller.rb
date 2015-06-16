@@ -23,6 +23,10 @@ class TasksController < ApplicationController
   end
 
   def new
+    if Task.all.count <= 1
+      Task.reindex
+      TaskDetail.reindex
+    end
   end
 
   def create

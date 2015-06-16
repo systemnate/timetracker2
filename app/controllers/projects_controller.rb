@@ -9,6 +9,10 @@ class ProjectsController < ApplicationController
 
   def new
     @project = Project.new
+    if Task.all.count <= 1
+      Task.reindex
+      TaskDetail.reindex
+    end
   end
 
   def create
