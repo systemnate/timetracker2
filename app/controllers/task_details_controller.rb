@@ -3,7 +3,7 @@ class TaskDetailsController < ApplicationController
   load_and_authorize_resource :task_detail, :through => :task
 
   def new
-    @task_detail.user = current_user
+    @task_detail.user_id = current_user
   end
 
   def create

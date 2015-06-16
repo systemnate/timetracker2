@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= favicon_link_tag 'tcfavicon.ico' %>
     <link href='http://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>  
@@ -39,33 +40,33 @@
           <div class="row">
             <div class="col-md-4 col-sm-6">
               <h2>Keep track of time</h2>
-              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+              <%= image_tag('tracktime.png', class: "img-responsive center-block") %>
             </div>
 
             <div class="col-md-4 col-sm-6">
               <h2>Filter, Search, and Tag</h2>  
-              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+              <%= image_tag('filter.png', class: "img-responsive center-block") %>
             </div>
 
             <div class="col-md-4">
               <h2>Create Invoices</h2>
-              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+              <%= image_tag('billing.png', class: "img-responsive center-block") %>
             </div>                        
           </div>
           <div class="row">
             <div class="col-md-4 col-sm-6">
               <h2>Assign Tasks</h2>
-              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+              <%= image_tag('view.png', class: "img-responsive center-block") %>
             </div>
 
             <div class="col-md-4 col-sm-6">
               <h2>Create Projects</h2>  
-              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+              <%= image_tag('project.png', class: "img-responsive center-block") %>
             </div>
 
             <div class="col-md-4">
               <h2>Customize</h2>
-              <img src="http://placehold.it/250x250" class="img-responsive center-block">
+              <%= image_tag('customize.png', class: "img-responsive center-block") %>
             </div>                        
           </div>          
         </div>
