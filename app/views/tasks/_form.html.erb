@@ -23,7 +23,7 @@
   </label>
   <label>
     <p>Client *</p>
-    <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { selected: params[:client_id], prompt: "Choose Client..." } %>
+    <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { prompt: "Choose Client..." } %>
   </label>
   <label>
     <p>Status *</p>
