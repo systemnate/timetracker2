@@ -23,7 +23,7 @@ gem 'jquery-turbolinks'
 gem "paperclip", "~> 4.2"
 gem 'cancancan', '~> 1.10.1'
 gem 'htmlbeautifier'
-gem 'aws-sdk'
+gem 'aws-sdk', '< 2.0'
 
 group :development, :test do
   gem 'byebug'
