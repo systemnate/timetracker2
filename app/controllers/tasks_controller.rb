@@ -5,17 +5,18 @@ class TasksController < ApplicationController
     @statuses = Status.all.order('name')
     @priorities = Priority.all.order('name')
     @products = Product.all.order('name')
-    if params[:tag]
+    if params[:status_id]
+      @tasks = Task.all.where("status_id = ?", params[:status_id])
+    elsif params[:priority_id]
+      @tasks = Task.all.where("priority_id = ?", params[:priority_id])
+    elsif params[:product_id]
+      @tasks = Task.all.where("product_id = ?", params[:product_id])
+    elsif params[:tag]
       @tasks = Task.tagged_with(params[:tag])
+    elsif params[:all_tasks]
+      @tasks = Task.all
     else
-      if params[:scope]
-        @tasks = Task.send(params[:scope])
-      elsif params[:showall]
-        @tasks = Task.all.order('created_at DESC')
-      else
-        @tasks = Task.all.where('assigned_to = ?', current_user).order('created_at DESC').
-          reject { |t| t.status.default_view != true }
-      end
+      @tasks = Task.all
     end
   end
 

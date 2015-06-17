@@ -31,6 +31,11 @@ class StatusesController < ApplicationController
     end
   end
 
+  def destroy
+    @status.destroy
+    redirect_to statuses_path
+  end
+
   private
   def status_params
     params.require(:status).permit(:name, :color_id, :default_view)

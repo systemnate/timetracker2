@@ -10,19 +10,6 @@ class Task < ActiveRecord::Base
 
   validates :status, :product, :priority, :title, :summary, :client, presence: true
 
-  Status.all.each do |status|
-    puts "Running the Status code"
-    scope "#{status.name}".downcase.delete(' '), -> { where('status_id = ?', status.id).order('created_at DESC') }
-  end
-
-  Priority.all.each do |priority|
-    scope "#{priority.name}".downcase.delete(' '), -> { where('priority_id = ?', priority.id).order('created_at DESC') }
-  end
-
-  Product.all.each do |product|
-    scope "#{product.name}".downcase.delete(' '), -> { where('product_id = ?', product.id).order('created_at DESC') }
-  end
-
   scope :alltasks, -> {}
   
   def self.searchkick_index

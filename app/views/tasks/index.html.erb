@@ -39,7 +39,7 @@
             <div class="col-md-3">
               <p><strong>Status</strong></p>
               <% @statuses.all.each do |status| %>
-                <%= link_to "/tasks/filters/status/#{status.name}".downcase.delete(' ') do %>
+                <%= link_to "/tasks/filters/status/#{status.id}" do %>
                   <%= filter_status(status) %>
                 <% end %>
               <% end %>
@@ -47,7 +47,7 @@
             <div class="col-md-3">
               <p><strong>Priority</strong></p>
               <% @priorities.all.each do |priority| %>
-                <%= link_to "/tasks/filters/priority/#{priority.name}".downcase.delete(' ') do %>
+                <%= link_to "/tasks/filters/priority/#{priority.id}" do %>
                   <%= filter_priority(priority) %>
                 <% end %>
               <% end %>
@@ -55,7 +55,7 @@
             <div class="col-md-3">
               <p><strong>Product</strong></p>
               <% @products.all.each do |product| %>
-                <%= link_to "/tasks/filters/product/#{product.name}".downcase.delete(' ') do %>
+                <%= link_to "/tasks/filters/product/#{product.id}" do %>
                   <%= filter_product(product) %>
                 <% end %>
               <% end %>
@@ -66,7 +66,7 @@
     </div>
   </div>
 </div>
-<h1 class="header"><%= link_to "Your Tasks", tasks_path %> <small><%= link_to "Show All", "/tasks/filters/all/alltasks" %></small></h1>
+<h1 class="header"><%= link_to "Your Tasks", tasks_path %> <small><%= link_to "Show All", "/tasks/filters/all/all_tasks" %></small></h1>
 <%= link_to "New Task", new_task_path, class: "btn btn-primary" %>
 <hr/>
 <div class="table-responsive">
