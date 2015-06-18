@@ -3,6 +3,8 @@ class Project < ActiveRecord::Base
   belongs_to :client
   belongs_to :user
 
+  validates :title, :client, :allotted_time, presence: true
+
   def self.time_spent(project)
     time_spent = 0
     @all_tasks = project.tasks
