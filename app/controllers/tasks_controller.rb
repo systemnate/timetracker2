@@ -16,7 +16,8 @@ class TasksController < ApplicationController
     elsif params[:all_tasks]
       @tasks = Task.all
     else
-      @tasks = Task.all
+      @tasks = Task.all.where('assigned_to = ?', current_user).order('created_at DESC').
+          reject { |t| t.status.default_view != true }
     end
   end
 
