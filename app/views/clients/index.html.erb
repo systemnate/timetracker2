@@ -22,7 +22,7 @@
       </td>
       <% end %>
       <% if can? :destroy, client %>
-      <td><%= link_to client, method: :delete, data: { confirm: "Are you sure?" },
+      <td><%= link_to client, method: :delete, data: { confirm: "Warning!  Deleting a client will remove associated projects for this client!  Are you sure?" },
         class: "btn btn-danger" do %>
           <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
         <% end %>
