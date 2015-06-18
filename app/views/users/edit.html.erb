@@ -1,11 +1,22 @@
 <h1>Edit User</h1>
 
 <%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  <%= f.label :email %>
-  <%= f.text_field :email %><br>
-  <%= f.label :role_id %>
-  <%= f.collection_select :role_id, Role.all, :id, :name, {} %><br>
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>    
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>    
+  </div>
+
+  <div class="form-group">
+    <%= f.label :role_id %>
+    <%= f.collection_select :role_id, Role.all, :id, :name, {}, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.submit "Submit", class: "btn btn-primary" %>  
+  </div>
 <% end %>
