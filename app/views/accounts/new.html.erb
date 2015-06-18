@@ -4,13 +4,13 @@
 
     <%= simple_form_for @account do |f| %>
       <%= f.fields_for :owner do |o| %>
-        <%= o.input :name %>
-        <%= o.input :email %>
-        <%= o.input :password %>
-        <%= o.input :password_confirmation %>
+        <%= o.input :name, required: true %>
+        <%= o.input :email, required: true %>
+        <%= o.input :password, required: true %>
+        <%= o.input :password_confirmation, required: true %>
       <% end %>
 
-      <%= f.input :subdomain do %>
+      <%= f.input :subdomain, label: "Subdomain - you will access your account through the subdomain you choose <dot> taskclash.com.  Example: example.taskclash.com" do %>
         <div class="input-group">
           <%= f.input_field :subdomain, class: 'form-control' %>
           <span class="input-group-addon">.taskclash.com</span>

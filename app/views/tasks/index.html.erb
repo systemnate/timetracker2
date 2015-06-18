@@ -1,6 +1,6 @@
 <% if @tasks.count == 0 %>
   <h2>No tasks assigned to you with the given filter! <%= link_to "View All?", "/tasks/filters/all/alltasks" %></h2>
-  <h3 style="color: black;">Read the <%= link_to "documentation", "#" %> if you need help getting started.</h3>
+  <h3 style="color: black;">Read the <%= link_to "documentation", welcome_documentation_path, subdomain: false %> if you need help getting started.</h3>
   <hr/>
 <% end %>
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">

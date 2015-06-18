@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     get 'pages/index'
     resources :billings, only: [:new, :show, :create]
     get 'tags/:tag', to: 'tasks#index', as: :tag
+    get 'welcome/documentation' => 'welcome#documentation'
   end
 
   constraints(SubdomainBlank) do
