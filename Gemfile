@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.1.5"
+ruby '2.1.5'
 gem 'rails', '4.2.0'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -20,7 +20,7 @@ gem 'searchkick', '~> 0.8.7'
 gem 'acts-as-taggable-on', '~> 3.5.0'
 gem 'tinymce-rails'
 gem 'jquery-turbolinks'
-gem "paperclip", "~> 4.2"
+gem 'paperclip', '~> 4.2'
 gem 'cancancan', '~> 1.10.1'
 gem 'htmlbeautifier'
 gem 'aws-sdk', '< 2.0'
