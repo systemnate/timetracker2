@@ -28,7 +28,6 @@
         <th>Client</th>
         <th>Product</th>
         <th>Priority</th>
-        <th>Summary</th>
         <th>Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
         <th>Time</th>
       </tr>
@@ -43,7 +42,6 @@
           <td><%= show_client(task) %></td>
           <td><%= label_product(task)  %></td>
           <td><%= label_priority(task) %></td>
-          <td><%= truncate(sanitize(task.summary), length: 70, separator: " ") %></td>
           <td><%= task.created_at.getlocal %></td>
           <td><%= show_time(task) %></td>
           <td><%= link_to task, class: "btn btn-primary" do %>
