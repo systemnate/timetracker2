@@ -5,10 +5,6 @@
     <%= f.text_field :title, placeholder: "Title" %>
   </label>
   <label>
-    <p>Summary *</p>
-    <%= f.text_area :summary, rows: 8, placeholder: "Summary" %>
-  </label>
-  <label>
     <p>Assigned To</p>
     <%= f.collection_select :assigned_to, User.all.where('name is not ?', nil), :id, :name,
       { selected: current_user.id }  %>
