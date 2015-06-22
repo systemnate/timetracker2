@@ -8,7 +8,7 @@
   <% @products.each do |product| %>
     <tr>
       <td><%= product.name %></td>
-      <td><%= product.color.name %></td>
+      <td><%= show_color(product) %></td>
       <td><%= link_to product, class: "btn btn-primary" do %>
         <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
         <% end %>

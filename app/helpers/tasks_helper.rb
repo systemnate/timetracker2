@@ -162,4 +162,20 @@ module TasksHelper
       content_tag(:strong, pluralize(number_with_precision(time_spent/60.0, precision: 2), "hour"), class: "label label-default")
     end
   end
+
+  def show_color(obj)
+    if obj.color.name == "Green"
+      content_tag(:div, nil, class: "square-green")
+    elsif obj.color.name == "Red"
+      content_tag(:div, nil, class: "square-red")
+    elsif obj.color.name == "Blue"
+      content_tag(:div, nil, class: "square-blue")
+    elsif obj.color.name == "Light Blue"
+      content_tag(:div, nil, class: "square-lightblue")
+    elsif obj.color.name == "Orange"
+      content_tag(:div, nil, class: "square-orange")
+    elsif obj.color.name == "Grey"
+      content_tag(:div, nil, class: "square-grey")
+    end
+  end
 end
