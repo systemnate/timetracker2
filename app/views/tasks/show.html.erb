@@ -7,6 +7,8 @@
     <th>Client</th>
     <th>Product</th>
     <th>Priority</th>
+    <th>Assigned To</th>
+    <th>Date</th>
     <th>Time Spent</th>
   </thead>
   <tbody>
@@ -17,12 +19,12 @@
       <td><%= label_client(@task) %></td>
       <td><%= label_product(@task) %></span></td>
       <td><%= label_priority(@task) %></td>
+      <td><%= mail_to(email_for(@task)) %></td>
+      <td></td>
       <td><%= show_time(@task) %></td>
     </tr>
   </tbody>
 </table>
-<h2>Summary:</h2>
-<%= show_summary(@task) %>
 <div id="tag_cloud">
   <h2>Tags</h2>
   <% tag_cloud @task.tag_counts, ['label label-warning', 'label label-warning', 'label label-warning'] do |tag, css_class| %>

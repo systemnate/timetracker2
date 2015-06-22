@@ -59,7 +59,7 @@ class TasksController < ApplicationController
   def search
     begin
       if params[:search].present?
-        @tasks = Task.search params[:search], fields: [:title, :alternate_id, :summary]
+        @tasks = Task.search params[:search], fields: [:title, :alternate_id]
         @task_details = TaskDetail.search params[:search], fields: [:body]
       else
         @tasks = Task.all
@@ -75,6 +75,6 @@ class TasksController < ApplicationController
   private
     def task_params
       params.require(:task).permit(:title, :status_id, 
-        :product_id, :priority_id, :summary, :client_id, :alternate_id, :tag_list, :assigned_to, :billable)
+        :product_id, :priority_id, :client_id, :alternate_id, :tag_list, :assigned_to, :billable)
     end
 end

@@ -8,7 +8,7 @@ class Task < ActiveRecord::Base
   belongs_to :project
   has_many :task_details, dependent: :destroy
 
-  validates :status, :product, :priority, :title, :summary, :client, presence: true
+  validates :status, :product, :priority, :title, :client, presence: true
 
   scope :alltasks, -> {}
   

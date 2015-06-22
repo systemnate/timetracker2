@@ -13,4 +13,9 @@ module UsersHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
     image_tag(gravatar_url, alt: user.name, class: 'gravatar', size: '60x60')
   end
+
+  def email_for(task)
+    user = User.find_by(id: task.assigned_to)
+    user.email
+  end
 end

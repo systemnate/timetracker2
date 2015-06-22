@@ -80,7 +80,7 @@
         <th class="table-medium">Client</th>
         <th>Product</th>
         <th>Priority</th>
-        <th>Summary</th>
+        <th>Assigned To</th>
         <th class="table-large">Date</th>
         <th>Time</th>
       </tr>
@@ -95,7 +95,7 @@
           <td><%= label_client(task) %></td>
           <td><%= label_product(task)  %></td>
           <td><%= label_priority(task) %></td>
-          <td><%= truncate(sanitize(task.summary), length: 70, separator: " ") %></td>
+          <td><%= mail_to(email_for(task)) %></td>
           <td><%= label_date(task) %></td>
           <td><%= show_time(task) %></td>
           <td><%= link_to task, class: "btn btn-primary" do %>
