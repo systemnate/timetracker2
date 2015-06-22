@@ -1,4 +1,4 @@
-<h1>Edit User</h1>
+<h1>Edit User <%= gravatar_for_large(current_user) %>  </h1>
 
 <%= form_for @user do |f| %>
   <div class="form-group">
