@@ -17,6 +17,5 @@ describe 'status' do
     page.select "Green", from: "status[color_id]"
     click_button('Submit')
     expect(page).to have_content("New Status")
-    expect(page).to have_content("Green")
   end
 end

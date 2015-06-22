@@ -1,6 +1,5 @@
 class AccountsController < ApplicationController
   skip_before_filter :authenticate_user!, only: [:new, :create]
-  
   def new
     @account = Account.new
     @account.build_owner
@@ -12,14 +11,18 @@ class AccountsController < ApplicationController
       Apartment::Tenant.create(@account.subdomain)
       Apartment::Tenant.switch!(@account.subdomain)
       @account.save
-      redirect_to new_user_session_url(subdomain: @account.subdomain), notice: "Signed up successfully"
+      redirect_to(new_user_session_url(subdomain: @account.subdomain),
+                  notice: 'Signed up successfully')
     else
       render :new
     end
   end
 
-private
+  private
+
   def account_params
-    params.require(:account).permit(:subdomain, owner_attributes: [:name, :email, :password, :password_confirmation])
+    params.require(:account).permit(:subdomain, owner_attributes:
+                                                [:name, :email, :password,
+                                                 :password_confirmation])
   end
 end
