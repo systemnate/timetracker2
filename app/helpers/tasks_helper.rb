@@ -48,27 +48,27 @@ module TasksHelper
   def label_status(task)
     if task.status.color.name == "Green"
       content_tag(:span, class: "label label-success") do
-        show_status(task)
+        link_to(show_status(task), edit_task_path(task), style: "color: white")
       end
     elsif task.status.color.name == "Red"
       content_tag(:span, class: "label label-danger") do
-        show_status(task)
+        link_to(show_status(task), edit_task_path(task), style: "color: white")
       end
     elsif task.status.color.name == "Blue"
       content_tag(:span, class: "label label-primary") do
-        show_status(task)
+        link_to(show_status(task), edit_task_path(task), style: "color: white")
       end
     elsif task.status.color.name == "Grey"
       content_tag(:span, class: "label label-default") do
-        show_status(task)
+        link_to(show_status(task), edit_task_path(task), style: "color: white")
       end
     elsif task.status.color.name == "Light Blue"
       content_tag(:span, class: "label label-info") do
-        show_status(task)
+        link_to(show_status(task), edit_task_path(task), style: "color: white")
       end
     elsif task.status.color.name == "Orange"
       content_tag(:span, class: "label label-warning") do
-        show_status(task)
+        link_to(show_status(task), edit_task_path(task), style: "color: white")
       end        
     else
       'NA'
@@ -78,27 +78,27 @@ module TasksHelper
   def label_priority(task)
     if task.priority.color.name == "Green"
       content_tag(:span, class: "label label-success") do
-        show_priority(task)
+        link_to(show_priority(task), edit_task_path(task), style: "color: white")
       end
     elsif task.priority.color.name == "Red"
       content_tag(:span, class: "label label-danger") do
-        show_priority(task)
+        link_to(show_priority(task), edit_task_path(task), style: "color: white")
       end
     elsif task.priority.color.name == "Blue"
       content_tag(:span, class: "label label-primary") do
-        show_priority(task)
+        link_to(show_priority(task), edit_task_path(task), style: "color: white")
       end
     elsif task.priority.color.name == "Grey"
       content_tag(:span, class: "label label-default") do
-        show_priority(task)
+        link_to(show_priority(task), edit_task_path(task), style: "color: white")
       end
     elsif task.priority.color.name == "Light Blue"
       content_tag(:span, class: "label label-info") do
-        show_priority(task)
+        link_to(show_priority(task), edit_task_path(task), style: "color: white")
       end
     elsif task.priority.color.name == "Orange"
       content_tag(:span, class: "label label-warning") do
-        show_priority(task)
+        link_to(show_priority(task), edit_task_path(task), style: "color: white")
       end      
     else
       'NA'
@@ -106,9 +106,9 @@ module TasksHelper
   end
 
   def label_alternate_id(task)
-    if task.alternate_id
+    if !task.alternate_id.blank?
       content_tag(:span, class: "label label-default") do
-        task.alternate_id
+        link_to(task.alternate_id, edit_task_path(task), style: "color: white")
       end
     else
       ""
@@ -118,27 +118,27 @@ module TasksHelper
   def label_product(task)
     if task.product.color.name == "Green"
       content_tag(:span, class: "label label-success") do
-        show_product(task)
+        link_to(show_product(task), edit_task_path(task), style: "color: white")
       end
     elsif task.product.color.name == "Red"
       content_tag(:span, class: "label label-danger") do
-        show_product(task)
+        link_to(show_product(task), edit_task_path(task), style: "color: white")
       end
     elsif task.product.color.name == "Blue"
       content_tag(:span, class: "label label-primary") do
-        show_product(task)
+        link_to(show_product(task), edit_task_path(task), style: "color: white")
       end
     elsif task.product.color.name == "Grey"
       content_tag(:span, class: "label label-default") do
-        show_product(task)
+        link_to(show_product(task), edit_task_path(task), style: "color: white")
       end
     elsif task.product.color.name == "Light Blue"
       content_tag(:span, class: "label label-info") do
-        show_product(task)
+        link_to(show_product(task), edit_task_path(task), style: "color: white")
       end
     elsif task.product.color.name == "Orange"
       content_tag(:span, class: "label label-warning") do
-        show_product(task)
+        link_to(show_product(task), edit_task_path(task), style: "color: white")
       end
     else
       'NA'
@@ -147,7 +147,7 @@ module TasksHelper
 
   def label_client(task)
     content_tag(:span, class: "label label-default") do
-      show_client(task)
+      link_to(show_client(task), edit_task_path(task), style: "color: white")
     end
   end
 
