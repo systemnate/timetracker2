@@ -92,11 +92,11 @@
           <td><%= label_alternate_id(task) %></td>
           <td><%= task.title %></td>
           <td><%= label_status(task) %></td>
-          <td><%= show_client(task) %></td>
+          <td><%= label_client(task) %></td>
           <td><%= label_product(task)  %></td>
           <td><%= label_priority(task) %></td>
           <td><%= truncate(sanitize(task.summary), length: 70, separator: " ") %></td>
-          <td><%= task.created_at.getlocal %></td>
+          <td><%= label_date(task) %></td>
           <td><%= show_time(task) %></td>
           <td><%= link_to task, class: "btn btn-primary" do %>
               <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>

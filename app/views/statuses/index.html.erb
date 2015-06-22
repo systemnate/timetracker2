@@ -8,7 +8,7 @@
   <tbody>
   <% @statuses.each do |status| %>
     <tr>
-      <td><%= link_to status.name, status %></td>
+      <td><%= status.name %></td>
       <td><%= show_color(status) %></td>
       <td><%= show_on_default_view(status) %></td>
       <td><%= link_to status, class: "btn btn-primary" do %>

@@ -45,6 +45,22 @@ module TasksHelper
     end
   end
 
+  def label_client(task)
+    if task.client
+      content_tag(:span, class: "label label-default") do
+      link_to(show_client(task), edit_task_path(task), style: "color: white")
+    end
+    else
+      show_client(task)
+    end
+  end
+
+  def label_date(task)
+    content_tag(:span, class: "label label-default") do
+      link_to(task.created_at.getlocal, edit_task_path(task), style: "color: white")
+    end
+  end
+  
   def label_status(task)
     if task.status.color.name == "Green"
       content_tag(:span, class: "label label-success") do
