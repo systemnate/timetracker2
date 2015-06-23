@@ -14,7 +14,7 @@
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td><%= gravatar_for(current_user) %>  <%= user.name %></td>
+              <td><%= gravatar_for(user) %>  <%= user.name %></td>
               <td><%= user.email %></td>
               <td><%= user_status(user) %></td>
               <% if can? :destroy, user %>
