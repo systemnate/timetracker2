@@ -24,6 +24,7 @@ gem 'paperclip', '~> 4.2'
 gem 'cancancan', '~> 1.10.1'
 gem 'htmlbeautifier'
 gem 'aws-sdk', '< 2.0'
+gem 'jquery-validation-rails'
 
 group :development, :test do
   gem 'byebug'

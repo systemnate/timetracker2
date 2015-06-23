@@ -1,19 +1,39 @@
 <h1>Generate Billing Total Report</h1>
 <p>This report will generate a billing report for the current signed in user<br/> based on the time spent for the specified period.</p>
-<%= form_tag billings_path do |f| %>
+<%= form_tag billings_path, id: "billing" do |f| %>
   <div class="form-group">
     <%= label_tag 'start_date' %><br/>
-    <%= date_field_tag 'start_date', class: "form-control" %>
+    <%= date_field_tag 'start_date', nil, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= label_tag 'end_date' %><br/>
-    <%= date_field_tag 'end_date', class: "form-control" %>
+    <%= date_field_tag 'end_date', nil, class: "form-control" %>
   </div>
   <div class="form-group">  
     <%= label_tag 'pay_rate' %><br/>
-    <%= number_field_tag 'pay_rate', class: "form-control" %>
+    <%= number_field_tag 'pay_rate', nil, class: "form-control" %>
   </div>
   <div class="form-group">
     <%= submit_tag 'Submit', class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script>
+$(document).ready(function () {
+
+    $('#billing').validate({ // initialize the plugin
+        rules: {
+            start_date: {
+                required: true
+            },
+            end_date: {
+                required: true
+            },
+            pay_rate: {
+              required: true
+            }
+        }
+    });
+
+});
+</script>
