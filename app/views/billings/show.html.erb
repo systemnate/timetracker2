@@ -3,6 +3,8 @@
 <% @start_date = params[:start_date] %>
 <% @end_date = params[:end_date] %>
 <% @pay_rate = params[:pay_rate].to_f %>
+<% @client = params[:client].to_i %>
+
 <table class="table table-striped table-hover table-responsive">
   <thead>
     <th>Start Date</th>
@@ -29,7 +31,7 @@
   <tbody>
     <% @total_minutes = 0 %>
     <% @task_details.each do |td| %>
-      <% if td.task.billable %>
+      <% if td.task.billable && td.task.client_id == @client %>
         <% @total_minutes += td.time_spent %>
         <tr>
           <td><%= td.task.id %></td>

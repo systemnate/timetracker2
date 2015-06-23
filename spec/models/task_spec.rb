@@ -5,7 +5,6 @@ RSpec.describe Task do
     it { should validate_presence_of :title }
     it { should validate_presence_of :status }
     it { should validate_presence_of :product }
-    it { should validate_presence_of :summary }
     it { should validate_presence_of :priority }
     it { should validate_presence_of :client }
   end
