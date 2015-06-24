@@ -9,7 +9,6 @@
       <th>Client</th>
       <th>Product</th>
       <th>Priority</th>
-      <th>Summary</th>
     </thead>
     <% @tasks.each do |task| %>
       <tr>
@@ -20,7 +19,6 @@
         <td><%= show_client(task) %></td>
         <td><%= label_product(task)  %></td>
         <td><%= label_priority(task) %></td>
-        <td><%= truncate(task.summary, length: 50, separator: " ") %></td>
         <td><%= link_to task, class: "btn btn-primary" do %>
             <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
           <% end %>
