@@ -70,10 +70,10 @@
 <% end %>
 
 <script>
-  $("#task_client_id").append('<option value=9999>Add another...</option>');
-  $("#task_status_id").append('<option value=9999>Add another...</option>');
-  $("#task_priority_id").append('<option value=9999>Add another...</option>');
-  $("#task_product_id").append('<option value=9999>Add another...</option>');
+  $("#task_client_id").append('<option value=9999>Add New Client...</option>');
+  $("#task_status_id").append('<option value=9999>Add New Status...</option>');
+  $("#task_priority_id").append('<option value=9999>Add New Priority...</option>');
+  $("#task_product_id").append('<option value=9999>Add New Product...</option>');
 
   $('select[name="task[client_id]"]').change(function() {
     if ($(this).val() == "9999") {
