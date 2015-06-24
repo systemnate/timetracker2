@@ -42,7 +42,6 @@
         <td><%= show_client(td.task) %></td>
         <td><%= label_product(td.task)  %></td>
         <td><%= label_priority(td.task) %></td>
-        <td><%= truncate(td.task.summary, length: 50, separator: " ") %></td>
         <td><%= link_to td.task, class: "btn btn-primary" do %>
             <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
           <% end %>
