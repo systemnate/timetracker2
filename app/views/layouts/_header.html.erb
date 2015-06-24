@@ -72,6 +72,11 @@
         <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-right">
             <li>
+              <%= link_to welcome_documentation_path do %>
+                <i class="fa fa-question-circle fa-lg">&nbsp;</i>Help!
+              <% end %>
+            </li>
+            <li>
               <%= link_to destroy_user_session_path, method: 'delete' do %>            
                 <i class="fa fa-sign-out fa-lg">&nbsp;</i>Sign Out
               <% end %>
