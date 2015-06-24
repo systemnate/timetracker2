@@ -20,7 +20,7 @@
       </td>
       <% end %>
       <% if can? :destroy, product %>
-      <td><%= link_to product, method: :delete, data: { confirm: "Are you sure?" },
+      <td><%= link_to product, method: :delete, data: { confirm: "WARNING!: DELETING A PRODUCT WILL REMOVE ALL TASKS ASSOCIATED WITH THIS PRODUCT!  CONSIDER UPDATING EXISTING TASKS TO A NEW PRODUCT FIRST!" },
         class: "btn btn-danger" do %>
           <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
         <% end %>

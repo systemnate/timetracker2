@@ -20,7 +20,7 @@
       </td>
       <% end %>
       <% if can? :destroy, priority %>
-      <td><%= link_to priority, method: :delete, data: { confirm: "Are you sure?" },
+      <td><%= link_to priority, method: :delete, data: { confirm: "WARNING!: DELETING A PRIORITY WILL REMOVE ALL TASKS ASSOCIATED WITH THIS PRIORITY!  CONSIDER UPDATING EXISTING TASKS TO A NEW PRIORITY FIRST!" },
         class: "btn btn-danger" do %>
           <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
         <% end %>

@@ -1,44 +1,138 @@
 <%= form_for @task do |f| %>
   <p>* = Required</p>
+  
   <label>
     <p>Title *</p>
     <%= f.text_field :title, placeholder: "Title" %>
   </label>
+  
   <label>
     <p>Assigned To</p>
     <%= f.collection_select :assigned_to, User.all.where('name is not ?', nil), :id, :name,
       { selected: current_user.id }  %>
   </label>
+  
   <label>
     <p>Tags (separated by commas)</p>
     <%= f.text_field :tag_list, value: @task.tag_list.to_s %>
   </label>
+  
   <label>
     <p>Alternate ID</p>
     <%= f.text_field :alternate_id, placeholder: "Alternate ID" %>
   </label>
+  
   <label>
     <p>Client *</p>
-    <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { prompt: "Choose Client..." } %>
+    <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
   </label>
+  
+  <div class="clientSelectAdd" style="display: none;">
+    <a id="cancel-client" style="color:white" href="javascript:cancelClient()">Cancel</a><input placeholder="Enter new client name" type="text" name="task[client_name]" id="task_client_name">
+  </div>
+  
   <label>
     <p>Status *</p>
-    <%= f.collection_select :status_id, Status.all.order('name'), :id, :name, { prompt: "Choose Status..." } %>
+    <%= f.collection_select :status_id, Status.all.order('name'), :id, :name, { prompt: "Choose Status..." }, { class: "statusSelectList" } %>
   </label>
+
+  <div class="statusSelectAdd" style="display: none;">
+    <a id="cancel-status" style="color:white" href="javascript:cancelStatus()">Cancel</a><input placeholder="Enter new status name" type="text" name="task[status_name]" id="task_status_name">
+  </div>
+  
   <label>
     <p>Product *</p>
-    <%= f.collection_select :product_id, Product.all.order('name'), :id, :name, { prompt: "Choose Product..." } %>
+    <%= f.collection_select :product_id, Product.all.order('name'), :id, :name, { prompt: "Choose Product..." }, { class: "productSelectList" } %>
   </label>
+  
+  <div class="productSelectAdd" style="display: none;">
+    <a id="cancel-product" style="color:white" href="javascript:cancelProduct()">Cancel</a><input placeholder="Enter new product name" type="text" name="task[product_name]" id="task_product_name">
+  </div>
+
   <label>
     <p>Priority *</p>
-    <%= f.collection_select :priority_id, Priority.all.order('name'), :id, :name, { prompt: "Choose Priority..." } %>
+    <%= f.collection_select :priority_id, Priority.all.order('name'), :id, :name, { prompt: "Choose Priority..."}, { class: "prioritySelectList" } %>
   </label>
+
+  <div class="prioritySelectAdd" style="display: none;">
+    <a id="cancel-priority" style="color:white" href="javascript:cancelPriority()">Cancel</a><input placeholder="Enter new priority name" type="text" name="task[priority_name]" id="task_priority_name">
+  </div>
+
   <label>
     <p>Billable?&nbsp;&nbsp;<%= f.check_box :billable %></p>
   </label>
+  
   <label>
     <span>&nbsp;</span>
     <button class="btn btn-default">Submit</button>
     <%= link_to "Cancel", tasks_path, class: "btn btn-warning" %>
   </label>
 <% end %>
+
+<script>
+  $("#task_client_id").append('<option value=9999>Add another...</option>');
+  $("#task_status_id").append('<option value=9999>Add another...</option>');
+  $("#task_priority_id").append('<option value=9999>Add another...</option>');
+  $("#task_product_id").append('<option value=9999>Add another...</option>');
+
+  $('select[name="task[client_id]"]').change(function() {
+    if ($(this).val() == "9999") {
+      $(".clientSelectList").hide();
+      $(".clientSelectAdd").show();
+      $('#cancel-client').show();
+    }
+  });
+
+  $('select[name="task[status_id]"]').change(function() {
+    if ($(this).val() == "9999") {
+      $(".statusSelectList").hide();
+      $(".statusSelectAdd").show();
+      $('#cancel-status').show();
+    }
+  });
+
+  $('select[name="task[priority_id]"]').change(function() {
+    if ($(this).val() == "9999") {
+      $(".prioritySelectList").hide();
+      $(".prioritySelectAdd").show();
+      $('#cancel-priority').show();
+    }
+  });
+
+  $('select[name="task[product_id]"]').change(function() {
+    if ($(this).val() == "9999") {
+      $(".productSelectList").hide();
+      $(".productSelectAdd").show();
+      $('#cancel-product').show();
+    }
+  });  
+
+  function cancelClient() {
+    $(".clientSelectList").show();
+    $(".clientSelectAdd").hide();
+    $(".clientSelectList").val('1');
+    $('#cancel-client').hide();
+  }
+
+  function cancelStatus() {
+    $(".statusSelectList").show();
+    $(".statusSelectAdd").hide();
+    $(".statusSelectList").val('1');
+    $('#cancel-status').hide();
+  }
+
+  function cancelPriority() {
+    $(".prioritySelectList").show();
+    $(".prioritySelectAdd").hide();
+    $(".prioritySelectList").val('1');
+    $('#cancel-priority').hide();
+  }
+
+  function cancelProduct() {
+    $(".productSelectList").show();
+    $(".productSelectAdd").hide();
+    $(".productSelectList").val('1');
+    $('#cancel-product').hide();
+  }
+
+</script>
