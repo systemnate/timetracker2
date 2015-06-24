@@ -95,7 +95,7 @@
           <td><%= label_client(task) %></td>
           <td><%= label_product(task)  %></td>
           <td><%= label_priority(task) %></td>
-          <td><%= mail_to(email_for(task)) %></td>
+          <td><%= mail_to(email_for(task), assigned_to(task)) %></td>
           <td><%= label_date(task) %></td>
           <td><%= show_time(task) %></td>
           <td><%= link_to task, class: "btn btn-primary" do %>

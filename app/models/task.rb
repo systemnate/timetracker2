@@ -19,8 +19,4 @@ class Task < ActiveRecord::Base
     index_name = [Apartment::Tenant.current, model_name.plural, Rails.env].join('_')
     Searchkick::Index.new(index_name)
   end
-
-  def default_view
-    Task.all
-  end
 end

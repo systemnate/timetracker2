@@ -18,4 +18,9 @@ module UsersHelper
     user = User.find_by(id: task.assigned_to)
     user.email
   end
+
+  def assigned_to(task)
+    user = User.find_by(id: task.assigned_to)
+    user.name
+  end
 end
