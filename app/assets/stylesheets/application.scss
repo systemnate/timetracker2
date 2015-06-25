@@ -5,6 +5,10 @@
 @import "typography";
 @import "colors";
 @import "style";
+@import "chosen";
+@import "jquery.tagit";
+@import "jquery-ui";
+@import "tagit.ui-zendesk";
 
 /* #### Dark Matter #### */
 .dark-matter {
@@ -71,6 +75,54 @@
     color: #525252;
     line-height: 25px;
 }
+
+ul.tagit {
+    border: none;
+    color: #525252;
+    line-height:15px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    margin-top: 2px;
+    outline: 0 none;
+    padding: 5px 0px 5px 5px;
+    width: 100%;
+    border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    background: #DFDFDF;
+}
+
+ul.tagit li.tagit-choice {
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border: 1px solid #CAD8F3;
+    background: none;
+    background-color: #337AB7;
+    color: white;
+    font-family: sans-serif;
+    font-weight: normal;
+    text-decoration: none;
+}
+
+ul.tagit li.tagit-choice .tagit-label:not(a) {
+  color: white;
+}
+
+ul.tagit li.tagit-choice .tagit-close .text-icon {
+  color: white;
+}
+
+ul.tagit input[type="text"] {
+  height: 100%;
+}
+
+span.tagit-label {
+  text-decoration: none;
+  font: 14px sans-serif;
+}
+
 .dark-matter textarea{
     height:100px;
     padding: 5px 0px 0px 5px;

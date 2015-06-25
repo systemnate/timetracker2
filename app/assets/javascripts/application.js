@@ -13,9 +13,11 @@
 //= require jquery
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require jquery-ui
 //= require tinymce-jquery
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
 //= require jquery.validate
 //= require jquery.validate.additional-methods
+//= require chosen-jquery

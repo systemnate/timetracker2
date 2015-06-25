@@ -11,10 +11,9 @@
     <%= f.collection_select :assigned_to, User.all.where('name is not ?', nil), :id, :name,
       { selected: current_user.id }  %>
   </label>
-  
   <label>
-    <p>Tags (separated by commas)</p>
-    <%= f.text_field :tag_list, value: @task.tag_list.to_s %>
+    <p>Tags</p>
+    <%= f.text_field :tag_list, value: @task.tag_list.to_s, class: "myTags", style: "width: 100%; color: red;" %>
   </label>
   
   <label>
@@ -134,5 +133,8 @@
     $(".productSelectList").val('1');
     $('#cancel-product').hide();
   }
+
+  $('.myTags').tagit({
+  });
 
 </script>
