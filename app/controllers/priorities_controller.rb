@@ -33,7 +33,7 @@ class PrioritiesController < ApplicationController
 
   def destroy
     @priority.destroy
-    redirect_to priorities_path
+    redirect_to priorities_path, alert: 'Priority was successfully destroyed.'
   end
 
   private
