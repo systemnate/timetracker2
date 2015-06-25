@@ -318,6 +318,10 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
+    sweet-alert (0.0.7)
+    sweet-alert-confirm (0.2.0)
+      jquery-rails
+      sweet-alert
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
@@ -384,6 +388,8 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   spring
+  sweet-alert
+  sweet-alert-confirm
   tinymce-rails
   turbolinks
   uglifier (>= 1.3.0)

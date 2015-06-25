@@ -28,6 +28,8 @@ gem 'jquery-validation-rails'
 gem 'htmlbeautifier', '~> 1.1.0'
 gem 'chosen-rails'
 gem 'jquery-ui-rails'
+gem 'sweet-alert'
+gem 'sweet-alert-confirm'
 
 group :development, :test do
   gem 'byebug'
