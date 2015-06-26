@@ -10,9 +10,11 @@
 @import "jquery-ui";
 @import "tagit.ui-zendesk";
 @import "sweet-alert";
+@import "tooltipster";
+@import "tasks";
 
 /* #### Dark Matter #### */
-.dark-matter {
+.dark-matter, .chosen-select {
     max-width: 100%;
     background: #337AB7;
     padding: 20px 30px 20px 30px;
@@ -46,7 +48,7 @@
     margin-top: 10px;
     font-weight: bold;
 }
-.dark-matter input[type="text"], .dark-matter input[type="email"], .dark-matter textarea, .dark-matter select {
+.dark-matter input[type="text"], .dark-matter input[type="email"], .dark-matter textarea, .dark-matter select, .chosen-select {
     border: none;
     color: #525252;
     height: 25px;
@@ -63,7 +65,7 @@
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
     background: #DFDFDF;
 }
-.dark-matter select {
+.dark-matter select, .chosen-select {
     background: #DFDFDF no-repeat right;
     background: #DFDFDF no-repeat right;
     appearance:none;

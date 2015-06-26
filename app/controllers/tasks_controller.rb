@@ -70,6 +70,7 @@ class TasksController < ApplicationController
   def update
     @task.update(task_params)
     if @task.save
+      UserNotifier.send_status_update(@task).deliver
       redirect_to @task, notice: "Task successfully updated"
     else
       render :edit
@@ -101,6 +102,6 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :status_id,
         :product_id, :priority_id, :client_id, :alternate_id, :tag_list,
-        :assigned_to, :billable, :client_name, :status_name, :priority_name, :product_name)
+        :assigned_to, :billable, :client_name, :status_name, :priority_name, :product_name, :notify_email)
     end
 end

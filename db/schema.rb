@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622224000) do
+ActiveRecord::Schema.define(version: 20150626170820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,6 +130,7 @@ ActiveRecord::Schema.define(version: 20150622224000) do
     t.integer  "assigned_to"
     t.boolean  "billable"
     t.integer  "project_id"
+    t.string   "notify_email"
   end
 
   add_index "tasks", ["assigned_to"], name: "index_tasks_on_assigned_to", using: :btree

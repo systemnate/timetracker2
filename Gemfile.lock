@@ -329,6 +329,7 @@ GEM
       hitimes
     tinymce-rails (4.1.6)
       railties (>= 3.1.1)
+    tooltipster-rails (3.2.6)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -391,6 +392,7 @@ DEPENDENCIES
   sweet-alert
   sweet-alert-confirm
   tinymce-rails
+  tooltipster-rails
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)

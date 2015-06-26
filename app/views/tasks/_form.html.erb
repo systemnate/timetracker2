@@ -9,8 +9,9 @@
   <label>
     <p>Assigned To</p>
     <%= f.collection_select :assigned_to, User.all.where('name is not ?', nil), :id, :name,
-      { selected: current_user.id }  %>
+      { selected: current_user.id } %>
   </label>
+
   <label>
     <p>Tags</p>
     <%= f.text_field :tag_list, value: @task.tag_list.to_s, class: "myTags", style: "width: 100%; color: red;" %>
@@ -56,6 +57,11 @@
   <div class="prioritySelectAdd" style="display: none;">
     <a id="cancel-priority" style="color:white" href="javascript:cancelPriority()">Cancel</a><input placeholder="Enter new priority name" type="text" name="task[priority_name]" id="task_priority_name">
   </div>
+
+  <label>
+    <p>Notify Email - Who to notify (if anyone) when a record is updated</p>
+    <%= f.text_field :notify_email, placeholder: "client.name@theclientsite.com" %>
+  </label>
 
   <label>
     <p>Billable?&nbsp;&nbsp;<%= f.check_box :billable %></p>
@@ -136,5 +142,11 @@
 
   $('.myTags').tagit({
   });
+
+  $(document).ready(function() 
+  { 
+    $('.title-question').tooltipster();
+  } 
+); 
 
 </script>
