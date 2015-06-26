@@ -14,7 +14,7 @@ class Task < ActiveRecord::Base
   validates :status, :product, :priority, :title, :client, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :notify_email, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX }
+                    format: { with: VALID_EMAIL_REGEX }, allow_blank: true
   scope :alltasks, -> {}
   
   def self.searchkick_index
