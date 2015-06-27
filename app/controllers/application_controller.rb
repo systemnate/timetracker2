@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
+  helper_method :current_account
   before_filter :load_schema, :authenticate_user!, :set_mailer_host
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter do
@@ -35,7 +35,6 @@ class ApplicationController < ActionController::Base
   def current_account
     @current_account ||= Account.find_by(subdomain: request.subdomain)
   end
-  helper_method :current_account
 
   def set_mailer_host
     subdomain = current_account ? "#{current_account.subdomain}." : ''

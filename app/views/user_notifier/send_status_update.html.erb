@@ -5,6 +5,12 @@
   </head>
   <body>
     <h1>A task has been updated!</h1>
-    <p>Please log into your account at taskclash.com to see the change.</p>
+    <p>A task assigned to <%= @user_name %>(<%= mail_to @user_email %>) has been updated.</p>
+    <p>Please visit <%= link_to "Task Clash", "http://#{@current_account}.taskclash.com/tasks/#{@task_id}" %> for more information.</p>
+    <p>Title: <%= @task_title %></p>
+    <p>Client: <%= @task_client %></p>
+    <p>Status: <%= @task_status %></p>
+    <p>Priority: <%= @task_priority %></p>
+    <p>Product: <%= @task_product %></p>
   </body>
 </html>

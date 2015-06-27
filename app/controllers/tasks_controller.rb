@@ -70,7 +70,7 @@ class TasksController < ApplicationController
   def update
     @task.update(task_params)
     if @task.save
-      UserNotifier.send_status_update(@task).deliver
+      UserNotifier.send_status_update(@task, current_account).deliver_now
       redirect_to @task, notice: "Task successfully updated"
     else
       render :edit
