@@ -13,4 +13,15 @@ module ProjectsHelper
                   class: 'label label-default')
     end
   end
+
+  def time_spent(project)
+    time_allowed = project.allotted_time
+    time_spent = 0
+    project.tasks.each do |t|
+      t.task_details.each do |td|
+        time_spent += td.time_spent
+      end
+    end
+    time_allowed - time_spent
+  end
 end

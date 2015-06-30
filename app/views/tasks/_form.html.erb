@@ -66,7 +66,7 @@
   <label>
     <p>Billable?&nbsp;&nbsp;<%= f.check_box :billable %></p>
   </label>
-  
+  <%= f.hidden_field :project_id, value: params[:project_id] %>
   <label>
     <span>&nbsp;</span>
     <button class="btn btn-default">Submit</button>

@@ -60,3 +60,6 @@
 <% end %>
 <p><%= link_to "New Detail", new_task_task_detail_path(@task), class: "btn btn-primary" %></p>
 <%= link_to "All Tasks", tasks_path, class: "btn btn-danger" %>
+<% if @task.project_id %>
+<%= link_to "Return to Project", project_path(@task.project), class: "btn btn-success" %>
+<% end %>

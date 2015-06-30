@@ -8,6 +8,7 @@
       <th>Project Manager</th>
       <th>Time Allotted (minutes)</th>
       <th>Time Spent</th>
+      <th>Time Remaining</th>
       <th>Due Date</th>
     </thead>
     <tbody>
@@ -19,6 +20,7 @@
         <td><%= project.user.name %></td>
         <td><%= project.allotted_time %></td>
         <td><%= show_project_time(project) %></td>
+        <td><%= time_spent(project) %></td>
         <td><%= project.due_date %></td>
         <td><%= link_to project, class: "btn btn-primary" do %>
             <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
