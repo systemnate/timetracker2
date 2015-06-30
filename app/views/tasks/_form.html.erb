@@ -1,77 +1,76 @@
-<%= form_for @task do |f| %>
-  <p>* = Required</p>
-  
-  <label>
-    <p>Title *</p>
-    <%= f.text_field :title, placeholder: "Title" %>
-  </label>
-  
-  <label>
-    <p>Assigned To</p>
+<%= form_for @task, html: { class: "form-inline" } do |f| %>
+
+  <div class="form-group">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :assigned_to %>
     <%= f.collection_select :assigned_to, User.all.where('name is not ?', nil), :id, :name,
       { selected: current_user.id } %>
-  </label>
+  </div>
 
-  <label>
-    <p>Tags</p>
-    <%= f.text_field :tag_list, value: @task.tag_list.to_s, class: "myTags", style: "width: 100%; color: red;" %>
-  </label>
+  <div class="form-group">
+    <%= f.label :tag_list %>
+    <%= f.text_field :tag_list, value: @task.tag_list.to_s, class: "myTags" %>
+  </div>
   
-  <label>
-    <p>Alternate ID</p>
+  <div class="form-group">
+    <%= f.label :alternate_id %>
     <%= f.text_field :alternate_id, placeholder: "Alternate ID" %>
-  </label>
-  
-  <label>
-    <p>Client *</p>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :client %>
     <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, {selected: params[:client_id], prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
-  </label>
-  
-  <div class="clientSelectAdd" style="display: none;">
-    <a id="cancel-client" style="color:white" href="javascript:cancelClient()">Cancel</a><input placeholder="Enter new client name" type="text" name="task[client_name]" id="task_client_name">
+    <div class="clientSelectAdd" style="display: none;">
+      <a id="cancel-client" style="color:white" href="javascript:cancelClient()">Cancel</a><input placeholder="Enter new client name" type="text" name="task[client_name]" id="task_client_name">
+    </div>
   </div>
-  
-  <label>
-    <p>Status *</p>
+
+  <div class="form-group">
+    <%= f.label :status %>
     <%= f.collection_select :status_id, Status.all.order('name'), :id, :name, { prompt: "Choose Status..." }, { class: "statusSelectList" } %>
-  </label>
-
-  <div class="statusSelectAdd" style="display: none;">
-    <a id="cancel-status" style="color:white" href="javascript:cancelStatus()">Cancel</a><input placeholder="Enter new status name" type="text" name="task[status_name]" id="task_status_name">
+    <div class="statusSelectAdd form-group" style="display: none;">
+      <a id="cancel-status" style="color:white" href="javascript:cancelStatus()">Cancel</a><input placeholder="Enter new status name" type="text" name="task[status_name]" id="task_status_name">
+    </div>    
   </div>
-  
-  <label>
-    <p>Product *</p>
+
+  <div class="form-group">
+    <%= f.label :product %>
     <%= f.collection_select :product_id, Product.all.order('name'), :id, :name, { prompt: "Choose Product..." }, { class: "productSelectList" } %>
-  </label>
-  
-  <div class="productSelectAdd" style="display: none;">
-    <a id="cancel-product" style="color:white" href="javascript:cancelProduct()">Cancel</a><input placeholder="Enter new product name" type="text" name="task[product_name]" id="task_product_name">
+    <div class="productSelectAdd form-group" style="display: none;">
+      <a id="cancel-product" style="color:white" href="javascript:cancelProduct()">Cancel</a><input placeholder="Enter new product name" type="text" name="task[product_name]" id="task_product_name">
+    </div>    
   </div>
 
-  <label>
-    <p>Priority *</p>
+  <div class="form-group">
+    <%= f.label :priority %>
     <%= f.collection_select :priority_id, Priority.all.order('name'), :id, :name, { prompt: "Choose Priority..."}, { class: "prioritySelectList" } %>
-  </label>
-
-  <div class="prioritySelectAdd" style="display: none;">
-    <a id="cancel-priority" style="color:white" href="javascript:cancelPriority()">Cancel</a><input placeholder="Enter new priority name" type="text" name="task[priority_name]" id="task_priority_name">
+    <div class="prioritySelectAdd form-group" style="display: none;">
+      <a id="cancel-priority" style="color:white" href="javascript:cancelPriority()">Cancel</a><input placeholder="Enter new priority name" type="text" name="task[priority_name]" id="task_priority_name">
+    </div>     
   </div>
 
-  <label>
-    <p>Notify Email - Who to notify (if anyone) when a record is updated</p>
+  <div class="form-group">
+    <%= f.label :notify_email %>
     <%= f.text_field :notify_email, placeholder: "client.name@theclientsite.com" %>
-  </label>
+  </div>
 
-  <label>
-    <p>Billable?&nbsp;&nbsp;<%= f.check_box :billable %></p>
-  </label>
+  <div class="form-group">
+    <%= f.label :billable %>
+    <%= f.check_box :billable %>
+  </div>
+
   <%= f.hidden_field :project_id, value: params[:project_id] %>
-  <label>
-    <span>&nbsp;</span>
-    <button class="btn btn-default">Submit</button>
-    <%= link_to "Cancel", tasks_path, class: "btn btn-warning" %>
-  </label>
+
+
+  <br/>
+   <div class="form-group" style="display: block;">
+     <button class="btn btn-default">Submit</button>
+     <%= link_to "Cancel", tasks_path, class: "btn btn-warning" %>
+   </div>
 <% end %>
 
 <script>

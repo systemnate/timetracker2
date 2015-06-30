@@ -51,7 +51,7 @@
 .dark-matter input[type="text"], .dark-matter input[type="email"], .dark-matter textarea, .dark-matter select, .chosen-select {
     border: none;
     color: #525252;
-    height: 25px;
+    height: 35px;
     line-height:15px;
     margin-bottom: 16px;
     margin-right: 6px;
@@ -308,4 +308,16 @@ section#errors {
   width: 20px;
   height: 20px;
   background: #777777;
+}
+
+.form-group {
+  width: 49%;
+}
+
+.form-right {
+  float: right;
+}
+
+.form-left {
+  float: left;
 }
