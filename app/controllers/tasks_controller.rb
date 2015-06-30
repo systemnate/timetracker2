@@ -101,7 +101,7 @@ class TasksController < ApplicationController
   private
     def task_params
       params.require(:task).permit(:title, :status_id,
-        :product_id, :priority_id, :client_id, :alternate_id, :tag_list,
+        :product_id, :priority_id, :client_id, :alternate_id, :tag_list, :project_id,
         :assigned_to, :billable, :client_name, :status_name, :priority_name, :product_name, :notify_email)
     end
 end

@@ -24,7 +24,7 @@
   
   <label>
     <p>Client *</p>
-    <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
+    <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, {selected: params[:client_id], prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
   </label>
   
   <div class="clientSelectAdd" style="display: none;">

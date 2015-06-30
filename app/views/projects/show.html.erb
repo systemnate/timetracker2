@@ -65,5 +65,5 @@
       <% end %>
     </tbody>
   </table>
-  <%= link_to "Add New Task", new_task_path(client_id: @project.client.id), class: "btn btn-primary" %>
+  <%= link_to "Add New Task", new_task_path(client_id: @project.client.id, project_id: @project.id), class: "btn btn-primary" %>
 </div>
