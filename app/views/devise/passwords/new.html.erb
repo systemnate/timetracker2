@@ -4,13 +4,13 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.label :email %>
+    <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Enter your email address here." %><br/>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
   </div>
 <% end %>
-
+<br/>
 <%= render "devise/shared/links" %>
