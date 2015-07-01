@@ -21,7 +21,7 @@
     font: 12px "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #D3D3D3;
     text-shadow: 1px 1px 1px #444;
-    border: none;
+    border: 0px;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -49,7 +49,7 @@
     font-weight: bold;
 }
 .dark-matter input[type="text"], .dark-matter input[type="email"], .dark-matter textarea, .dark-matter select, .chosen-select {
-    border: none;
+    border: 2px solid white;
     color: #525252;
     height: 35px;
     line-height:15px;
@@ -63,7 +63,7 @@
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-    background: #DFDFDF;
+    background: #DFDFDF;    
 }
 .dark-matter select, .chosen-select {
     background: #DFDFDF no-repeat right;
@@ -310,8 +310,14 @@ section#errors {
   background: #777777;
 }
 
-.form-group {
+.form-49{
   width: 49%;
+}
+
+@media (max-width: 800px) {
+  .form-49 {
+    width: 100%;
+  }
 }
 
 .form-right {
@@ -320,4 +326,13 @@ section#errors {
 
 .form-left {
   float: left;
+}
+
+ul.tagit {
+  border: 2px solid white;
+  height: 35px;
+}
+
+#task_billable {
+  border: 2px solid white;
 }

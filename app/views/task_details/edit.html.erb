@@ -11,7 +11,8 @@
   </label>
 
   <label>
-    <%= f.hidden_field :time_spent, value: @task_detail.time_spent %>
+    <%= f.label :time_spent %>
+    <%= f.number_field :time_spent, value: @task_detail.time_spent, class: "time-spent" %>
   </label>
 
   <label>
@@ -24,9 +25,9 @@
     <button class="btn btn-default">Save</button>
     <%= link_to "Cancel", @task, class: "btn btn-warning" %>
   </label>
-
-
 <% end %>
+<%= tinymce_assets %>
+<%= tinymce %>
 <script>
   $('#timer').timer();
   var startTime = new Date();
