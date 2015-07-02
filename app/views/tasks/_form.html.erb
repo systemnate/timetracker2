@@ -23,7 +23,11 @@
 
   <div class="form-group form-49">
     <%= f.label :client %>
-    <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, {selected: params[:client_id], prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
+    <% if !params[:client_id].blank? %>
+      <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { selected: params[:client_id], prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
+    <% else %>
+      <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
+    <% end %>
     <div class="clientSelectAdd" style="display: none;">
       <a id="cancel-client" style="color:white" href="javascript:cancelClient()">Cancel</a><input placeholder="Enter new client name" type="text" name="task[client_name]" id="task_client_name">
     </div>
