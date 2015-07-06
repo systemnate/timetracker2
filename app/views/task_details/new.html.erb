@@ -3,9 +3,9 @@
       <span>Enter case details and click save when done.</span>
       <span>Checking important will render the view in a red color.</span>
   </h1>
-  <div id="timer">
-    
-  </div>
+  <div id="timer"></div>
+  <button class="btn btn-danger btn-sm timer-stop">Stop!</button>
+  <button class="btn btn-success btn-sm timer-start">Start!</button>
   <label>
     <%= f.text_area :body, class: "tinymce" %>
   </label>
@@ -32,20 +32,20 @@
 <% end %>
 <script>
   $('#timer').timer();
-  var startTime = new Date();
-  console.log(startTime)
   $( "#new_task_detail" ).submit(function( event ) {
-    var endTime = new Date();
-    var timeDiff = endTime - startTime;
-    console.log(timeDiff)
-    timeDiff /= 1000;
-    timeDiff = Math.floor(timeDiff / 60);
-    var oldTime = $("#task_detail_time_spent").val();
-    var newTime = parseInt(oldTime) + parseInt(timeDiff);
-    console.log(newTime);
-    $("#task_detail_time_spent").val(newTime);
+    var timeSpent = $('#timer').data('seconds');
+    timeSpent = timeSpent / 60.0;
+    $("#task_detail_time_spent").val(timeSpent);
     return true;
   });
+  $(".timer-stop").click( function(event) {
+    event.preventDefault();
+    $("#timer").timer("pause");
+  });
+  $(".timer-start").click( function(event) {
+    event.preventDefault();
+    $("#timer").timer("resume");
+  });  
 </script>
 <%= tinymce_assets %>
 <%= tinymce %>
