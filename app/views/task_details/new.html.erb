@@ -4,8 +4,8 @@
       <span>Checking important will render the view in a red color.</span>
   </h1>
   <div id="timer"></div>
-  <button class="btn btn-danger btn-sm timer-stop">Stop!</button>
-  <button class="btn btn-success btn-sm timer-start">Start!</button>
+    <button class="btn btn-danger btn-sm timer-stop">Stop!</button>
+    <button class="btn btn-success btn-sm timer-start">Start!</button>
   <label>
     <%= f.text_area :body, class: "tinymce" %>
   </label>
@@ -30,7 +30,7 @@
     <%= link_to "Cancel", @task, class: "btn btn-warning" %>
   </label>  
 <% end %>
-<script type="text/javascript" src="/assets/tinymce.js"/>
+<%= tinymce_assets %>
 <script>
   $('#timer').timer();
   $( "#new_task_detail" ).submit(function( event ) {
@@ -48,5 +48,4 @@
     $("#timer").timer("resume");
   });  
 </script>
-<%= tinymce_assets %>
 <%= tinymce %>
