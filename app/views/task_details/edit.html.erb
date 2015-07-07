@@ -27,9 +27,10 @@
   </label>
 <% end %>
 <%= tinymce_assets %>
-<%= tinymce %>
+<script>tinyMCE.remove();</script>
 <script>
   $('#timer').timer();
+
   $( "#edit-detail" ).submit(function( event ) {
     var timeSpent = $('#timer').data('seconds');
     console.log("Timer Data in seconds: " + timeSpent);
@@ -42,14 +43,15 @@
     $("#task_detail_time_spent").val(totalSpent);
     return true;
   });
+
   $(".timer-stop").click( function(event) {
     event.preventDefault();
     $("#timer").timer("pause");
   });
+
   $(".timer-start").click( function(event) {
     event.preventDefault();
     $("#timer").timer("resume");
   });
 </script>
-<%= tinymce_assets %>
 <%= tinymce %>
