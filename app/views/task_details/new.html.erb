@@ -31,6 +31,15 @@
   </label>  
 <% end %>
 <%= tinymce_assets %>
+
+<% if @task.task_details.count > 0 %>
+  <hr/>
+  <h1>Previous Entries</h1>
+  <% @task.task_details[0, @task.task_details.size-1].each do |td| %>
+    <%= show_detail(td) %>
+  <% end %>
+<% end %>
+
 <script>
   $('#timer').timer();
   $( "#new_task_detail" ).submit(function( event ) {
