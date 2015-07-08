@@ -7,7 +7,7 @@ describe 'status' do
   before do 
     set_subdomain(account.subdomain)
     sign_user_in(user)
-    page.find(:css, 'a[href="/pages/index"]').click
+    page.first(:link, "Configuration").click
   end
 
   it "allows creation of new status" do
