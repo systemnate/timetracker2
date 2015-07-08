@@ -34,6 +34,7 @@
       </tr>
     <% end %>
     <% @task_details.each do |td| %>
+        <% next if @tasks.include?(td.task) %>
       <tr>
         <td><%= label_id(td.task) %></td>
         <td><%= label_alternate_id(td.task) %></td>
