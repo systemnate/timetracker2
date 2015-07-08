@@ -1,5 +1,12 @@
 toolbar:
-  - styleselect | bold italic | undo redo
-  - image | link
+  - styleselect | bold italic | undo redo | image | link | numlist | bullist | emoticons | insertdatetime | textcolor
 plugins:
   - link
+  - table
+  - insertdatetime
+  - advlist
+  - emoticons
+theme_advanced_buttons1:
+  - numlist
+browser_spellcheck: true
+advlist_number_styles: "default,lower-alpha,lower-greek,lower-roman,upper-alpha,upper-roman"

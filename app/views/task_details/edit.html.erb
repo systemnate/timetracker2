@@ -1,3 +1,4 @@
+<%= tinymce_assets %>
 <%= form_for([@task, @task_detail], html: { class: "dark-matter", id: "edit-detail" }) do |f| %>
   <h1>Edit Detail 
       <span>Enter case details and click save when done.</span>
@@ -26,7 +27,7 @@
     <%= link_to "Cancel", @task, class: "btn btn-warning" %>
   </label>
 <% end %>
-<%= tinymce_assets %>
+
 <script>
   $('#timer').timer();
 
@@ -53,4 +54,4 @@
     $("#timer").timer("resume");
   });
 </script>
-<%= tinymce %>
+<%= tinymce content_css: asset_path('tinymce.css')%>
