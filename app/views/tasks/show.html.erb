@@ -1,26 +1,28 @@
 <h1 class="page-header"><%= link_to @task.title, edit_task_path(@task) %></h1>
 <table class="table">
   <thead>
-    <th>ID</th>
-    <th>Alt. ID</th>
+    <th class="table-small">ID</th>
+    <th class="table-medium">Alt. ID</th>
+    <th>Title</th>
     <th>Status</th>
-    <th>Client</th>
+    <th class="table-medium">Client</th>
     <th>Product</th>
     <th>Priority</th>
     <th>Assigned To</th>
-    <th>Date</th>
-    <th>Time Spent</th>
+    <th class="table-large">Date</th>
+    <th>Time</th>
   </thead>
   <tbody>
     <tr>
       <td><%= label_id(@task) %></td>
       <td><%= label_alternate_id(@task) %></td>
+      <td><%= @task.title %></td>
       <td><%= label_status(@task) %></td>
       <td><%= label_client(@task) %></td>
       <td><%= label_product(@task) %></span></td>
       <td><%= label_priority(@task) %></td>
-      <td><%= mail_to(email_for(@task)) %></td>
-      <td></td>
+      <td><%= mail_to(email_for(@task), assigned_to(@task)) %></td>
+      <td><%= label_date(@task) %></td>
       <td><%= show_time(@task) %></td>
     </tr>
   </tbody>
