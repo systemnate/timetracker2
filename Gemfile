@@ -30,6 +30,7 @@ gem 'jquery-ui-rails'
 gem 'sweet-alert'
 gem 'sweet-alert-confirm'
 gem 'tooltipster-rails'
+gem 'listjs-rails'
 
 group :development, :test do
   gem 'byebug'

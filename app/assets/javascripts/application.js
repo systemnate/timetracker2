@@ -23,3 +23,4 @@
 //= require sweet-alert
 //= require sweet-alert-confirm
 //= require jquery.tooltipster.min.js
+//= require list

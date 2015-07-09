@@ -196,6 +196,8 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
+    listjs-rails (1.1.1)
+      railties (>= 3.1.0)
     loofah (2.0.1)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
@@ -376,6 +378,7 @@ DEPENDENCIES
   jquery-validation-rails
   launchy (~> 2.4.3)
   letter_opener
+  listjs-rails
   paperclip (~> 4.2)
   pg
   pry
