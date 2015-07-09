@@ -4,14 +4,18 @@
   <thead>
     <th>Title</th>
     <th>Project Manager</th>
-    <th>Allotted Time (minutes)</th>
+    <th>Allotted Time (hours)</th>
+    <th>Time Spent</th>
+    <th>Time Remaining</th>
     <th>Due Date</th>
   </thead>
   <tbody>
     <tr>
       <td><%= @project.title %></td>
       <td><%= @project.user.name %></td>
-      <td><%= @project.allotted_time %></td>
+      <td><%= allotted_time_hours(@project) %></td>
+      <td><%= time_spent(@project) %></td>
+      <td><%= time_remaining(@project) %></td>
       <td><%= @project.due_date %></td>
     </tr>
   </tbody>
@@ -30,7 +34,7 @@
         <th>Priority</th>
         <th>Assigned To</th>
         <th class="table-large">Date</th>
-        <th>Time</th>
+        <th>Time Spent</th>
       </tr>
     </thead>
     <tbody>

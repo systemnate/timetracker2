@@ -13,6 +13,10 @@ class Project < ActiveRecord::Base
         time_spent += td.time_spent
       end
     end
-    time_spent
+    time_spent / 60.0
+  end
+
+  def allotted_time=(value)
+    write_attribute(:allotted_time, value.to_i * 60.0)
   end
 end
