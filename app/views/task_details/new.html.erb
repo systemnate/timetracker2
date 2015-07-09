@@ -1,5 +1,6 @@
 <%= tinymce_assets %>
 <%= form_for([@task, @task_detail], html: { class: "dark-matter", multipart: true }) do |f| %>
+<% @task_details = @task.task_details.order("created_at") %>
   <h1>New Detail 
       <span>Enter case details and click save when done.</span>
       <span>Checking important will render the view in a red color.</span>
@@ -32,10 +33,10 @@
   </label>  
 <% end %>
 
-<% if @task.task_details.count > 0 %>
+<% if @task_details.size > 0 %>
   <hr/>
   <h1>Previous Entries</h1>
-  <% @task.task_details[0, @task.task_details.size-1].each do |td| %>
+  <% @task_details.each do |td| %>
     <%= show_detail(td) %>
   <% end %>
 <% end %>

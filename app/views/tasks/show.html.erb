@@ -36,14 +36,14 @@
   <h2>Attachments:</h2>
 <% end %>
 <ul>
-  <% @task.task_details.each do |detail| %>
+  <% @task_details.each do |detail| %>
     <% if detail.task_attachment.file? %>
       <li><%= link_to detail.task_attachment_file_name, detail.task_attachment.url %></li>
     <% end %>
   <% end %>
 </ul>
 <p></p>
-<% @task.task_details.each do |detail| %>
+<% @task_details.each do |detail| %>
   <% if can? :update, detail %>
     <%= link_to [:edit, @task, detail], class: "btn btn-default btn-xs edit" do %>
       Edit

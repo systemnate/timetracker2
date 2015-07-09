@@ -22,6 +22,7 @@ class TasksController < ApplicationController
   end
 
   def show
+    @task_details = @task.task_details.order("created_at")
   end
 
   def new
