@@ -63,10 +63,10 @@
           </li>
         </ul>
         <%= form_tag search_tasks_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
-          <p>
-            <%= text_field_tag :search, params[:search], class: "form-control", value: "Search!", onfocus: "this.value=''", size: 15 %>
+          <div class="form-group">
+            <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search!", size: 15 %>
+          </div>
             <%= submit_tag "Search", name:nil, class: "btn btn-default" %>
-          </p>
         <% end %>
       <% end %>        
         <% if user_signed_in? %>
