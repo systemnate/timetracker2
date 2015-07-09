@@ -393,6 +393,5 @@ DEPENDENCIES
   sweet-alert-confirm
   tinymce-rails
   tooltipster-rails
-  turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
