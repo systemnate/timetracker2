@@ -97,12 +97,12 @@
           <td class="sort-alternate-id"><%= label_alternate_id(task) %></td>
           <td class="sort-title"><%= task.title %></td>
           <td class="sort-status"><%= label_status(task) %></td>
-          <td><%= label_client(task) %></td>
-          <td><%= label_product(task)  %></td>
-          <td><%= label_priority(task) %></td>
-          <td><%= mail_to(email_for(task), assigned_to(task)) %></td>
-          <td><%= label_date(task) %></td>
-          <td><%= show_time(task) %></td>
+          <td class="sort-client"><%= label_client(task) %></td>
+          <td class="sort-product"><%= label_product(task)  %></td>
+          <td class="sort-priority"><%= label_priority(task) %></td>
+          <td class="sort-assigned-to"><%= mail_to(email_for(task), assigned_to(task)) %></td>
+          <td class="sort-date"><%= label_date(task) %></td>
+          <td class="sort-time"><%= show_time(task) %></td>
           <td><%= link_to task, class: "btn btn-primary" do %>
               <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
             <% end %>
@@ -127,7 +127,7 @@
 </div>
 <script>
   var options = {
-    valueNames: [ 'sort-id', 'sort-alternate-id', 'sort-title', 'sort-status' ]
+    valueNames: [ 'sort-id', 'sort-alternate-id', 'sort-title', 'sort-status', 'sort-status', 'sort-client', 'sort-product', 'sort-priority', 'sort-assigned-to', 'sort-date', 'sort-time' ]
   };
 
   var userList = new List('task-list', options);
