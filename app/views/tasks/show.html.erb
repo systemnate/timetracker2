@@ -1,4 +1,5 @@
 <h1 class="page-header"><%= link_to @task.title, edit_task_path(@task) %></h1>
+<h3>Created by: <%= created_by(@task) %></h3>
 <table class="table">
   <thead>
     <th class="table-small">ID</th>
@@ -10,13 +11,13 @@
     <th>Priority</th>
     <th>Assigned To</th>
     <th class="table-large">Date</th>
-    <th>Time</th>
+    <th>Time Spent</th>
   </thead>
   <tbody>
     <tr>
       <td><%= label_id(@task) %></td>
       <td><%= label_alternate_id(@task) %></td>
-      <td><%= @task.title %></td>
+      <td><%= truncate(@task.title, length: 50, separator: ' ') %></td>
       <td><%= label_status(@task) %></td>
       <td><%= label_client(@task) %></td>
       <td><%= label_product(@task) %></span></td>

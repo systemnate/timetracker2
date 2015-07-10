@@ -86,7 +86,6 @@
         <th><i class="fa fa-sort"></i> Priority</th>
         <th><i class="fa fa-sort"></i> Assigned To</th>
         <th class="table-large"><i class="fa fa-sort"></i> Date</th>
-        <th><i class="fa fa-sort"></i> Time</th>
       </tr>
     </thead>
     <tbody class="list">
@@ -94,14 +93,14 @@
         <tr>
           <td class="sort-id"><%= label_id(task) %></td>
           <td class="sort-alternate-id"><%= label_alternate_id(task) %></td>
-          <td class="sort-title"><%= task.title %></td>
+          <td class="sort-title"><%= truncate(task.title, length: 25, separator: ' ') %></td>
           <td class="sort-status"><%= label_status(task) %></td>
           <td class="sort-client"><%= label_client(task) %></td>
           <td class="sort-product"><%= label_product(task)  %></td>
           <td class="sort-priority"><%= label_priority(task) %></td>
           <td class="sort-assigned-to"><%= mail_to(email_for(task), assigned_to(task)) %></td>
           <td class="sort-date"><%= label_date(task) %></td>
-          <td class="sort-time"><%= show_time(task) %></td>
+
           <td><%= link_to task, class: "btn btn-primary" do %>
               <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
             <% end %>

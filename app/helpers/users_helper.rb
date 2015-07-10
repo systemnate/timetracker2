@@ -23,4 +23,13 @@ module UsersHelper
     user = User.find_by(id: task.assigned_to)
     user.name
   end
+
+  def created_by(task)
+    user = User.find_by(id: task.created_by)
+    if user.nil?
+      task.update(created_by: task.assigned_to)
+      user = User.find_by(id: task.created_by) 
+    end
+    user.name
+  end
 end

@@ -58,6 +58,8 @@ class TasksController < ApplicationController
       @task.product_id = p.id
     end
 
+    @task.created_by = current_user.id
+
     if @task.save
       redirect_to new_task_task_detail_path(@task), notice: "Task created successfully!"
     else
