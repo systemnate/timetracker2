@@ -8,7 +8,7 @@ class Ability
     elsif user.regular?
       can :read, :all
       can :create, :all
-      can :update, :all
+      can :update, TaskDetail, user_id: user.id
     elsif user.viewer?
       can :read, :all
     end
