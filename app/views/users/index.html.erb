@@ -29,7 +29,7 @@
                   <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
                 <% end %>
               </td>
-              <% end %>              
+              <% end %>
             </tr>
           <% end %>
         </tbody>
@@ -41,7 +41,7 @@
         <%= simple_form_for(User.new, url: user_invitation_path,
                                       html: { class: 'form-inline' }) do |f| %>
           <%= f.input :email, placeholder: 'Email', label: false, style: "margin-bottom: 0px;" %>
-          <%= f.collection_select :role_id, Role.all, :id, :name, {}, class: "form-control" %>
+          <%= f.collection_select :role_id, Role.all, :id, :name, { selected: 2 }, class: "form-control" %>
           <%= f.button :submit, 'Invite User', class: 'btn-primary' %>
         <% end %>
         </div>
