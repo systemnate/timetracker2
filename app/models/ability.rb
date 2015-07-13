@@ -9,7 +9,7 @@ class Ability
       can :read, :all
       can :create, :all
       can :update, :all
-      can :update, TaskDetail, user_id: current_user.id
+      can :update, TaskDetail, user_id: user.id
     elsif user.viewer?
       can :read, :all
     end
