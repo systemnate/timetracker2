@@ -35,13 +35,16 @@
         </tbody>
       </table>
 
-      <h3 class="extra-margin-top">Invite User</h3>
-
-      <%= simple_form_for(User.new, url: user_invitation_path,
-                                    html: { class: 'form-inline' }) do |f| %>
-        <%= f.input :email, placeholder: 'Email', label: false %>
-        <%= f.collection_select :role_id, Role.all, :id, :name, {}, class: "form-control" %>
-        <%= f.button :submit, 'Invite User', class: 'btn-primary' %>
+      <% if can? :destroy, @users %>
+        <h3 class="extra-margin-top">Invite User</h3>
+        <div class="form-group">
+        <%= simple_form_for(User.new, url: user_invitation_path,
+                                      html: { class: 'form-inline' }) do |f| %>
+          <%= f.input :email, placeholder: 'Email', label: false, class: "form-control" %>
+          <%= f.collection_select :role_id, Role.all, :id, :name, {}, class: "form-control" %>
+          <%= f.button :submit, 'Invite User', class: 'btn-primary' %>
+        <% end %>
+        </div>
       <% end %>
     </div>
   </div>
