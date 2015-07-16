@@ -7,74 +7,69 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>  
     <%= csrf_meta_tags %>
     <title>Task Clash</title>
+    <style>
+       .help-business {
+        font-size: 2.2em;
+        color: white;
+        text-align: center;
+        background-color: #C63D0F;
+        margin-top: 0px;
+        padding-top: 0px;
+      }
+      .bx-wrapper .bx-viewport 
+      {
+          border: 0;
+      }
+    </style>
   </head>
   <body style="padding-top: 0px">
     <div id="headerwrap">
       <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2 tagline">
-            <h1>Simple Time Tracking and Case Management!</h1>
-          </div>
-        </div><!--row -->
-        <div class="row">
-          <div class="col-lg-4"></div>
-          <div class="col-lg-4">
-            <%= image_tag('taskclash-large.png') %>
-          </div>
-          <div class="col-lg-4"></div>
-        </div>   
-        <hr/>
-        <div class="row">
-          <div class="col-lg-4"></div>
-          <div class="col-lg-4">
-            <%= link_to "Create Account", new_account_path, class: "btn btn-primary btn-lg" %></p></div>
-          </div>
-          <div class="col-lg-4"></div>
+        <div class="tagline">
+          <h1>Simple Time Tracking and Case Management!</h1>
         </div>
-        <div class="row">
-          <div class="col-lg-4"></div>
-          <div class="col-lg-4">
-            <p>* Task Clash is currently in test mode.  Any accounts created are subject to removal until further notice.</p>
-          </div>
-          <div class="col-lg-4"></div>
+        <div class="main-logo">
+          <%= image_tag('taskclash-large.png') %>
+        </div> 
+        <hr/>
+        <div>
+          <%= link_to "Create Account", new_account_path, class: "btn btn-primary btn-lg" %>
+        </div>
+        <p>* Task Clash is currently in test mode.  Any accounts created are subject to removal until further notice.</p>
         </div>          
       </div>
-    </div>
       <div class="section" id="services">
         <div class="container">
           <h2>How can Task Clash help my business?</h2>
-          <div class="row">
-            <div class="col-md-4 col-sm-6">
-              <h2>Keep track of time</h2>
-              <%= image_tag('tracktime.png', class: "img-responsive center-block") %>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-              <h2>Filter, Search, and Tag</h2>  
-              <%= image_tag('filter.png', class: "img-responsive center-block") %>
-            </div>
-
-            <div class="col-md-4">
-              <h2>Create Invoices</h2>
-              <%= image_tag('billing.png', class: "img-responsive center-block") %>
-            </div>                        
-          </div>
-          <div class="row">
-            <div class="col-md-4 col-sm-6">
-              <h2>Assign Tasks</h2>
-              <%= image_tag('view.png', class: "img-responsive center-block") %>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-              <h2>Create Projects</h2>  
-              <%= image_tag('project.png', class: "img-responsive center-block") %>
-            </div>
-
-            <div class="col-md-4">
-              <h2>Customize</h2>
-              <%= image_tag('customize.png', class: "img-responsive center-block") %>
-            </div>                        
-          </div>          
+          <ul class="bxslider">
+            <li>
+              <h1 class="help-business no-margin">Keep Track of Time</h1>
+              <%= image_tag('track-time.png', class: "center-block img-responsive") %>
+            </li>
+            <li>
+              <h1 class="help-business">Filter, Tag, and Search</h1>
+              <%= image_tag('filter-tag-search.png', class: "center-block img-responsive") %>
+              <h1 class="help-business">Manage Tasks</h1>
+              <%= image_tag('manage-tasks.png', class: "center-block img-responsive") %>
+            </li>
+            <li>
+              <h1 class="help-business">Create Invoices</h1>
+              <%= image_tag('billing.png', class: "center-block img-responsive") %>
+            </li>
+            <li>
+              <h1 class="help-business">View Analytics</h1>
+              <%= image_tag('analytics.png', class: "center-block img-responsive") %>
+            </li>
+            <li>
+              <h1 class="help-business">Create Projects</h1>
+              <%= image_tag('projects.png', class: "center-block img-responsive") %>
+            </li>
+            <li>
+              <h1 class="help-business">Customize</h1>
+              <%= image_tag('customize.png', class: "center-block img-responsive") %>
+            </li>
+          </ul>
+    
         </div>
       </div>
       <div class="callout section">
@@ -87,6 +82,11 @@
             </div>      
           </div>
         </div>
-      </div>         
+      </div>
+    <script>
+      $(document).ready(function(){
+        $('.bxslider').bxSlider();
+      });
+    </script>      
   </body>
 </html>

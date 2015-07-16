@@ -33,6 +33,7 @@ gem 'tooltipster-rails'
 gem 'listjs-rails'
 gem 'chartkick'
 gem 'groupdate', '~> 2.4.0'
+gem 'bxslider-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -16,6 +16,7 @@
 //= require jquery-ui
 //= require tinymce-jquery
 //= require bootstrap-sprockets
+//= require bxslider
 //= require_tree .
 //= require jquery.validate
 //= require jquery.validate.additional-methods
