@@ -8,6 +8,7 @@ class TaskDetailsController < ApplicationController
 
   def create
     @task_detail.user_id = current_user.id
+    @task_detail.time_spent = 1 if @task_detail.time_spent < 1
     if @task_detail.save
       redirect_to @task, notice: "New detail successfully created!"
     else
