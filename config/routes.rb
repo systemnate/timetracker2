@@ -11,6 +11,8 @@ class SubdomainBlank
 end
 
 Rails.application.routes.draw do
+  get 'analytics/show'
+
   constraints(SubdomainPresent) do
     root 'tasks#index', as: :subdomain_root
     devise_for :users

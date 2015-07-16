@@ -79,6 +79,7 @@ GEM
       xpath (~> 2.0)
     celluloid (0.16.0)
       timers (~> 4.0.0)
+    chartkick (1.3.2)
     chosen-rails (1.4.1)
       coffee-rails (>= 3.2)
       compass-rails (>= 1.1.2)
@@ -148,6 +149,8 @@ GEM
     formatador (0.2.5)
     globalid (0.3.3)
       activesupport (>= 4.1.0)
+    groupdate (2.4.0)
+      activesupport (>= 3)
     guard (2.12.5)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -360,6 +363,7 @@ DEPENDENCIES
   byebug
   cancancan (~> 1.10.1)
   capybara
+  chartkick
   chosen-rails
   coffee-rails (~> 4.1.0)
   compass-rails!
@@ -367,6 +371,7 @@ DEPENDENCIES
   devise (~> 3.4.1)
   devise_invitable (~> 1.4.2)
   factory_girl_rails
+  groupdate (~> 2.4.0)
   guard
   guard-livereload
   guard-rspec

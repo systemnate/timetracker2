@@ -1,0 +1,26 @@
+<h1 class="analytics">Analytics</h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <p class="analytics">Tasks by Client</p>
+    <%= pie_chart @tasks_by_client %>
+  </div>
+  <div class="col-md-6">
+    <p class="analytics">Assigned Tasks by User</p>
+    <%= pie_chart @tasks_by_user %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <p class="analytics">Tasks by Product</p>
+    <%= bar_chart @tasks_by_product %>
+  </div>
+</div>
+
+<div class="row">
+  <p class="analytics">Number of Tasks Created in Last 7 Days</p>
+  <div class="col-md-12">
+    <%= line_chart @tasks_created_last_week %>
+  </div>
+</div>
