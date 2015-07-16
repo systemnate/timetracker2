@@ -45,6 +45,7 @@
     <% end %>
   <% end %>
 </ul>
+<%= link_to "New Detail", new_task_task_detail_path(@task), class: "btn btn-primary" %>
 <p></p>
 <% @task_details.each do |detail| %>
   <% if can? :update, detail %>
