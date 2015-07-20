@@ -38,6 +38,6 @@ class StatusesController < ApplicationController
 
   private
   def status_params
-    params.require(:status).permit(:name, :color_id, :default_view)
+    params.require(:status).permit(:name, :color_id, :default_view, :is_complete)
   end
 end

@@ -18,4 +18,12 @@ module StatusesHelper
       'No'
     end
   end
+
+  def show_is_complete(status)
+    if status.is_complete == true
+      "Yes"
+    else
+      "No"
+    end
+  end
 end

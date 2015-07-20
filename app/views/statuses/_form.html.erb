@@ -23,6 +23,16 @@
     <%= f.check_box :default_view %>
   </div>
   <div class="form-group">
+    <%= f.label "Is this status considered to be complete?", class: "complete-tooltip", title: "Is this status considered to be completed, closed, finished, etc.?" %>
+    <%= f.check_box :is_complete %>
+  </div>
+  <div class="form-group">
     <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+    <script>
+        $(document).ready(function() {
+            $('.complete-tooltip').tooltipster();
+        });
+    </script>
