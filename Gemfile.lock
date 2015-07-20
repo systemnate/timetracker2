@@ -68,6 +68,9 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
     builder (3.2.2)
+    bullet (4.14.7)
+      activesupport (>= 3.0.0)
+      uniform_notifier (~> 1.9.0)
     bxslider-rails (4.1.0)
     byebug (4.0.4)
       columnize (= 0.9.0)
@@ -343,6 +346,7 @@ GEM
     uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.9.0)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.1.2)
@@ -361,6 +365,7 @@ DEPENDENCIES
   apartment (~> 1.0.0)
   aws-sdk (< 2.0)
   bootstrap-sass (~> 3.3.4.1)
+  bullet (~> 4.14.7)
   bxslider-rails
   byebug
   cancancan (~> 1.10.1)

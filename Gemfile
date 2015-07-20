@@ -48,6 +48,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'shoulda-matchers'
   gem 'letter_opener'
+  gem 'bullet', '~> 4.14.7'
 end
 
 group :production do

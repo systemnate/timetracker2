@@ -2,7 +2,7 @@ class PrioritiesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @priorities = Priority.all.order("name")
+    @priorities = Priority.includes(:color).order("name")
   end
 
   def show

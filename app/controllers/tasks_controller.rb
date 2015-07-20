@@ -2,9 +2,9 @@ class TasksController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @statuses = Status.all.order('name')
-    @priorities = Priority.all.order('name')
-    @products = Product.all.order('name')
+    @statuses = Status.includes(:color).order('name')
+    @priorities = Status.includes(:color).order('name')
+    @products = Status.includes(:color).order('name')
     if params[:status_id]
       @tasks = Task.all.where("status_id = ?", params[:status_id])
     elsif params[:priority_id]
@@ -14,9 +14,9 @@ class TasksController < ApplicationController
     elsif params[:tag]
       @tasks = Task.tagged_with(params[:tag])
     elsif params[:all_tasks]
-      @tasks = Task.all
+      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color)
     else
-      @tasks = Task.all.where('assigned_to = ?', current_user).order('created_at DESC').
+      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where('assigned_to = ?', current_user).order('created_at DESC').
           reject { |t| t.status.default_view != true }
     end
   end
