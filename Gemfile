@@ -51,6 +51,10 @@ group :development, :test do
   gem 'bullet', '~> 4.14.7'
 end
 
+group :development do
+  gem 'brakeman', :require => false
+end
+
 group :production do
   gem 'rails_12factor'
   gem 'puma'

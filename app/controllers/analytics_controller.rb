@@ -4,8 +4,8 @@ class AnalyticsController < ApplicationController
     @tasks_by_user = Hash.new(0)
     @tasks_by_product = Hash.new(0)
     @tasks_created_last_week = Hash.new(0)
-
-    Task.all.each do |t|
+    @tasks = Task.includes(:client, :product)
+    @tasks.each do |t|
       user = User.find(t.assigned_to).name
       if !@tasks_by_client.has_key?(t.client.name)
         @tasks_by_client[t.client.name] = 1
