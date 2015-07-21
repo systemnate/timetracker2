@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720164303) do
+ActiveRecord::Schema.define(version: 20150721155300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20150720164303) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "accounts", ["owner_id"], name: "index_accounts_on_owner_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -65,6 +67,9 @@ ActiveRecord::Schema.define(version: 20150720164303) do
     t.string   "title"
     t.integer  "client_id"
   end
+
+  add_index "projects", ["client_id"], name: "index_projects_on_client_id", using: :btree
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -117,6 +122,7 @@ ActiveRecord::Schema.define(version: 20150720164303) do
     t.datetime "task_attachment_updated_at"
   end
 
+  add_index "task_details", ["task_id"], name: "index_task_details_on_task_id", using: :btree
   add_index "task_details", ["user_id"], name: "index_task_details_on_user_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
@@ -136,6 +142,10 @@ ActiveRecord::Schema.define(version: 20150720164303) do
   end
 
   add_index "tasks", ["assigned_to"], name: "index_tasks_on_assigned_to", using: :btree
+  add_index "tasks", ["client_id"], name: "index_tasks_on_client_id", using: :btree
+  add_index "tasks", ["priority_id"], name: "index_tasks_on_priority_id", using: :btree
+  add_index "tasks", ["product_id"], name: "index_tasks_on_product_id", using: :btree
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -160,8 +170,10 @@ ActiveRecord::Schema.define(version: 20150720164303) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
   add_index "users", ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
+  add_index "users", ["invited_by_id", "invited_by_type"], name: "index_users_on_invited_by_id_and_invited_by_type", using: :btree
   add_index "users", ["invited_by_id"], name: "index_users_on_invited_by_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
   add_foreign_key "task_details", "users"
 end
