@@ -1,7 +1,7 @@
 <%= tinymce_assets %>
 <%= form_for([@task, @task_detail], html: { class: "dark-matter", multipart: true }) do |f| %>
 <% @task_details = @task.task_details.order("created_at") %>
-  <h1>New Detail 
+  <h1>New Detail
       <span>Enter case details and click save when done.</span>
       <span>Checking important will render the view in a red color.</span>
   </h1>
@@ -27,10 +27,10 @@
   </label>
 
   <label>
-    <span>&nbsp;</span> 
+    <span>&nbsp;</span>
     <button class="btn btn-default">Save</button>
     <%= link_to "Cancel", @task, class: "btn btn-warning" %>
-  </label>  
+  </label>
 <% end %>
 
 <% if @task_details.size > 0 %>
@@ -56,6 +56,6 @@
   $(".timer-start").click( function(event) {
     event.preventDefault();
     $("#timer").timer("resume");
-  });  
+  });
 </script>
 <%= tinymce content_css: asset_path('tinymce.css')%>

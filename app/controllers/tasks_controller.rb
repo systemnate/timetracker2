@@ -34,7 +34,7 @@ class TasksController < ApplicationController
 
   def create
     tp = task_params
-    
+
     if !tp[:client_name].blank?
       c = Client.create(name: tp[:client_name])
       @task.client_id = c.id

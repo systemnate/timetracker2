@@ -31,14 +31,14 @@
                   <i class="fa fa-list-ol fa-lg">&nbsp;</i>
                   Project
                 <% end %>
-              </li>              
+              </li>
             </ul>
           </li>
           <li>
             <%= link_to projects_path do %>
               <i class="fa fa-folder-o fa-lg">&nbsp;</i>Projects
             <% end %>
-          </li>          
+          </li>
           <li>
             <%= link_to pages_index_path do %>
               <i class="fa fa-cog fa-lg">&nbsp;</i>Configuration
@@ -73,7 +73,7 @@
           </div>
             <%= submit_tag "Search", name:nil, class: "btn btn-default" %>
         <% end %>
-      <% end %>        
+      <% end %>
         <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-right">
             <li>
@@ -82,7 +82,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to destroy_user_session_path, method: 'delete' do %>            
+              <%= link_to destroy_user_session_path, method: 'delete' do %>
                 <i class="fa fa-sign-out fa-lg">&nbsp;</i>Sign Out
               <% end %>
             </li>

@@ -18,7 +18,7 @@
   <div class="form-group">
     <%= f.label :color_id %><br/>
     <%= f.collection_select :color_id, Color.all, :id, :name, { prompt: "Choose Color..." }, class: "form-control" %>
-  </div>  
+  </div>
   <div class="form-group">
     <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>

@@ -1,12 +1,12 @@
 <%= tinymce_assets %>
 <%= form_for([@task, @task_detail], html: { class: "dark-matter", id: "edit-detail" }) do |f| %>
-  <h1>Edit Detail 
+  <h1>Edit Detail
       <span>Enter case details and click save when done.</span>
       <span>Checking important will render the view in a red color.</span>
   </h1>
   <div id="timer"></div>
   <button class="btn btn-danger btn-sm timer-stop">Stop!</button>
-  <button class="btn btn-success btn-sm timer-start">Start!</button>    
+  <button class="btn btn-success btn-sm timer-start">Start!</button>
   <label>
     <%= f.text_area :body, class: "tinymce" %>
   </label>
@@ -20,9 +20,9 @@
     <%= f.check_box :important %>
     Important?
   </label>
-    
+
   <label>
-    <span>&nbsp;</span> 
+    <span>&nbsp;</span>
     <button class="btn btn-default">Save</button>
     <%= link_to "Cancel", @task, class: "btn btn-warning" %>
   </label>

@@ -8,7 +8,7 @@ class TaskDetail < ActiveRecord::Base
   def self.important?
     important
   end
-  
+
   def self.searchkick_index
     index_name = [Apartment::Tenant.current, model_name.plural, Rails.env].join('_')
     Searchkick::Index.new(index_name)

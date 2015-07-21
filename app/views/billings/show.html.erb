@@ -59,11 +59,11 @@
     <th>Amount Owed: <%= number_to_currency ((@total_minutes / 60.0) * @pay_rate) %></th>
   </thead>
 </table>
-<a download="<%= Time.now.strftime("%Y%m%d%H%M%S")%>billingreport.xls" href="#" 
-  onclick="return ExcellentExport.excel(this, 'billing', 'Billing');" 
+<a download="<%= Time.now.strftime("%Y%m%d%H%M%S")%>billingreport.xls" href="#"
+  onclick="return ExcellentExport.excel(this, 'billing', 'Billing');"
   class="btn btn-primary"><i class="fa fa-file-excel-o fa-lg"> Export to Excel</i></a>
 <br/>
 <br/>
-<a download="<%= Time.now.strftime("%Y%m%d%H%M%S")%>billingreport.csv" href="#" 
-  onclick="return ExcellentExport.csv(this, 'billing');" 
+<a download="<%= Time.now.strftime("%Y%m%d%H%M%S")%>billingreport.csv" href="#"
+  onclick="return ExcellentExport.csv(this, 'billing');"
   class="btn btn-primary"><i class="fa fa-file-text-o fa-lg"> Export to CSV</i></a>

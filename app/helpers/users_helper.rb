@@ -28,7 +28,7 @@ module UsersHelper
     user = User.find_by(id: task.created_by)
     if user.nil?
       task.update(created_by: task.assigned_to)
-      user = User.find_by(id: task.created_by) 
+      user = User.find_by(id: task.created_by)
     end
     user.name
   end

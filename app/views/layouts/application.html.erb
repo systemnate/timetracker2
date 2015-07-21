@@ -8,9 +8,9 @@
   <%= favicon_link_tag 'tcfavicon.ico' %>
   <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>  
-  <link rel="stylesheet" 
-    href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">     
+  <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet"
+    href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
 </head>
 <body>
@@ -20,12 +20,12 @@
     <%= yield %>
 </div>
 <script>
-  $(document).ready(function() 
-    { 
+  $(document).ready(function()
+    {
       $("#sorted-table").tablesorter();
       $('.tooltip').tooltipster();
-    } 
-  ); 
+    }
+  );
 </script>
 <%= debug(params) if Rails.env.development? %>
   <script>

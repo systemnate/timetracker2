@@ -87,7 +87,7 @@ Rails.application.configure do
       :url => ":s3_domain_url"
     }
   }
-  
+
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   host = 'taskclash.herokuapp.com'
@@ -100,5 +100,5 @@ Rails.application.configure do
     :password       => ENV['SENDGRID_PASSWORD'],
     :domain         => 'heroku.com',
     :enable_starttls_auto => true
-  }  
+  }
 end

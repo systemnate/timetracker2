@@ -31,7 +31,7 @@ module TaskDetailsHelper
       content_tag(:div, class: "card card-dark") do
         show_time_spent(task_detail).
         concat(content_tag(:p, task_detail.body.html_safe))
-      end      
+      end
     end
   end
 

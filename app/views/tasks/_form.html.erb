@@ -15,7 +15,7 @@
     <%= f.label :tag_list, 'Tag List' %>
     <%= f.text_field :tag_list, value: @task.tag_list.to_s, class: "myTags" %>
   </div>
-  
+
   <div class="form-group form-49">
     <%= f.label :alternate_id, 'Alternate ID#' %>
     <%= f.text_field :alternate_id, placeholder: "Alternate ID" %>
@@ -38,7 +38,7 @@
     <%= f.collection_select :status_id, Status.all.order('name'), :id, :name, { prompt: "Choose Status..." }, { class: "statusSelectList" } %>
     <div class="statusSelectAdd form-group" style="display: none;">
       <a id="cancel-status" style="color:white" href="javascript:cancelStatus()">Cancel</a><input placeholder="Enter new status name" type="text" name="task[status_name]" id="task_status_name">
-    </div>    
+    </div>
   </div>
 
   <div class="form-group form-49">
@@ -46,7 +46,7 @@
     <%= f.collection_select :product_id, Product.all.order('name'), :id, :name, { prompt: "Choose Product..." }, { class: "productSelectList" } %>
     <div class="productSelectAdd form-group" style="display: none;">
       <a id="cancel-product" style="color:white" href="javascript:cancelProduct()">Cancel</a><input placeholder="Enter new product name" type="text" name="task[product_name]" id="task_product_name">
-    </div>    
+    </div>
   </div>
 
   <div class="form-group form-49">
@@ -54,7 +54,7 @@
     <%= f.collection_select :priority_id, Priority.all.order('name'), :id, :name, { prompt: "Choose Priority..."}, { class: "prioritySelectList" } %>
     <div class="prioritySelectAdd form-group" style="display: none;">
       <a id="cancel-priority" style="color:white" href="javascript:cancelPriority()">Cancel</a><input placeholder="Enter new priority name" type="text" name="task[priority_name]" id="task_priority_name">
-    </div>     
+    </div>
   </div>
 
   <div class="form-group form-49">
@@ -113,7 +113,7 @@
       $(".productSelectAdd").show();
       $('#cancel-product').show();
     }
-  });  
+  });
 
   function cancelClient() {
     $(".clientSelectList").show();
@@ -146,10 +146,10 @@
   $('.myTags').tagit({
   });
 
-  $(document).ready(function() 
-  { 
+  $(document).ready(function()
+  {
     $('.title-question').tooltipster();
-  } 
-); 
+  }
+);
 
 </script>
