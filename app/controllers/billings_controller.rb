@@ -3,7 +3,7 @@ class BillingsController < ApplicationController
   end
 
   def create
-    @task_details = TaskDetail.where('created_at BETWEEN ? AND ?', 
+    @task_details = TaskDetail.includes(:task, :task => :client).where('created_at BETWEEN ? AND ?', 
       params[:start_date], params[:end_date]).order('created_at')
     render :show
   end
