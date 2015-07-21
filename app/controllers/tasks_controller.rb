@@ -88,16 +88,17 @@ class TasksController < ApplicationController
   def search
     begin
       if params[:search].present?
-        @tasks = Task.search params[:search], fields: [:title, :alternate_id]
-        @task_details = TaskDetail.search params[:search], fields: [:body]
+        @tasks = Task.includes(:status, :client, :priority => :color, :product => :color, :status => :color).search params[:search], fields: [:title, :alternate_id, :id]
+        @task_details = TaskDetail.includes(:task).search params[:search], fields: [:body]
       else
-        @tasks = Task.all
+        @tasks = Task.includes(:status, :client, :priority => :color, :product => :color, :status => :color)
+        @task_details = TaskDetail.includes(:task)
       end
     rescue Exception
       Task.reindex
       TaskDetail.reindex
-      @tasks = Task.search params[:search], fields: [:title, :alternate_id]
-      @task_details = TaskDetail.search params[:search], fields: [:body]
+      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color, :status => :color).search params[:search], fields: [:title, :alternate_id, :id]
+      @task_details = TaskDetail.includes(:task).search params[:search], fields: [:body]
     end
   end
 
