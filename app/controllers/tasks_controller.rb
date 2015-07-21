@@ -3,16 +3,16 @@ class TasksController < ApplicationController
 
   def index
     @statuses = Status.includes(:color).order('name')
-    @priorities = Status.includes(:color).order('name')
-    @products = Status.includes(:color).order('name')
+    @priorities = Priority.includes(:color).order('name')
+    @products = Product.includes(:color).order('name')
     if params[:status_id]
-      @tasks = Task.all.where("status_id = ?", params[:status_id])
+      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where("status_id = ?", params[:status_id])
     elsif params[:priority_id]
-      @tasks = Task.all.where("priority_id = ?", params[:priority_id])
+      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where("priority_id = ?", params[:priority_id])
     elsif params[:product_id]
-      @tasks = Task.all.where("product_id = ?", params[:product_id])
+      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where("product_id = ?", params[:product_id])
     elsif params[:tag]
-      @tasks = Task.tagged_with(params[:tag])
+      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).tagged_with(params[:tag])
     elsif params[:all_tasks]
       @tasks = Task.includes(:status, :client, :priority => :color, :product => :color)
     else
