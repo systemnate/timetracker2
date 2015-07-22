@@ -6,4 +6,8 @@ class WelcomeController < ApplicationController
 
   def documentation
   end
+
+  def test
+    render :layout => false
+  end
 end
