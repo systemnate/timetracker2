@@ -1,5 +1,11 @@
 FactoryGirl.define do
   factory :status do
-    name "MyString"
+    name "Open"
+    color
+  end
+
+  factory :status_closed do
+    name "Closed"
+    color
   end
 end

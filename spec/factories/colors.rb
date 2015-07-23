@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :color do
-    name "MyString"
+    name "Green"
   end
 end

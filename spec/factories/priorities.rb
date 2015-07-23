@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :priority do
-    name "MyString"
+    name "1 - HIGH"
+    color
   end
 end

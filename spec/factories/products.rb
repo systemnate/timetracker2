@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :product do
-    name "MyString"
+    name "Product A"
+    color
   end
 end
