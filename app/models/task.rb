@@ -11,7 +11,7 @@ class Task < ActiveRecord::Base
   belongs_to :client
   belongs_to :project
   has_many :task_details, dependent: :destroy
-  validates :status, :product, :priority, :title, :client, presence: true
+  validates :status, :product, :priority, :title, :client, :assigned_to, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :notify_email, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }, allow_blank: true

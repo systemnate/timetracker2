@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :client do
-    name "MyString"
-    contact "MyText"
-    connect_info "MyText"
+    name 'Client A'
+    contact '555-555-5555'
+    connect_info 'www.clienta.com/login'
   end
 end

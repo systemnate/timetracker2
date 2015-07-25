@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :task do
-    title "MyString"
-    status_id 1
-    product_id 1
-    summary "MyText"
-    priority_id 1
-    client_id 1
+    title "Test Title"
+    association :status, factory: :status
+    association :product, factory: :product
+    association :priority, factory: :priority
+    association :client, factory: :client
+    assigned_to 1
   end
 end

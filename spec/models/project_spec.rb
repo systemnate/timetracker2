@@ -10,4 +10,8 @@ RSpec.describe Project do
     it { should belong_to :client }
     it { should belong_to :user }
   end
+
+  it 'should have a valid factory' do
+    expect(build(:project)).to be_valid
+  end
 end
