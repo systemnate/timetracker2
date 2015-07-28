@@ -5,6 +5,14 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @completed = Hash.new(0)
+    @completed["Allotted Time"] = @project.allotted_time
+    sum = 0
+    @project.tasks.each do |pt|
+      sum += pt.task_details.map(&:time_spent).inject(0, :+)
+    end
+    @completed["Time Spent"] = sum 
+    @completed_percent = @completed["Time Spent"] / @completed["Allotted Time"].to_f * 100.0
   end
 
   def new
