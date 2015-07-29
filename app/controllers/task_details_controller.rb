@@ -10,6 +10,7 @@ class TaskDetailsController < ApplicationController
     @task_detail.user_id = current_user.id
     @task_detail.time_spent = 1 if @task_detail.time_spent < 1
     if @task_detail.save
+      UserNotifier.send_status_update(@task, current_account).deliver_now
       redirect_to @task, notice: "New detail successfully created!"
     else
       render :new
