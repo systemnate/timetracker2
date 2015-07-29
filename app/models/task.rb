@@ -12,7 +12,7 @@ class Task < ActiveRecord::Base
   belongs_to :project
   has_many :task_details, dependent: :destroy
   validates :status, :product, :priority, :title, :client, :assigned_to, presence: true
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([,.](([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+)*\z/i
   validates :notify_email, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }, allow_blank: true
   scope :alltasks, -> {}

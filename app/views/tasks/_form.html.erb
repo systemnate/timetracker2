@@ -59,7 +59,7 @@
 
   <div class="form-group form-49">
     <%= f.label :notify_email %>
-    <%= f.text_field :notify_email, placeholder: "client.name@theclientsite.com" %>
+    <%= f.text_field :notify_email, placeholder: "client.name@theclientsite.com", class: "tagEmail" %>
   </div>
 
   <div class="form-group form-49">
@@ -144,6 +144,9 @@
   }
 
   $('.myTags').tagit({
+  });
+
+  $('.tagEmail').tagit({
   });
 
   $(document).ready(function()
