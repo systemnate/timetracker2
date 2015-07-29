@@ -2,15 +2,109 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      /* Table Head */
+      #table-7 thead th {
+        background-color: rgb(81, 130, 187);
+        color: #fff;
+        border-bottom-width: 0;
+      }
+
+      /* Column Style */
+      #table-7 td {
+        color: #000;
+      }
+      /* Heading and Column Style */
+      #table-7 tr, #table-7 th {
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(81, 130, 187);
+      }
+
+      /* Padding and font style */
+      #table-7 td, #table-7 th {
+        padding: 5px 10px;
+        font-size: 12px;
+        font-family: Verdana;
+        font-weight: bold;
+      }
+      .tip {
+        width: 0px;
+        height: 0px;
+        position: absolute;
+        background: transparent;
+        border: 10px solid #ccc;
+      }
+
+      .tip-left {
+        top: 10px;
+        left: -25px;
+        border-top-color: transparent;
+        border-left-color: transparent;
+        border-bottom-color: transparent;  
+      }
+
+      .dialogbox .body {
+        position: relative;
+        max-width: 75%;
+        height: auto;
+        margin: 20px 10px;
+        padding: 5px;
+        background-color: #DADADA;
+        border-radius: 3px;
+        border: 5px solid #ccc;
+      }
+
+      .body .message {
+        min-height: 30px;
+        border-radius: 3px;
+        font-family: Arial;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #797979;
+      }
+      h1 {
+        color: rgb(81, 130, 187);
+      }
+    </style>
   </head>
   <body>
-    <h1>A task has been updated!</h1>
-    <p>A task assigned to <%= @user_name %>(<%= mail_to @user_email %>) has been updated.</p>
-    <p>Please visit <%= link_to "Task Clash", "http://#{@current_account}.taskclash.com/tasks/#{@task_id}" %> for more information.</p>
-    <p>Title: <%= @task_title %></p>
-    <p>Client: <%= @task_client %></p>
-    <p>Status: <%= @task_status %></p>
-    <p>Priority: <%= @task_priority %></p>
-    <p>Product: <%= @task_product %></p>
+    <h1>A Task Clash task has been updated!</h1>
+    <p>If you have a Task Clash account for this company, please visit <%= link_to "Task Clash", "http://#{@current_account}.taskclash.com/tasks/#{@task_id}" %> to see more information.</p>    
+    <table id="table-7">
+      <thead>
+        <th>ID</th>
+        <th>Alternate ID</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Client</th>
+        <th>Product</th>
+        <th>Assigned To</th>
+        <th>Date Created</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= @task_id %></td>
+          <td><%= @task_alternate_id %></td>
+          <td><%= @task_title %></td>
+          <td><%= @task_status %></td>
+          <td><%= @task_client %></td>
+          <td><%= @task_product %></td>
+          <td><%= @user_name %></td>
+          <td><%= @task_date %></td>
+        </tr>
+      </tbody>
+    </table>
+    <h1>Details:</h1>
+    <% @task_details.each do |detail| %>
+      <div class="dialogbox">
+        <div class="body">
+          <span class="tip tip-left"></span>
+          <div class="message">
+            <span><%= sanitize(detail.body) %></span>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </body>
 </html>
