@@ -24,7 +24,8 @@ class UserNotifier < ApplicationMailer
         @user = User.find(task.assigned_to)
         @user_name = @user.name
         @user_email = @user.email
-      mail( to: email, from: "noreply@taskclash.com", subject: "Task Clash status update on task #{task.id}")
+        mail( to: email, from: "noreply@taskclash.com", subject: "Task Clash status update on task #{task.id}")
+      end
     end
   end
 end
