@@ -10,10 +10,19 @@
       <th>Time Spent</th>
       <th>Time Remaining</th>
       <th>Due Date</th>
+      <th>Progress</th>
     </thead>
     <tbody>
 
       <% @projects.each do |project| %>
+      <% completed = Hash.new %>
+      <% completed["Allotted Time"] = project.allotted_time %>
+      <% sum = 0 %>
+      <% project.tasks.each do |pt| %>
+        <% sum += pt.task_details.map(&:time_spent).inject(0, :+) %>
+      <% end %>
+      <% completed["Time Spent"] = sum %>
+      <% completed_percent = completed["Time Spent"] / completed["Allotted Time"].to_f * 100.0 %>
       <tr>
         <td><%= project.client.name %></td>
         <td><%= project.title %></td>
@@ -22,6 +31,13 @@
         <td><%= time_spent(project) %></td>
         <td><%= time_remaining(project) %></td>
         <td><%= project.due_date %></td>
+        <td>
+          <div class="progress">
+            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width:<%= number_to_percentage(completed_percent, precision: 2) %>; color: black;">
+             <%= number_to_percentage(completed_percent, precision: 2) %> 
+            </div>
+          </div>
+        </td>
         <td><%= link_to project, class: "btn btn-primary" do %>
             <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
           <% end %>
