@@ -11,21 +11,19 @@ class UserNotifier < ApplicationMailer
   def send_status_update(task, current_account)
     if !task.notify_email.blank?
       emails_to_send = task.notify_email.split(',')
-      emails_to_send.each do |email|
-        render :layout => false
-        @current_account = current_account.subdomain
-        @task = task
-        @task_id = task.id
-        @task_title = task.title
-        @task_status = task.status.name
-        @task_priority = task.priority.name
-        @task_product = task.product.name
-        @task_client = task.client.name
-        @user = User.find(task.assigned_to)
-        @user_name = @user.name
-        @user_email = @user.email
-        mail( to: email, from: "noreply@taskclash.com", subject: "Task Clash status update on task #{task.id}")
-      end
+      render :layout => false
+      @current_account = current_account.subdomain
+      @task = task
+      @task_id = task.id
+      @task_title = task.title
+      @task_status = task.status.name
+      @task_priority = task.priority.name
+      @task_product = task.product.name
+      @task_client = task.client.name
+      @user = User.find(task.assigned_to)
+      @user_name = @user.name
+      @user_email = @user.email
+      mail( to: emails_to_send, from: "noreply@taskclash.com", subject: "Task Clash status update on task #{task.id}")
     end
   end
 end
