@@ -1,4 +1,5 @@
 class UserNotifier < ApplicationMailer
+  helper :task_details
   default from: 'noreply@taskclash.com'
 
   # send a signup email to the user, pass in the user object that   contains the user's email address
