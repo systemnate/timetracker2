@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @clients = Client.all.order('name')
+    @clients = Client.all.order('position')
   end
 
   def show
@@ -44,6 +44,14 @@ class ClientsController < ApplicationController
       format.html { redirect_to clients_url, alert: 'Client was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def sort
+    params[:client].each_with_index do |id, index|
+        client = Client.find(id)
+        client.update_attribute(:position, index) if client
+    end
+    render nothing: true    
   end
 
   private

@@ -3,7 +3,7 @@ class TasksController < ApplicationController
 
   def index
     @statuses = Status.includes(:color).order('position')
-    @priorities = Priority.includes(:color).order('name')
+    @priorities = Priority.includes(:color).order('position')
     @products = Product.includes(:color).order('position')
     if params[:status_id]
       @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where("status_id = ?", params[:status_id])

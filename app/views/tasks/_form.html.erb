@@ -24,9 +24,9 @@
   <div class="form-group form-49">
     <%= f.label :client %>
     <% if !params[:client_id].blank? %>
-      <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { selected: params[:client_id], prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
+      <%= f.collection_select :client_id, Client.all.order('position'), :id, :name, { selected: params[:client_id], prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
     <% else %>
-      <%= f.collection_select :client_id, Client.all.order('name'), :id, :name, { prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
+      <%= f.collection_select :client_id, Client.all.order('position'), :id, :name, { prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
     <% end %>
     <div class="clientSelectAdd" style="display: none;">
       <a id="cancel-client" style="color:white" href="javascript:cancelClient()">Cancel</a><input placeholder="Enter new client name" type="text" name="task[client_name]" id="task_client_name">
@@ -51,7 +51,7 @@
 
   <div class="form-group form-49">
     <%= f.label :priority %>
-    <%= f.collection_select :priority_id, Priority.all.order('name'), :id, :name, { prompt: "Choose Priority..."}, { class: "prioritySelectList" } %>
+    <%= f.collection_select :priority_id, Priority.all.order('position'), :id, :name, { prompt: "Choose Priority..."}, { class: "prioritySelectList" } %>
     <div class="prioritySelectAdd form-group" style="display: none;">
       <a id="cancel-priority" style="color:white" href="javascript:cancelPriority()">Cancel</a><input placeholder="Enter new priority name" type="text" name="task[priority_name]" id="task_priority_name">
     </div>
