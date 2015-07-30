@@ -19,4 +19,8 @@ class Project < ActiveRecord::Base
   def allotted_time=(value)
     write_attribute(:allotted_time, value.to_i * 60.0)
   end
+
+  def allotted_time
+    read_attribute(:allotted_time).to_f / 60.0
+  end
 end

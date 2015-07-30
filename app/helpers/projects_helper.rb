@@ -18,6 +18,6 @@ module ProjectsHelper
   end
 
   def allotted_time_hours(project)
-    project.allotted_time / 60
+    project.allotted_time
   end
 end

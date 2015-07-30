@@ -14,6 +14,7 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery-ui/datepicker
 //= require tinymce-jquery
 //= require bootstrap-sprockets
 //= require bxslider
