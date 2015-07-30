@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
       sum += pt.task_details.map(&:time_spent).inject(0, :+)
     end
     @completed["Time Spent"] = sum 
-    @completed_percent = @completed["Time Spent"] / @completed["Allotted Time"].to_f * 100.0
+    @completed_percent = (@completed["Time Spent"] / 60.0) / @completed["Allotted Time"].to_f * 100.0
   end
 
   def new
