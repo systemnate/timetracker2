@@ -5,9 +5,14 @@
       <span>Enter case details and click save when done.</span>
       <span>Checking important will render the view in a red color.</span>
   </h1>
-  <div id="timer"></div>
-    <button class="btn btn-danger btn-sm timer-stop">Stop!</button>
-    <button class="btn btn-success btn-sm timer-start">Start!</button>
+  <div id="timer" style="font-size: 1.2em;"></div>
+    <button type="button" class="btn btn-sm btn-danger timer-stop" aria-label="Left Align">
+      <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+    </button>
+    <button type="button" class="btn btn-sm btn-success timer-start" aria-label="Left Align">
+      <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+    </button>
+    <br/>
   <label>
     <%= f.text_area :body, class: "tinymce" %>
   </label>
