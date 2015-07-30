@@ -66,6 +66,11 @@
               <li><a href="#">One more separated link</a></li>-->
             </ul>
           </li>
+          <li>
+            <%= link_to new_search_path do %>
+              <i class="fa fa-search fa-lg">&nbsp;</i>Advanced Search
+            <% end %>
+          </li>          
         </ul>
         <%= form_tag search_tasks_path, method: :get, class: "navbar-form navbar-right", role: "search" do %>
           <div class="form-group">

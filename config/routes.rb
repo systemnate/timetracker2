@@ -51,6 +51,9 @@ Rails.application.routes.draw do
     resources :projects do
       resources :tasks
     end
+
+    resources :searches
+    
     get 'pages/index'
     resources :billings, only: [:new, :show, :create]
     get 'tags/:tag', to: 'tasks#index', as: :tag
