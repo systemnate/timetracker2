@@ -2,9 +2,9 @@ class TasksController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @statuses = Status.includes(:color).order('name')
+    @statuses = Status.includes(:color).order('position')
     @priorities = Priority.includes(:color).order('name')
-    @products = Product.includes(:color).order('name')
+    @products = Product.includes(:color).order('position')
     if params[:status_id]
       @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where("status_id = ?", params[:status_id])
     elsif params[:priority_id]

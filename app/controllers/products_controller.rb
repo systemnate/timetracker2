@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @products = Product.includes(:color).order("name")
+    @products = Product.includes(:color).order("position")
   end
 
   def show
@@ -35,6 +35,14 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_path, alert: 'Product was successfully destroyed.'
   end
+
+  def sort
+    params[:product].each_with_index do |id, index|
+        product = Product.find(id)
+        product.update_attribute(:position, index) if product
+    end
+    render nothing: true    
+  end  
 
   private
 

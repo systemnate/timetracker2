@@ -1,12 +1,14 @@
 <h1>Product Listing</h1>
-<table class="table table-striped table-hover table-responsive">
+<table class="table table-striped table-hover table-responsive" id="position_products">
   <thead>
+    <th></th>
     <th>Name</th>
     <th>Color</th>
   </thead>
-  <tbody>
+  <tbody data-update-url="<%= sort_products_url %>">
   <% @products.each do |product| %>
-    <tr>
+    <%= content_tag_for :tr, product do %>
+      <td><i class="fa fa-arrows-alt"></i></td>
       <td><%= product.name %></td>
       <td><%= show_color(product) %></td>
       <td><%= link_to product, class: "btn btn-primary" do %>
@@ -26,10 +28,10 @@
         <% end %>
       </td>
       <% end %>
-    </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>
-
+<p>Drag and drop on <i class="fa fa-arrows-alt"></i> to change sort order.</p>
 <%= link_to "New Product", new_product_path, class: "btn btn-success" %>
 <%= link_to "Configuration", pages_index_path, class: "btn btn-info" %>

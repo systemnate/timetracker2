@@ -1,6 +1,7 @@
 <h1>Statuses</h1>
-<table class="table" id ="table_data">
+<table class="table table-striped table-hover table-responsive" id ="table_data">
   <thead>
+    <th></th>
     <th>Status</th>
     <th>Color</th>
     <th>Show on Default View?</th>
@@ -9,6 +10,7 @@
   <tbody data-update-url="<%= sort_statuses_url %>">
   <% @statuses.each do |status| %>
     <%= content_tag_for :tr, status do %>
+      <td><i class="fa fa-arrows-alt"></i></td>
       <td><%= status.name %></td>
       <td><%= show_color(status) %></td>
       <td><%= show_on_default_view(status) %></td>
@@ -34,5 +36,6 @@
   <% end %>
   </tbody>
 </table>
+<p>Drag and drop on <i class="fa fa-arrows-alt"></i> to change sort order.</p>
 <%= link_to "New Status", new_status_path, class: "btn btn-success" %>
 <%= link_to "Configuration", pages_index_path, class: "btn btn-info" %>

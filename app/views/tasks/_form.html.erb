@@ -35,7 +35,7 @@
 
   <div class="form-group form-49">
     <%= f.label :status %>
-    <%= f.collection_select :status_id, Status.all.order('name'), :id, :name, { prompt: "Choose Status..." }, { class: "statusSelectList" } %>
+    <%= f.collection_select :status_id, Status.all.order('position'), :id, :name, { prompt: "Choose Status..." }, { class: "statusSelectList" } %>
     <div class="statusSelectAdd form-group" style="display: none;">
       <a id="cancel-status" style="color:white" href="javascript:cancelStatus()">Cancel</a><input placeholder="Enter new status name" type="text" name="task[status_name]" id="task_status_name">
     </div>
@@ -43,7 +43,7 @@
 
   <div class="form-group form-49">
     <%= f.label :product %>
-    <%= f.collection_select :product_id, Product.all.order('name'), :id, :name, { prompt: "Choose Product..." }, { class: "productSelectList" } %>
+    <%= f.collection_select :product_id, Product.all.order('position'), :id, :name, { prompt: "Choose Product..." }, { class: "productSelectList" } %>
     <div class="productSelectAdd form-group" style="display: none;">
       <a id="cancel-product" style="color:white" href="javascript:cancelProduct()">Cancel</a><input placeholder="Enter new product name" type="text" name="task[product_name]" id="task_product_name">
     </div>

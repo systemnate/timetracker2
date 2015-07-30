@@ -22,10 +22,10 @@ Rails.application.routes.draw do
         get 'search'
       end
     end
-    get 'tasks/filters/status/:status_id' => "tasks#index"
-    get 'tasks/filters/priority/:priority_id' => "tasks#index"
-    get 'tasks/filters/product/:product_id' => "tasks#index"
-    get 'tasks/filters/all/:all_tasks' => "tasks#index"
+    get 'tasks/filters/status/:status_id' => 'tasks#index'
+    get 'tasks/filters/priority/:priority_id' => 'tasks#index'
+    get 'tasks/filters/product/:product_id' => 'tasks#index'
+    get 'tasks/filters/all/:all_tasks' => 'tasks#index'
     resources :tasks do
       resources :task_details
     end
@@ -34,7 +34,9 @@ Rails.application.routes.draw do
       collection { post :sort }
     end
     resources :priorities
-    resources :products
+    resources :products do
+      collection { post :sort }
+    end
     resources :projects do
       resources :tasks
     end
