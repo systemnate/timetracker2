@@ -1,14 +1,14 @@
 <h1>Statuses</h1>
-<table class="table">
+<table class="table" id ="table_data">
   <thead>
     <th>Status</th>
     <th>Color</th>
     <th>Show on Default View?</th>
     <th>Considered to be Complete?</th>
   </thead>
-  <tbody>
+  <tbody data-update-url="<%= sort_statuses_url %>">
   <% @statuses.each do |status| %>
-    <tr>
+    <%= content_tag_for :tr, status do %>
       <td><%= status.name %></td>
       <td><%= show_color(status) %></td>
       <td><%= show_on_default_view(status) %></td>
@@ -30,7 +30,7 @@
         <% end %>
       </td>
       <% end %>
-    </tr>
+    <% end %>
   <% end %>
   </tbody>
 </table>

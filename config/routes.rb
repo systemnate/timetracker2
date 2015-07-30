@@ -30,7 +30,9 @@ Rails.application.routes.draw do
       resources :task_details
     end
     resources :clients
-    resources :statuses
+    resources :statuses do
+      collection { post :sort }
+    end
     resources :priorities
     resources :products
     resources :projects do
