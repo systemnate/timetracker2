@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-  load_and_authorize_resource except: :sort
+  load_and_authorize_resource
 
   def index
     @statuses = Status.includes(:color).order("position")
@@ -46,6 +46,6 @@ class StatusesController < ApplicationController
 
   private
   def status_params
-    params.require(:status).permit(:name, :color_id, :default_view, :is_complete, :position => [])
+    params.require(:status).permit(:name, :color_id, :default_view, :is_complete)
   end
 end
