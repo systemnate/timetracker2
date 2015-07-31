@@ -13,6 +13,7 @@ class AccountsController < ApplicationController
       @account.save
       redirect_to(new_user_session_url(subdomain: @account.subdomain),
                   notice: 'Signed up successfully')
+      UserNotifier.send_admin_notice(@account.subdomain).deliver_now
     else
       render :new
     end

@@ -31,4 +31,9 @@ class UserNotifier < ApplicationMailer
       mail( to: emails_to_send, from: "noreply@taskclash.com", subject: "Task Clash status update on task #{task.id}")
     end
   end
+
+  def send_admin_notice(subdomain)
+    @subdomain = subdomain
+    mail( to: "nate.dalo@yahoo.com", from: "noreply@taskclash.com", subject: "New Account Created!")
+  end
 end
