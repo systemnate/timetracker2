@@ -17,6 +17,6 @@ private
   def search_params
     params.require(:search).permit(:task_id, :alternate_id, :keywords,
       :status_id, :product_id, :priority_id, :client_id, :created_at,
-      :updated_at, :assigned_to, :created_by, :billable, :project_id)
+      :updated_at, :assigned_to, :created_by, :billable, :project_id, :title)
   end
 end

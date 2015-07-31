@@ -1,75 +1,77 @@
 <h1>Advanced Search</h1>
 
 <%= form_for @search do |f| %>
-  <div class="form-group">
-    <%= f.label :task_id %>
-    <%= f.number_field :task_id, class: "form-control" %>
+  <div class="well">
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :task_id, "Task ID" %>
+      <%= f.number_field :task_id, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= f.label :alternate_id, "Alternate ID" %>
+      <%= f.text_field :alternate_id, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: "form-control" %>
+    </div>    
   </div>
 
-  <div class="form-group">
-    <%= f.label :alternate_id %>
-    <%= f.text_field :alternate_id, class: "form-control" %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :keywords, "Detail Search" %>
+      <%= f.text_field :keywords, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= f.label :status_id %>
+      <%= f.collection_select :status_id, Status.all.order('position'), :id, :name, { prompt: "Choose Status..." }, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= f.label :product_id %>
+      <%= f.collection_select :product_id, Product.order('position'), :id, :name, { prompt: "Choose Product..." }, { class: "form-control" } %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: "form-control" %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :priority_id %>
+      <%= f.collection_select :priority_id, Priority.order('position'), :id, :name, { prompt: "Choose Priority..." }, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= f.label :client_id %>
+      <%= f.collection_select :client_id, Client.order('position'), :id, :name, { prompt: "Choose Client..."}, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= f.label :assigned_to %>
+      <%= f.collection_select :assigned_to, User.order('name'), :id, :name, { prompt: "Choose User..." }, { class: "form-control" } %>
+    </div>      
   </div>
 
-  <div class="form-group">
-    <%= f.label :keywords %>
-    <%= f.text_field :keywords, class: "form-control" %>
+  <div class="row">
+    <div class="form-group col-sm-4">
+      <%= f.label :created_by %>
+      <%= f.collection_select :created_by, User.order('name'), :id, :name, { prompt: "Choose User..." }, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= f.label :project_id %>
+      <%= f.collection_select :project_id, Project.order('title'), :id, :title, { prompt: "Choose Project..." }, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group col-sm-4">
+      <%= f.label :billable %>
+      <div>
+        <%= f.check_box :billable %>
+      </div>
+    </div>        
   </div>
 
-  <div class="form-group">
-    <%= f.label :status_id %>
-    <%= f.collection_select :status_id, Status.all.order('position'), :id, :name, { prompt: "Choose Status..." }, { class: "form-control" } %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :product_id %>
-    <%= f.collection_select :product_id, Product.order('position'), :id, :name, { prompt: "Choose Product..." }, { class: "form-control" } %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :priority_id %>
-    <%= f.collection_select :priority_id, Priority.order('position'), :id, :name, { prompt: "Choose Priority..." }, { class: "form-control" } %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :client_id %>
-    <%= f.collection_select :client_id, Client.order('position'), :id, :name, { prompt: "Choose Client..."}, { class: "form-control" } %>
-  </div>
-<!--
-  <div class="form-group">
-    <%= f.label :created_at %>
-    <%= f.date_select :created_at, { include_blank: true, default: nil } %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :updated_at %>
-    <%= f.date_select :updated_at, { include_blank: true, default: nil } %>
-  </div>
--->
-  <div class="form-group">
-    <%= f.label :assigned_to %>
-    <%= f.collection_select :assigned_to, User.order('name'), :id, :name, { prompt: "Choose User..." }, { class: "form-control" } %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :created_by %>
-    <%= f.collection_select :created_by, User.order('name'), :id, :name, { prompt: "Choose User..." }, { class: "form-control" } %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :billable %>
-    <%= f.check_box :billable %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :project_id %>
-    <%= f.collection_select :project_id, Project.order('title'), :id, :title, { prompt: "Choose Project..." }, { class: "form-control" } %>
-  </div>
-
-  <%= f.submit %>
+</div>
+  <%= f.submit "Search", class: "btn btn-primary" %>
 <% end %>
