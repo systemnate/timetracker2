@@ -1,0 +1,62 @@
+<% if @due_now.count > 0 %>
+<div class="table-responsive" id="task-list">
+  <input class="search" placeholder="Quick Search" />
+  <table class="table table-hover" id="sorted-table">
+    <thead>
+      <tr>
+        <th class="table-medium"><i class="fa fa-sort"></i> ID</th>
+        <th><i class="fa fa-sort"></i> Alt. ID</th>
+        <th><i class="fa fa-sort"></i> Title</th>
+        <th><i class="fa fa-sort"></i> Status</th>
+        <th class="table-medium"><i class="fa fa-sort"></i> Client</th>
+        <th><i class="fa fa-sort"></i> Product</th>
+        <th><i class="fa fa-sort"></i> Priority</th>
+        <th><i class="fa fa-sort"></i> Assigned To</th>
+        <th class="table-large"><i class="fa fa-sort"></i> Date</th>
+      </tr>
+    </thead>
+    <tbody class="list">
+      <% @due_now.each do |task| %>
+        <tr>
+          <td class="sort-id"><%= label_id(task) %></td>
+          <td class="sort-alternate-id"><%= label_alternate_id(task) %></td>
+          <td class="sort-title"><%= truncate(task.title, length: 50, separator: ' ') %></td>
+          <td class="sort-status"><%= label_status(task) %></td>
+          <td class="sort-client"><%= label_client(task) %></td>
+          <td class="sort-product"><%= label_product(task)  %></td>
+          <td class="sort-priority"><%= label_priority(task) %></td>
+          <td class="sort-assigned-to"><%= mail_to(email_for(task), assigned_to(task)) %></td>
+          <td class="sort-date"><%= label_date(task) %></td>
+
+          <td><%= link_to task, class: "btn btn-primary" do %>
+              <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
+            <% end %>
+          </td>
+          <% if can? :update, Task %>
+            <td><%= link_to edit_task_path(task), class: "btn btn-info" do %>
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit Details"></span>
+              <% end %>
+            </td>
+          <% end %>
+          <% if can? :destroy, @task %>
+            <td><%= link_to task, method: :delete, data: { confirm: "Are you sure?" },
+          class: "btn btn-danger" do %>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<script>
+  var options = {
+    valueNames: [ 'sort-id', 'sort-alternate-id', 'sort-title', 'sort-status', 'sort-status', 'sort-client', 'sort-product', 'sort-priority', 'sort-assigned-to', 'sort-date', 'sort-time' ]
+  };
+
+  var userList = new List('task-list', options);
+</script>
+<% else %>
+  <h1>You have nothing due today!</h1>
+<% end %>

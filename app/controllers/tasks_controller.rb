@@ -102,10 +102,14 @@ class TasksController < ApplicationController
     end
   end
 
+  def due_now
+    @due_now = Task.includes(:status, :client, :priority => :color, :product => :color).where('due_date <= ? AND assigned_to = ?', Time.now, current_user)
+  end
+
   private
     def task_params
       params.require(:task).permit(:title, :status_id,
         :product_id, :priority_id, :client_id, :alternate_id, :tag_list, :project_id,
-        :assigned_to, :billable, :client_name, :status_name, :priority_name, :product_name, :notify_email)
+        :assigned_to, :billable, :client_name, :status_name, :priority_name, :product_name, :notify_email, :due_date)
     end
 end

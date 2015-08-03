@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :tasks do
       collection do
         get 'search'
+        get 'due_now'
       end
     end
     
