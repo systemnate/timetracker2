@@ -1,12 +1,12 @@
 <%= form_for @task, html: { class: "form-inline" } do |f| %>
 
   <div class="form-group form-49">
-    <%= f.label :title %>
+    <%= f.label :title, "Title *" %>
     <%= f.text_field :title %>
   </div>
 
   <div class="form-group form-49">
-    <%= f.label :assigned_to, 'Assigned To' %>
+    <%= f.label :assigned_to, 'Assigned To *' %>
     <%= f.collection_select :assigned_to, User.all.where('name is not ?', nil), :id, :name,
       { selected: current_user.id } %>
   </div>
@@ -22,7 +22,7 @@
   </div>
 
   <div class="form-group form-49">
-    <%= f.label :client %>
+    <%= f.label :client, 'Client *' %>
     <% if !params[:client_id].blank? %>
       <%= f.collection_select :client_id, Client.all.order('position'), :id, :name, { selected: params[:client_id], prompt: "Choose Client...", name: "client" }, { class: "clientSelectList" } %>
     <% else %>
@@ -34,7 +34,7 @@
   </div>
 
   <div class="form-group form-49">
-    <%= f.label :status %>
+    <%= f.label :status, 'Status *' %>
     <%= f.collection_select :status_id, Status.all.order('position'), :id, :name, { prompt: "Choose Status..." }, { class: "statusSelectList" } %>
     <div class="statusSelectAdd form-group" style="display: none;">
       <a id="cancel-status" style="color:white" href="javascript:cancelStatus()">Cancel</a><input placeholder="Enter new status name" type="text" name="task[status_name]" id="task_status_name">
@@ -42,7 +42,7 @@
   </div>
 
   <div class="form-group form-49">
-    <%= f.label :product %>
+    <%= f.label :product, 'Product *' %>
     <%= f.collection_select :product_id, Product.all.order('position'), :id, :name, { prompt: "Choose Product..." }, { class: "productSelectList" } %>
     <div class="productSelectAdd form-group" style="display: none;">
       <a id="cancel-product" style="color:white" href="javascript:cancelProduct()">Cancel</a><input placeholder="Enter new product name" type="text" name="task[product_name]" id="task_product_name">
@@ -50,7 +50,7 @@
   </div>
 
   <div class="form-group form-49">
-    <%= f.label :priority %>
+    <%= f.label :priority, 'Priority *' %>
     <%= f.collection_select :priority_id, Priority.all.order('position'), :id, :name, { prompt: "Choose Priority..."}, { class: "prioritySelectList" } %>
     <div class="prioritySelectAdd form-group" style="display: none;">
       <a id="cancel-priority" style="color:white" href="javascript:cancelPriority()">Cancel</a><input placeholder="Enter new priority name" type="text" name="task[priority_name]" id="task_priority_name">
