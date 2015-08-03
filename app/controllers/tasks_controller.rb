@@ -61,7 +61,7 @@ class TasksController < ApplicationController
     @task.created_by = current_user.id
 
     if @task.save
-      redirect_to new_task_task_detail_path(@task), notice: "Task created successfully!"
+      redirect_to new_task_task_detail_path(@task), flash: { success: "Task created successfully!" }
     else
       render :new
     end
@@ -74,7 +74,7 @@ class TasksController < ApplicationController
     @task.update(task_params)
     if @task.save
       UserNotifier.send_status_update(@task, current_account).deliver_now
-      redirect_to @task, notice: "Task successfully updated"
+      redirect_to @task, flash: { success: "Task successfully updated" }
     else
       render :edit
     end

@@ -11,7 +11,7 @@ class TaskDetailsController < ApplicationController
     @task_detail.time_spent = 1 if @task_detail.time_spent < 1
     if @task_detail.save
       UserNotifier.send_status_update(@task, current_account).deliver_now
-      redirect_to @task, notice: "New detail successfully created!"
+      redirect_to @task, flash: { success: "New detail successfully created!" }
     else
       render :new
     end
@@ -23,7 +23,7 @@ class TaskDetailsController < ApplicationController
   def update
     @task_detail.update(task_detail_params)
     if @task_detail.save
-      redirect_to @task, notice: "Detail successfully updated!"
+      redirect_to @task, flash: { success: "Detail successfully updated!" }
     else
       render :edit
     end
@@ -31,7 +31,7 @@ class TaskDetailsController < ApplicationController
 
   def destroy
     @task_detail.destroy
-    redirect_to @task, alert: "Detail successfully deleted!"
+    redirect_to @task, flash: { error: "Detail successfully deleted!" }
   end
 
   private

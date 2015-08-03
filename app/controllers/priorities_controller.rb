@@ -16,7 +16,7 @@ class PrioritiesController < ApplicationController
 
   def create
     if @priority.save
-      redirect_to @priority, notice: "Priority successfully created!"
+      redirect_to @priority, flash: { success: "Priority successfully created!" }
     else
       render :new
     end
@@ -25,7 +25,7 @@ class PrioritiesController < ApplicationController
   def update
     @priority.update(priority_params)
     if @priority.save
-      redirect_to @priority, notice: "Priority successfully updated!"
+      redirect_to @priority, flash: { success: "Priority successfully updated!" }
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class PrioritiesController < ApplicationController
 
   def destroy
     @priority.destroy
-    redirect_to priorities_path, alert: 'Priority was successfully destroyed.'
+    redirect_to priorities_path, flash: { error: 'Priority was successfully destroyed.' }
   end
 
   def sort

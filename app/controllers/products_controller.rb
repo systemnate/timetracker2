@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
 
   def create
     if @product.save
-      redirect_to @product, notice: "Product successfully created!"
+      redirect_to @product, flash: { success: "Product successfully created!" }
     else
       render :new
     end
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   def update
     @product.update(product_params)
     if @product.save
-      redirect_to @product, notice: "Product successfully updated!"
+      redirect_to @product, flash: { success: "Product successfully updated!" }
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to products_path, alert: 'Product was successfully destroyed.'
+    redirect_to products_path, flash: { error: 'Product was successfully destroyed.' }
   end
 
   def sort

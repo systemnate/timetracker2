@@ -16,7 +16,7 @@ class StatusesController < ApplicationController
 
   def create
     if @status.save
-      redirect_to @status, notice: "Status successfully created!"
+      redirect_to @status, flash: { success: "Status successfully created!" }
     else
       render :new
     end
@@ -25,7 +25,7 @@ class StatusesController < ApplicationController
   def update
     @status.update(status_params)
     if @status.save
-      redirect_to @status, notice: "Status successfully update!"
+      redirect_to @status, flash: { success: "Status successfully update!" }
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class StatusesController < ApplicationController
 
   def destroy
     @status.destroy
-    redirect_to statuses_path, alert: 'Status was successfully destroyed.'
+    redirect_to statuses_path, flash: { error: 'Status was successfully destroyed.' }
   end
 
   def sort

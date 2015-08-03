@@ -16,8 +16,13 @@
 <body>
 <%= render 'layouts/header' %>
 <div class="container">
-  <%= flash_messages if show_layout_flash? %>
-    <%= yield %>
+  <% flash.each do |type, message| %>
+    <div class="alert-message <%= bootstrap_class_for(type) %> fade in">
+      <button class="close" data-dismiss="alert">×</button>
+      <%= message %>
+    </div>
+  <% end %>
+  <%= yield %>
 </div>
 <script>
   $(document).ready(function()
@@ -37,6 +42,13 @@
     ga('create', 'UA-65246540-1', 'auto');
     ga('send', 'pageview');
 
+  </script>
+  <script>
+    $('document').ready(function() {
+      setTimeout(function() {
+        $('.alert-message').slideUp();
+      }, 3500);
+    });  
   </script>
 </body>
 </html>
