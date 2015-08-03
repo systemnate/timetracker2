@@ -1,8 +1,19 @@
-<h1><%= @client.name %></h1>
+<h1><%= @client.name %> <small><%= link_to "edit", edit_client_path(@client) %></small></h1>
 <h2>Contact Information</h2>
-<p><%= simple_format(@client.contact) %></p>
+
+<% if @client.contact.blank? %>
+  <p>No contact information found.  <%= link_to "Add some?", edit_client_path(@client) %></p>
+<% else %>
+  <p><%= simple_format(@client.contact) %></p>
+<% end %>
+
 <h2>Connection Information</h2>
-<p><%= simple_format(@client.connect_info) %></p>
+<% if @client.connect_info.blank? %>
+  <p>No connection information found.  <%= link_to "Add some?", edit_client_path(@client) %></p>
+<% else %>
+  <p><%= simple_format(@client.connect_info) %></p>
+<% end %>
+
 <h2>Projects</h2>
 <% if @client.projects.count == 0 %>
   <p>No projects currently assigned to this client!  <%= link_to "Add one?", new_project_path(client_id: @client.id) %></p>

@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @clients = Client.all.order('position')
+    @clients = Client.order('position')
   end
 
   def show
