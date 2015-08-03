@@ -31,7 +31,8 @@
   <tbody>
     <% @total_minutes = 0 %>
     <% @task_details.each do |td| %>
-      <% if td.task.billable && (td.task.client_id == @client) || @client == 99999 %>
+      <% next if td.task.nil? %>
+      <% if td.task.billable && (td.task.client_id == @client || @client == 99999) %>
         <% @total_minutes += td.time_spent %>
         <tr>
           <td><%= td.task.client.name %></td>
