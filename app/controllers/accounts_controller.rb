@@ -12,7 +12,7 @@ class AccountsController < ApplicationController
       Apartment::Tenant.switch!(@account.subdomain)
       @account.save
       redirect_to(new_user_session_url(subdomain: @account.subdomain),
-                  flash: { success: 'Signed up successfully') }
+                  flash: { success: 'Signed up successfully' } )
       UserNotifier.send_admin_notice(@account.subdomain).deliver_now
     else
       render :new
