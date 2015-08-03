@@ -9,4 +9,8 @@ $ ->
     width: '100%'
 
   $(document).on 'page:receive', ->
-    tinymce.remove()    
+    tinymce.remove()
+
+jQuery ->
+  $('#task_due_date').datepicker
+    dateFormat: 'yy-mm-dd'
