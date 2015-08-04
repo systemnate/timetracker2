@@ -1,6 +1,3 @@
-<% if @tasks.count > 0 %>
-<h1>Tasks Due Today / Late</h1>
-<hr/>
 <div class="table-responsive" id="task-list">
   <input class="search" placeholder="Quick Search" />
   <table class="table table-hover" id="sorted-table">
@@ -15,7 +12,6 @@
         <th><i class="fa fa-sort"></i> Priority</th>
         <th><i class="fa fa-sort"></i> Assigned To</th>
         <th class="table-large"><i class="fa fa-sort"></i> Date</th>
-        <th class="table-large"><i class="fa fa-sort"></i> Due Date</th>
       </tr>
     </thead>
     <tbody class="list">
@@ -30,7 +26,7 @@
           <td class="sort-priority"><%= label_priority(task) %></td>
           <td class="sort-assigned-to"><%= mail_to(email_for(task), assigned_to(task)) %></td>
           <td class="sort-date"><%= label_date(task) %></td>
-          <td class="sort-due-date"><%= label_due_date(task) %></td>
+
           <td><%= link_to task, class: "btn btn-primary" do %>
               <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
             <% end %>
@@ -53,14 +49,3 @@
     </tbody>
   </table>
 </div>
-
-<script>
-  var options = {
-    valueNames: [ 'sort-id', 'sort-alternate-id', 'sort-title', 'sort-status', 'sort-status', 'sort-client', 'sort-product', 'sort-priority', 'sort-assigned-to', 'sort-date', 'sort-time', 'sort-due-date' ]
-  };
-
-  var userList = new List('task-list', options);
-</script>
-<% else %>
-  <h1>You have nothing due today!</h1>
-<% end %>

@@ -103,7 +103,7 @@ class TasksController < ApplicationController
   end
 
   def due_now
-    @due_now = Task.includes(:status, :client, :priority => :color, :product => :color).where('due_date <= ? AND assigned_to = ?', Time.now, current_user)
+    @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where('due_date <= ? AND assigned_to = ?', Time.now, current_user).order("due_date")
   end
 
   private

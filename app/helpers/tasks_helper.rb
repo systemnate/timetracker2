@@ -83,6 +83,16 @@ module TasksHelper
     end
   end
 
+  def label_due_date(task)
+    content_tag(:span, class: 'label label-default') do
+      link_to(
+        task.due_date.getlocal,
+        edit_task_path(task),
+        style: 'color: white'
+      )
+    end
+  end
+
   def label_status(task)
     if task.status.color.name
       class_name = 'label label-' + label_lookup(task.status.color.name)
