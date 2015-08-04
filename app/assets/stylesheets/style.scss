@@ -524,6 +524,8 @@ label {
       }
     }
   }
+}
+
   #form {
     margin-left: auto;
     margin-right: auto;
@@ -531,9 +533,8 @@ label {
     padding: 0 1%;
     ::-webkit-input-placeholder { color: grey; }
     width: 50%;
-    max-width: 750px;     
+    max-width: 750px;
   }
-}
 
 .links {
   display: block;

@@ -3,27 +3,30 @@ class TodoItemsController < ApplicationController
   before_action :set_todo_item, except: [:create]
   def create
     @todo_item = @todo_list.todo_items.create(todo_item_params)
-    redirect_to @todo_list
+    respond_to do |format|
+      format.html { redirect_to @todo_list }
+      format.js
+    end
   end
 
   def destroy
-    if @todo_item.destroy
-      flash[:error] = "Todo List item was deleted!"
+    @todo_item.destroy
+    respond_to do |format|
+      format.html { flash[:error] = "Todo item deleted!" }
+      format.js
     end
-    redirect_to @todo_list, flash: { success: "Todo item completed!" }
   end
 
   def complete
     if @todo_item.completed_at.nil?
       @todo_item.update_attribute(:completed_at, Time.now)
-      redirect_to @todo_list, flash: { success: "Todo item completed!" }
     else
       @todo_item.completed_at = nil
-      if @todo_item.save
-        redirect_to @todo_list, flash: { success: "Todo item marked as incomplete!" }
-      else
-        "Error!"
-      end
+      @todo_item.save
+    end
+    respond_to do |format|
+      format.html { redirect_to @todo_list, flash: { success: "Todo Item updated!" } }
+      format.js
     end
   end
 

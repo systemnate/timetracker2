@@ -4,11 +4,11 @@
 <div class="well search">
   <div id="todo_items_wrapper">
     <%= render @todo_list.todo_items %>
-    <div id="form">
-      <%= render "todo_items/form" %>
-    </div>
   </div>
-
+  <hr/>
+  <div id="form">
+    <%= render "todo_items/form" %>
+  </div>
   <div class="links">
     <%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
     <%= link_to 'Delete', todo_list_path(@todo_list), method: :delete, data: { confirm: "Are you sure?" }

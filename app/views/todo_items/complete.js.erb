@@ -1,0 +1,8 @@
+if( $('#todo_item_body_<%= @todo_item.id %> p').css('text-decoration') == 'line-through' ) {
+  $('#todo_item_body_<%= @todo_item.id %> p').css('text-decoration', 'initial').css('opacity', '1.0');
+  $('#todo_item_body_<%= @todo_item.id %> .fa-lg').css('text-decoration', 'initial').css('opacity', '1.0');
+}
+else {
+  $('#todo_item_body_<%= @todo_item.id %> p').css('text-decoration', 'line-through').css('opacity', '0.4');
+  $('#todo_item_body_<%= @todo_item.id %> .fa-lg').css('text-decoration', 'line-through').css('opacity', '0.4');
+}
