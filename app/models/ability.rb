@@ -16,6 +16,8 @@ class Ability
       can :update, Project
       can :update, Status
       can :update, User
+      can :update, TodoList
+      can :update, TodoItem
     elsif user.viewer?
       can :read, :all
     end

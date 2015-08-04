@@ -32,6 +32,12 @@
                   Project
                 <% end %>
               </li>
+              <li>
+                <%= link_to new_todo_list_path do %>
+                  <i class="fa fa-check fa-lg">&nbsp;</i>
+                  Todo List
+                <% end %>
+              </li>
             </ul>
           </li>
           <li class="dropdown">
@@ -40,12 +46,17 @@
               <li>
                 <%= link_to tasks_path do %>
                   <i class="fa fa-file-text-o fa-lg">&nbsp;</i>
-                  Task
+                  Tasks
                 <% end %>
               </li>
               <li>
                 <%= link_to projects_path do %>
                   <i class="fa fa-list-ol fa-lg">&nbsp;</i>Projects
+                <% end %>
+              </li>
+              <li>
+                <%= link_to todo_lists_path do %>
+                  <i class="fa fa-check fa-lg">&nbsp;</i>Todo Lists
                 <% end %>
               </li>
             </ul>

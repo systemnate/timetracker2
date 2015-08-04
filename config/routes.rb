@@ -11,8 +11,6 @@ class SubdomainBlank
 end
 
 Rails.application.routes.draw do
-  get 'analytics/show'
-
   constraints(SubdomainPresent) do
     root 'tasks#index', as: :subdomain_root
     devise_for :users
@@ -54,6 +52,16 @@ Rails.application.routes.draw do
     end
 
     resources :searches
+
+    resources :todo_lists do
+      resources :todo_items do
+        member do
+          patch :complete
+        end
+      end
+    end
+    
+    get 'analytics/show'
     
     get 'pages/index'
     resources :billings, only: [:new, :show, :create]

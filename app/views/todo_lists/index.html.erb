@@ -1,0 +1,35 @@
+<h1>Todo Lists</h1>
+
+<div class="responsive">
+  <table class="table table-hover table-striped">
+    <thead>
+      <th>Title</th>
+      <th>Description</th>
+    </thead>
+    <tbody>
+      <% @todo_lists.each do |todo_list| %>
+        <tr>
+          <td><%= todo_list.title %></td>
+          <td><%= todo_list.description %></td>
+          <td><%= link_to todo_list, class: "btn btn-primary" do %>
+              <span class="glyphicon glyphicon-book" aria-hidden="true" title="Show Details"></span>
+            <% end %>
+          </td>
+          <% if can? :update, TodoList %>
+            <td><%= link_to edit_todo_list_path(todo_list), class: "btn btn-info" do %>
+                <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Edit Details"></span>
+              <% end %>
+            </td>
+          <% end %>
+          <% if can? :destroy, TodoList %>
+            <td><%= link_to todo_list, method: :delete, data: { confirm: "Are you sure?" },
+          class: "btn btn-danger" do %>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
+              <% end %>
+            </td>
+          <% end %>          
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

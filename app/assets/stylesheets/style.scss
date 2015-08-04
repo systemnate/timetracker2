@@ -425,3 +425,123 @@ $dropDown       : true;
 label {
   font-size: 1.3em;
 }
+
+
+/* TODO */
+
+ $white_opaque: rgba(250, 250, 250, .3);
+ $dark: black;
+
+.todo_item_body {
+  height: 100%;
+  background: -webkit-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background:    -moz-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background:     -ms-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background:      -o-linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  background:         linear-gradient(40deg, #4CB8C4 10%, #EAECC6 100%);
+  width: 50%;
+  max-width: 750px;
+  background: $white_opaque;
+  margin: 1em auto 0 auto;
+  border-radius: 7px;
+  -webkit-box-shadow: 0 0 4px 3px rgba(0,0,0,.3);
+  box-shadow: 0 0 4px 4px rgba(0,0,0,.03);
+  padding: 1em 0;  
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.todo_list_title {
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: black;
+  margin: 0;
+  a {
+    text-decoration: none;
+    color: black;
+    transition: all .4s ease-in-out;
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+}
+
+.todo_list_sub_title {
+  margin: 0 0 3em 0;
+  text-align: center;
+  font-size: 0.9em;
+  color: $dark;
+  font-weight: 100;
+}
+
+.index_row {
+  padding: 2em;
+  border-bottom: 1px solid rgba(250,250,250, .3);
+  .todo_list_sub_title {
+    margin-bottom: 0;
+  }
+}
+
+#todo_items_wrapper {
+  .row {
+    width: 100%;
+    .complete {
+      width: 10%;
+      float: left;
+      text-align: center;
+      padding: 0.5em 0;
+    }
+    .todo_item {
+      width: 80%;
+      float: left;
+      p {
+        margin: 0;
+        padding: 0.5em;
+        color: $dark;
+        font-weight: 100;
+      }
+    }
+    .trash {
+      width: 10%;
+      float: left;
+      text-align: center;
+      padding: 0.5em 0;
+    }
+    i {
+      color: black;
+      transition: all .4s ease-in-out;
+      &:hover {
+        color: white;
+      }
+    }
+  }
+  #form {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    padding: 0 1%;
+    ::-webkit-input-placeholder { color: grey; }
+    width: 50%;
+    max-width: 750px;     
+  }
+}
+
+.links {
+  display: block;
+  margin: 1.5em auto 0 auto;
+  text-align: center;
+  font-size: 0.8em;
+  color: black;
+  a {
+    color: white;
+  }
+}
