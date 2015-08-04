@@ -1,4 +1,4 @@
-  <% if @task.errors.any? %>
+<% if @task.errors.any? %>
   <section id="errors">
     <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
     <ul>
