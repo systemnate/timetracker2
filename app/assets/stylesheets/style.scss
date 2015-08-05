@@ -546,3 +546,38 @@ label {
     color: white;
   }
 }
+
+.contact {
+  margin-bottom: 3px;
+  background-color: #dbdbdb;
+  border: 2px dotted black;
+  padding: 0.5%;
+  overflow: hidden;
+  width: 50%;
+  position: relative;
+  .contact-name {
+    text-decoration: underline;
+  }
+
+  img {
+    vertical-align: middle;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .contact-image {
+    width: 78px;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .contact-info {
+    vertical-align: middle;
+    width: 60%;
+    display: inline-block;
+  }
+
+}

@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     end
     
     resources :clients do
+      resources :client_contacts
       collection { post :sort }
     end
 

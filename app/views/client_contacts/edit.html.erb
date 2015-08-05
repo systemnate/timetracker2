@@ -1,0 +1,31 @@
+<h1>Edit Contact</h1>
+
+<%= form_for [@client, @client_contact], html: { class: "form-inline" } do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :phone_number %>
+    <%= f.text_field :phone_number, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :other %>
+    <%= f.text_area :other, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Submit", class: "btn btn-default" %>
+<% end %>
+

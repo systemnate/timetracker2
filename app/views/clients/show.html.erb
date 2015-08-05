@@ -56,6 +56,15 @@
   </table>
 </div>
 <% end %>
+
+<h2>Contacts</h2>
+<p style="font-size: 0.8em;"><%= link_to "Add New Contact", new_client_client_contact_path(@client, @client_contact), id: "new_contact", class: "btn btn-primary", remote: true %></p>
+<div id="client-contacts">
+  <% @client.client_contacts.each do |contact| %>
+    <%= render 'client_contacts/client_contact', :client_contact => contact %>
+  <% end %>  
+</div>
+
 <p>
   <%= link_to "New Client", new_client_path, class: "btn btn-success" %>
 </p>

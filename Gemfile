@@ -35,6 +35,7 @@ gem 'listjs-rails'
 gem 'chartkick'
 gem 'groupdate', '~> 2.4.0'
 gem 'bxslider-rails'
+gem 'country-select'
 
 group :development, :test do
   gem 'byebug'

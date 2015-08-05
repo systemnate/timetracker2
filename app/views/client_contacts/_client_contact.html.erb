@@ -1,0 +1,16 @@
+<div class="contact" id="client_contact_<%= client_contact.id %>">
+  <div class="contact-image">
+    <%= gravatar_email(client_contact) %>
+  </div>
+  <div class="contact-info">
+    <strong class="contact-name"><%= client_contact.name %></strong>&nbsp;&nbsp;<%= link_to edit_client_client_contact_path(@client, client_contact) do %>
+        <span class="glyphicon glyphicon-pencil"></span>
+      <% end %>
+      <%= link_to client_client_contact_path(@client, client_contact), method: :delete, data: { confirm: "Are you sure?" }, remote: true do %>
+        <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span><br/>
+      <% end %>
+    <%= contact_phone_number(client_contact) + " | " + contact_email(client_contact) %><br/>
+    <%= contact_address(client_contact) %><br/>
+    <%= contact_other(client_contact) %><br/>
+  </div>
+</div>

@@ -16,7 +16,7 @@
     </thead>
     <tbody class="list">
       <% @tasks.each do |task| %>
-        <tr>
+        <tr id="task_<%= task.id %>">
           <td class="sort-id"><%= label_id(task) %></td>
           <td class="sort-alternate-id"><%= label_alternate_id(task) %></td>
           <td class="sort-title"><%= truncate(task.title, length: 50, separator: ' ') %></td>
@@ -39,7 +39,7 @@
           <% end %>
           <% if can? :destroy, @task %>
             <td><%= link_to task, method: :delete, data: { confirm: "Are you sure?" },
-          class: "btn btn-danger" do %>
+          class: "btn btn-danger", remote: true do %>
                 <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete"></span>
               <% end %>
             </td>

@@ -123,6 +123,7 @@ GEM
       sass (>= 3.3.0, < 3.5)
     compass-import-once (1.0.5)
       sass (>= 3.2, < 3.5)
+    country-select (1.1.1)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     devise (3.4.1)
@@ -390,6 +391,7 @@ DEPENDENCIES
   chosen-rails
   coffee-rails (~> 4.1.0)
   compass-rails!
+  country-select
   database_cleaner
   devise (~> 3.4.1)
   devise_invitable (~> 1.4.2)
