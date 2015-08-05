@@ -1,0 +1,7 @@
+<h1>All Contacts</h1>
+<p>To add a new contact, open up the Clients page under the configuration menu.</p>
+<% @clients.each do |client| %>
+  <% client.client_contacts.each do |contact| %>
+    <%= render 'client_contacts/client_contact2', :client_contact => contact, :client => client %>
+  <% end %>
+<% end %>

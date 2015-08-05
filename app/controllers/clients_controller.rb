@@ -54,6 +54,10 @@ class ClientsController < ApplicationController
     render nothing: true    
   end
 
+  def contacts
+    @clients = Client.includes(:client_contacts)
+  end
+
   private
 
     def client_params
