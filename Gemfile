@@ -12,7 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pry'
 gem 'bootstrap-sass', '~> 3.3.4.1'
-gem 'devise', '~> 3.4.1'
+gem 'devise', '~> 3.5.1'
 gem 'devise_invitable', '~> 1.4.2'
 gem 'apartment', '~> 1.0.0'
 gem 'simple_form'

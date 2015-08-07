@@ -126,7 +126,7 @@ GEM
     country-select (1.1.1)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
-    devise (3.4.1)
+    devise (3.5.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -225,7 +225,7 @@ GEM
     mime-types (2.6.1)
     mimemagic (0.3.0)
     mini_portile (0.6.2)
-    minitest (5.7.0)
+    minitest (5.8.0)
     multi_json (1.11.2)
     multipart-post (2.0.0)
     nenv (0.2.0)
@@ -393,7 +393,7 @@ DEPENDENCIES
   compass-rails!
   country-select
   database_cleaner
-  devise (~> 3.4.1)
+  devise (~> 3.5.1)
   devise_invitable (~> 1.4.2)
   factory_girl_rails
   groupdate (~> 2.4.0)
