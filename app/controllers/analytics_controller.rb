@@ -35,7 +35,7 @@ class AnalyticsController < ApplicationController
     end
     @average_handle_time = {}
     User.all.each do |u|
-      @average_handle_time[u.name + "(" + u.email + ")"] = u.average_handle_time
+      @average_handle_time[u.name.to_s + "(" + u.email + ")"] = u.average_handle_time
     end
   end
 end
