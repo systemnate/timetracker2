@@ -16,7 +16,7 @@
   </div>
   <div class="form-group">
     <%= label_tag 'client' %><br/>
-    <%= select_tag 'client', options_from_collection_for_select(Client.all, "id", "name"), class: "form-control", prompt: "Choose Client..." %>
+    <%= select_tag 'client', options_from_collection_for_select(Client.order('position'), "id", "name"), class: "form-control", prompt: "Choose Client..." %>
   </div>
   <div class="form-group">
     <%= submit_tag 'Submit', class: "btn btn-primary" %>

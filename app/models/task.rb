@@ -21,4 +21,14 @@ class Task < ActiveRecord::Base
     index_name = [Apartment::Tenant.current, model_name.plural, Rails.env].join('_')
     Searchkick::Index.new(index_name)
   end
+
+  def time_spent_by(user_id)
+    time_spent = 0
+    task_details.each do |td|
+      if td.user_id == user_id
+        time_spent += td.time_spent
+      end
+    end
+    time_spent
+  end
 end

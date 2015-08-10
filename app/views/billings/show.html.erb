@@ -38,7 +38,7 @@
           <td><%= td.task.client.name %></td>
           <td><%= td.task.id %></td>
           <td><%= td.task.alternate_id %></td>
-          <td><%= td.task.title %></td>
+          <td><%= td.task.title.html_safe %></td>
           <td><%= truncate(sanitize(strip_tags(td.body)), length: 75, separator: " ") %></td>
           <td><%= td.time_spent %></td>
         </tr>

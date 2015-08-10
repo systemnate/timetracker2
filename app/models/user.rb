@@ -30,4 +30,18 @@ class User < ActiveRecord::Base
       true
     end
   end
+
+  def average_handle_time
+    time_spent = 0
+    tasks = Task.where('assigned_to = ?', self.id).
+      where(status_id: Status.select('id').where('is_complete = ?', true))
+    tasks.each do |task|
+      time_spent += task.time_spent_by(self.id)
+    end
+    if tasks.count != 0
+      (time_spent.to_f / tasks.count).round(2)
+    else
+      0
+    end
+  end
 end
