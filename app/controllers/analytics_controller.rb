@@ -34,7 +34,7 @@ class AnalyticsController < ApplicationController
       end
     end
     @average_handle_time = {}
-    User.where('role_id = 1 OR role_id = 2').each do |u|
+    User.where('role_id IN(1,2) AND encrypted_password != ?', "").each do |u|
       @average_handle_time[u.name.to_s + "(" + u.email + ")"] = u.average_handle_time
     end
   end
