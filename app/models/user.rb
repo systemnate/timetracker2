@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   def average_handle_time
     time_spent = 0
-    tasks = Task.where('assigned_to = ?', self.id).
+    tasks = Task.includes(:task_details).where('assigned_to = ?', self.id).
       where(status_id: Status.select('id').where('is_complete = ?', true))
     tasks.each do |task|
       time_spent += task.time_spent_by(self.id)
