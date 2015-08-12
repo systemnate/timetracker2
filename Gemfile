@@ -36,6 +36,7 @@ gem 'chartkick'
 gem 'groupdate', '~> 2.4.0'
 gem 'bxslider-rails'
 gem 'country-select'
+gem 'stripe'
 
 group :development, :test do
   gem 'byebug'
