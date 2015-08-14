@@ -589,3 +589,10 @@ label {
 .ui-sortable-handle {
   cursor: move;
 }
+
+.navbar-nav > li > a {
+  padding-left:8px;
+  padding-right:8px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
