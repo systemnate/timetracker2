@@ -16,10 +16,62 @@
         <div class="call-to-action">
           <%= image_tag('taskclash-large.png', class: 'img-responsive center-block') %>
           <h1>Simple Time Tracking and Case Management!</h1>
-          <%= link_to "Create Account", new_account_path, class: "btn btn-success btn-lg" %>          
+          <!--<%= link_to "Create Account", new_account_path, class: "btn btn-success btn-lg" %>-->
         </div>
       </div>
     </div>
+    <div class="callout section">
+      <div class="container">
+          <div id="pricing-table" class="clear">
+            <p>Notice**: Payments are set up to a TEST account and card will not be charged.</p>
+            <p>
+              While Task Clash is in this test mode, accounts created are subject to being deleted
+              until the payment system is completed.  Thank you for your patience.
+            </p>
+            <div class="plan">
+                <h3>Bronze<span>$9.99</span></h3>
+                <span>Per Month</span>
+                <%= link_to "Sign Up", new_account_path(plan_id: "bronze"), class: "signup" %>       
+                <ul>
+                    <li>Up to <b>2</b> Users</li>
+                    <li><b>Unlimited</b> Attachments</li>
+                    <li><b>Unlimited</b> Tasks</li>         
+                </ul> 
+            </div>
+            <div class="plan">
+                <h3>Silver<span>$49.99</span></h3>
+                <span>Per Month</span>
+                <%= link_to "Sign Up", new_account_path(plan_id: "silver"), class: "signup" %>       
+                <ul>
+                    <li>Up to <b>10</b> Users</li>
+                    <li><b>Unlimited</b> Attachments</li>
+                    <li><b>Unlimited</b> Tasks</li>          
+                </ul> 
+            </div>
+            <div class="plan">
+                <h3>Gold<span>$99.99</span></h3>
+                <span>Per Month</span>
+                <%= link_to "Sign Up", new_account_path(plan_id: "gold"), class: "signup" %>        
+                <ul>
+                    <li>Up to <b>25</b> Users</li>
+                    <li><b>Unlimited</b> Attachments</li>
+                    <li><b>Unlimited</b> Tasks</li>          
+                </ul> 
+            </div>
+            <div class="plan">
+                <h3>Platinum<span>$179.99</span></h3>
+                <span>Per Month</span>
+                <%= link_to "Sign Up", new_account_path(plan_id: "platinum"), class: "signup" %>     
+                <ul>
+                    <li>Up to <b>50</b> Users</li>
+                    <li><b>Unlimited</b> Attachments</li>
+                    <li><b>Unlimited</b> Tasks</li>            
+                </ul> 
+            </div>                  
+          </div>     
+      </div>
+    </div>    
+
       <div class="section" id="services">
         <div class="container">
           <h2>How can Task Clash help my business?</h2>

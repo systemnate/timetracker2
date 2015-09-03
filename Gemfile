@@ -36,7 +36,7 @@ gem 'chartkick'
 gem 'groupdate', '~> 2.4.0'
 gem 'bxslider-rails'
 gem 'country-select'
-gem 'stripe'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
   gem 'byebug'
@@ -52,6 +52,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'letter_opener'
   gem 'bullet', '~> 4.14.7'
+  gem 'dotenv-rails'
 end
 
 group :development do

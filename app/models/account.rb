@@ -1,4 +1,5 @@
 class Account < ActiveRecord::Base
+  attr_accessor :stripe_card_token
   RESTRICTED_SUBDOMAINS = %w(www)
 
   belongs_to :owner, class_name: 'User'

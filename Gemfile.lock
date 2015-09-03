@@ -8,6 +8,14 @@ GIT
       sass-rails (< 5.1)
       sprockets (< 2.13)
 
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: 5e3474c70cc4f140fe195fd51a5529ea8b23ca2f
+  specs:
+    stripe (1.25.0)
+      json (~> 1.8.1)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -139,6 +147,9 @@ GEM
     diff-lcs (1.2.5)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
     elasticsearch (1.0.12)
       elasticsearch-api (= 1.0.12)
       elasticsearch-transport (= 1.0.12)
@@ -354,9 +365,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    stripe (1.24.0)
-      json (~> 1.8.1)
-      rest-client (~> 1.4)
     sweet-alert (0.0.7)
     sweet-alert-confirm (0.3.0)
     terminal-table (1.5.2)
@@ -410,6 +418,7 @@ DEPENDENCIES
   database_cleaner
   devise (~> 3.5.1)
   devise_invitable (~> 1.4.2)
+  dotenv-rails
   factory_girl_rails
   groupdate (~> 2.4.0)
   guard
@@ -437,7 +446,7 @@ DEPENDENCIES
   shoulda-matchers
   simple_form
   spring
-  stripe
+  stripe!
   sweet-alert
   sweet-alert-confirm
   tinymce-rails
