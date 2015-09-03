@@ -42,7 +42,7 @@
               <p><strong>Status</strong></p>
               <% @statuses.all.each do |status| %>
                 <%= link_to "/tasks/filters/status/#{status.id}" do %>
-                  <%= filter_status(status) %>
+                  <%= filter_label(status) %>
                 <% end %>
               <% end %>
             </div>
@@ -50,7 +50,7 @@
               <p><strong>Priority</strong></p>
               <% @priorities.all.each do |priority| %>
                 <%= link_to "/tasks/filters/priority/#{priority.id}" do %>
-                  <%= filter_priority(priority) %>
+                  <%= filter_label(priority) %>
                 <% end %>
               <% end %>
             </div>
@@ -58,7 +58,7 @@
               <p><strong>Product</strong></p>
               <% @products.all.each do |product| %>
                 <%= link_to "/tasks/filters/product/#{product.id}" do %>
-                  <%= filter_product(product) %>
+                  <%= filter_label(product) %>
                 <% end %>
               <% end %>
             </div>
