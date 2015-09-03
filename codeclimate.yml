@@ -1,4 +1,2 @@
 languages:
   Ruby: true
-exclude_paths:
-- "app/assets/javascripts/jquery.tablesorter.min.js"
