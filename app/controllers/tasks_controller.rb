@@ -5,18 +5,19 @@ class TasksController < ApplicationController
     @statuses = Status.includes(:color).order('position')
     @priorities = Priority.includes(:color).order('position')
     @products = Product.includes(:color).order('position')
+    @tasks = Task.includes(:status, :client, :priority => :color, :product => :color)
     if params[:status_id]
-      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where("status_id = ?", params[:status_id])
+      @tasks = @tasks.where("status_id = ?", params[:status_id])
     elsif params[:priority_id]
-      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where("priority_id = ?", params[:priority_id])
+      @tasks = @tasks.where("priority_id = ?", params[:priority_id])
     elsif params[:product_id]
-      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where("product_id = ?", params[:product_id])
+      @tasks = @tasks.where("product_id = ?", params[:product_id])
     elsif params[:tag]
-      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).tagged_with(params[:tag])
+      @tasks = @tasks.tagged_with(params[:tag])
     elsif params[:all_tasks]
-      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color)
+      @tasks = @tasks
     else
-      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color).where('assigned_to = ?', current_user).order('created_at DESC').
+      @tasks = @tasks.where('assigned_to = ?', current_user).order('created_at DESC').
           reject { |t| t.status.default_view != true }
     end
   end
