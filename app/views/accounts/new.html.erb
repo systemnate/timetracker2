@@ -16,30 +16,6 @@
           <span class="input-group-addon">.taskclash.com</span>
         </div>
       <% end %>
-      <% if @account.stripe_card_token %>
-        Credit card has been provided.
-      <% else %>
-        <div class="input-group">
-          <%= label_tag :card_number, "Credit Card Number" %>
-          <%= text_field_tag :card_number, nil, name: nil, class: "form-control" %>
-        </div>
-        <div class="input-group">
-          <%= label_tag :card_code, "Security Code on Card (CVV)" %>
-          <%= text_field_tag :card_code, nil, name: nil, class: "form-control" %>
-        </div>
-        <div class="input-group">
-          <%= label_tag :card_month, "Card Expiration" %>
-          <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
-          <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
-        </div>
-      <% end %>
-      <div id="stripe_error">
-        <noscript>
-          JavaScript is not enabled and is required for this form.  First enable it in your web browser settings.
-        </noscript>
-      </div>
-      <%= f.hidden_field :plan_id, value: @plan_id %>
-      <%= f.hidden_field :stripe_card_token %>
       <%= f.button :submit, class: 'btn-primary' %>
     <% end %>
   </div>

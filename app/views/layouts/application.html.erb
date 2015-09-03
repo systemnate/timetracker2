@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>Task Clash</title>
-  <%= stylesheet_link_tag    'application' %>
-  <%= javascript_include_tag 'https://js.stripe.com/v2/', 'application' %>
-  <%= tag :meta, name: "stripe-key", content: STRIPE_PUBLIC_KEY %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
   <%= favicon_link_tag 'tcfavicon.ico' %>
   <link href='http://fonts.googleapis.com/css?family=Lato:900' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
@@ -12,9 +12,8 @@
   <link rel="stylesheet"
     href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
-  <%= csrf_meta_tags %>
 </head>
-<body data-no-turbolink>
+<body>
 <%= render 'layouts/header' %>
 <div class="container">
   <% flash.each do |type, message| %>
@@ -39,10 +38,8 @@
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
     ga('create', 'UA-65246540-1', 'auto');
     ga('send', 'pageview');
-
   </script>
   <script>
     $('document').ready(function() {

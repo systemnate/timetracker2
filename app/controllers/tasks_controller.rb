@@ -74,8 +74,7 @@ class TasksController < ApplicationController
   def search
     begin
       if params[:search].present?
-        @tasks = Task.includes(:status, :client, :priority => :color, :product => :color, :status => :color).search params[:search], fields: [:title, :alternate_id, :id]
-        @task_details = TaskDetail.includes(:task).search params[:search], fields: [:body]
+        perform_search
       else
         @tasks = Task.includes(:status, :client, :priority => :color, :product => :color, :status => :color)
         @task_details = TaskDetail.includes(:task)
@@ -83,8 +82,7 @@ class TasksController < ApplicationController
     rescue Exception
       Task.reindex
       TaskDetail.reindex
-      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color, :status => :color).search params[:search], fields: [:title, :alternate_id, :id]
-      @task_details = TaskDetail.includes(:task).search params[:search], fields: [:body]
+      perform_search
     end
   end
 
@@ -120,5 +118,10 @@ class TasksController < ApplicationController
     def check_for_new_product(tp)
       color = Color.find_by(name: "Grey")
       p = Product.create(name: tp[:product_name], color_id: color.id)
+    end
+
+    def perform_search
+      @tasks = Task.includes(:status, :client, :priority => :color, :product => :color, :status => :color).search params[:search], fields: [:title, :alternate_id, :id]
+      @task_details = TaskDetail.includes(:task).search params[:search], fields: [:body]      
     end
 end
