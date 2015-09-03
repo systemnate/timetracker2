@@ -36,28 +36,10 @@ class TasksController < ApplicationController
   def create
     tp = task_params
 
-    if !tp[:client_name].blank?
-      c = Client.create(name: tp[:client_name])
-      @task.client_id = c.id
-    end
-
-    if !tp[:status_name].blank?
-      color = Color.find_by(name: "Grey")
-      s = Status.create(name: tp[:status_name], color_id: color.id, default_view: true)
-      @task.status_id = s.id
-    end
-
-    if !tp[:priority_name].blank?
-      color = Color.find_by(name: "Grey")
-      p = Priority.create(name: tp[:priority_name], color_id: color.id)
-      @task.priority_id = p.id
-    end
-
-    if !tp[:product_name].blank?
-      color = Color.find_by(name: "Grey")
-      p = Product.create(name: tp[:product_name], color_id: color.id)
-      @task.product_id = p.id
-    end
+    @task.client_id = check_for_new_client(tp) if !tp[:client_name].blank?
+    @task.status_id = check_for_new_status(tp) if !tp[:status_name].blank?
+    @task.priority_id = check_for_new_priority(tp) if !tp[:priority_name].blank?
+    @task.product_id = check_for_new_product(tp) if !tp[:product_name].blank?
 
     @task.created_by = current_user.id
 
@@ -116,5 +98,27 @@ class TasksController < ApplicationController
       params.require(:task).permit(:title, :status_id,
         :product_id, :priority_id, :client_id, :alternate_id, :tag_list, :project_id,
         :assigned_to, :billable, :client_name, :status_name, :priority_name, :product_name, :notify_email, :due_date)
+    end
+
+    def check_for_new_client(tp)
+      c = Client.create(name: tp[:client_name])
+      c.id
+    end
+    
+    def check_for_new_status(tp)
+      color = Color.find_by(name: "Grey")
+      s = Status.create(name: tp[:status_name], color_id: color.id, default_view: true)
+      s.id
+    end
+
+    def check_for_new_priority(tp)
+      color = Color.find_by(name: "Grey")
+      p = Priority.create(name: tp[:priority_name], color_id: color.id)
+      p.id      
+    end
+
+    def check_for_new_product(tp)
+      color = Color.find_by(name: "Grey")
+      p = Product.create(name: tp[:product_name], color_id: color.id)
     end
 end
