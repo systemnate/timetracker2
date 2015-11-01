@@ -34,6 +34,8 @@
   <% end %>
   </tbody>
 </table>
-<p>Drag and drop on <i class="fa fa-arrows-alt"></i> to change sort order.</p>
+<% if Client.all.count > 1 %>
+  <p>Drag and drop on <i class="fa fa-arrows-alt"></i> to change sort order.</p>
+<% end %>
 <%= link_to "New Client", new_client_path, class: "btn btn-success" %>
 <%= link_to "Configuration", pages_index_path, class: "btn btn-info" %>
