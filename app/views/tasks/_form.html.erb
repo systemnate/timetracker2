@@ -59,7 +59,7 @@
 
   <div class="form-group form-49">
     <%= f.label :project_id, 'Project' %>
-    <%= f.collection_select :project_id, Project.all.order('title'), :id, :title, { prompt: "Choose Project..." } %>
+    <%= f.collection_select :project_id, Project.all.order('title'), :id, :title, { include_blank: "" } %>
   </div>
 
   <div class="form-group form-49">
