@@ -20,10 +20,12 @@ class TasksController < ApplicationController
       @tasks = @tasks.where('assigned_to = ?', current_user).order('created_at DESC').
           reject { |t| t.status.default_view != true }
     end
+      respond_to :html, :json
   end
 
   def show
     @task_details = @task.task_details.order("created_at")
+      respond_to :html, :json
   end
 
   def new
