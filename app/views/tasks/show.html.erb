@@ -47,21 +47,26 @@
 </ul>
 <%= link_to "New Detail", new_task_task_detail_path(@task), class: "btn btn-primary" %>
 <p></p>
+<p>Sort by <a onclick="sortNewest()">Newest</a> | <a onclick="sortOldest()">Oldest</a></p>
+<div id="details">
 <% @task_details.each do |detail| %>
-  <% if can? :update, detail %>
-    <%= link_to [:edit, @task, detail], class: "btn btn-default btn-xs edit" do %>
-      Edit
-    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+  <div id="detail_<%=detail.id%>">
+    <% if can? :update, detail %>
+      <%= link_to [:edit, @task, detail], class: "btn btn-default btn-xs edit" do %>
+        Edit
+      <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+      <% end %>
     <% end %>
-  <% end %>
-  <% if can? :destroy, detail %>
-    <%= link_to [@task, detail], class: "btn btn-default btn-xs edit", method: :delete, data: { confirm: "Are you sure?" } do %>
-      Delete
-    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+    <% if can? :destroy, detail %>
+      <%= link_to [@task, detail], class: "btn btn-default btn-xs edit", method: :delete, data: { confirm: "Are you sure?" } do %>
+        Delete
+      <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+      <% end %>
     <% end %>
+    <%= show_detail(detail) %>
+    </div>
   <% end %>
-  <%= show_detail(detail) %>
-<% end %>
+</div>
 <% if @task_details.count > 0 %>
   <p><%= link_to "New Detail", new_task_task_detail_path(@task), class: "btn btn-primary" %></p>
 <% end %>
@@ -69,3 +74,14 @@
 <% if @task.project_id %>
 <%= link_to "Return to Project", project_path(@task.project), class: "btn btn-success" %>
 <% end %>
+
+<div id="xdflt"><div id="3">viverra</div><div id="2">pellentesque</div><div id="4">pretium</div><div id="5">adivquam</div><div id="6">ullamcorper</div><div id="7">venenatis</div><div id="8">ullamcorper</div><div id="1">ridiculus</div></div>
+
+<script>
+  function sortNewest() {
+    tinysort('div#details>div',{attr:'id', order: 'desc'});
+  }
+  function sortOldest() {
+    tinysort('div#details>div',{attr:'id'});
+  }  
+</script>
