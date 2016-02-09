@@ -30,8 +30,9 @@ class TasksController < ApplicationController
 
   def new
     if Task.all.count <= 1
-      Task.reindex
-      TaskDetail.reindex
+      #To put back when elastic search issue gets sorted out...
+      #Task.reindex
+      #TaskDetail.reindex
     end
   end
 
@@ -120,6 +121,7 @@ class TasksController < ApplicationController
     def check_for_new_product(tp)
       color = Color.find_by(name: "Grey")
       p = Product.create(name: tp[:product_name], color_id: color.id)
+      p.id
     end
 
     def perform_search

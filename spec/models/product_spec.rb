@@ -12,6 +12,6 @@ RSpec.describe Product do
   end
 
   it 'should have a valid factory' do
-    expect(build(:product)).to be_valid
+    expect(build_stubbed(:product)).to be_valid
   end
 end

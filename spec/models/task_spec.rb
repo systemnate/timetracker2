@@ -17,30 +17,30 @@ RSpec.describe Task do
   end
 
   it 'has a valid factory' do
-    create(:task).should be_valid
+    build_stubbed(:task).should be_valid
   end
 
   it 'is invalid without a title' do
-    build(:task, title: nil).should_not be_valid
+    build_stubbed(:task, title: nil).should_not be_valid
   end
 
   it 'is invalid without a status' do
-    build(:task, status: nil).should_not be_valid
+    build_stubbed(:task, status: nil).should_not be_valid
   end
 
   it 'is invalid without a product' do
-    build(:task, status: nil).should_not be_valid
+    build_stubbed(:task, status: nil).should_not be_valid
   end
 
   it 'is invalid without a priority' do
-    build(:task, product: nil).should_not be_valid
+    build_stubbed(:task, product: nil).should_not be_valid
   end
 
   it 'is invalid without a client' do
-    build(:task, client: nil).should_not be_valid
+    build_stubbed(:task, client: nil).should_not be_valid
   end
 
   it 'is invalid without being assigned to someone' do
-    build(:task, assigned_to: nil).should_not be_valid
+    build_stubbed(:task, assigned_to: nil).should_not be_valid
   end
 end
