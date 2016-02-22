@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
-gem 'rails', '4.2.3'
+ruby '2.3.0'
+gem 'rails', '4.2.5.1'
 gem 'activesupport', '~> 4.2.3'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -53,6 +53,7 @@ group :development, :test do
   gem 'letter_opener'
   gem 'bullet', '~> 4.14.7'
   gem 'dotenv-rails'
+  gem "codeclimate-test-reporter"
 end
 
 group :development do
