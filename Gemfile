@@ -48,11 +48,13 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'shoulda-matchers'
   gem 'letter_opener'
   gem 'bullet', '~> 4.14.7'
   gem 'dotenv-rails'
-  gem "codeclimate-test-reporter"
+end
+
+group :test do
+  gem 'shoulda-matchers'
 end
 
 group :development do

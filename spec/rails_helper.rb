@@ -11,6 +11,7 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 Capybara.app_host = 'http://example.com'
 
+
 RSpec.configure do |config|
   config.include Capybara::DSL
   config.include Rails.application.routes.url_helpers
@@ -34,5 +35,11 @@ RSpec.configure do |config|
     Capybara.app_host = 'http://example.com'
     #reset_mailer
   end
+end
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
