@@ -40,7 +40,6 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'guard'
   gem 'guard-livereload'
@@ -58,6 +57,7 @@ end
 
 group :development do
   gem 'brakeman', :require => false
+  gem 'web-console', '~> 2.0'
 end
 
 group :production do
