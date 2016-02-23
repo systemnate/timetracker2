@@ -28,8 +28,6 @@ gem 'jquery-validation-rails'
 gem 'htmlbeautifier', '~> 1.1.0'
 gem 'chosen-rails'
 gem 'jquery-ui-rails'
-gem 'sweet-alert'
-gem 'sweet-alert-confirm'
 gem 'tooltipster-rails'
 gem 'listjs-rails'
 gem 'chartkick'
@@ -51,6 +49,8 @@ group :development, :test do
   gem 'letter_opener'
   gem 'bullet', '~> 4.14.7'
   gem 'dotenv-rails'
+  gem 'parallel_tests'
+  gem 'zeus-parallel_tests'
 end
 
 group :test do

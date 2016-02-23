@@ -22,7 +22,5 @@
 //= require jquery.validate
 //= require jquery.validate.additional-methods
 //= require chosen-jquery
-//= require sweet-alert
-//= require sweet-alert-confirm
 //= require jquery.tooltipster.min.js
 //= require list

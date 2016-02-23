@@ -11,7 +11,7 @@ development:
   host: localhost
 test:
   <<: *default
-  database: timetracker2_test
+  database: timetracker2_test<%= ENV['TEST_ENV_NUMBER'] %>
   username: timetracker2
   password: timetracker2
   host: localhost

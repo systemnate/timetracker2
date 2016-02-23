@@ -26,6 +26,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.start
+    DeferredGarbageCollection.start
   end
 
   config.after(:each) do
@@ -33,6 +34,7 @@ RSpec.configure do |config|
     Apartment::Tenant.reset
     drop_schemas
     Capybara.app_host = 'http://example.com'
+    DeferredGarbageCollection.reconsider
     #reset_mailer
   end
 end
