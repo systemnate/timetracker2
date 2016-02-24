@@ -3,4 +3,5 @@ class Priority < ActiveRecord::Base
   belongs_to :color
   validates :name, presence: true, uniqueness: true
   validates :color_id, presence: true
+  delegate :name, :to => :color, :prefix => true
 end

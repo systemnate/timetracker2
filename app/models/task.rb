@@ -16,7 +16,28 @@ class Task < ActiveRecord::Base
   validates :notify_email, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }, allow_blank: true
   scope :alltasks, -> {}
+  
+  delegate :name, :to => :status, :prefix => true
+  delegate :name, :to => :priority, :prefix => true
+  delegate :name, :to => :product, :prefix => true
+  delegate :name, :to => :client, :prefix => true
 
+  def status_color_name
+    self.status.color_name
+  end
+
+  def product_color_name
+    self.product.color_name
+  end
+
+  def priority_color_name
+    self.priority.color_name
+  end
+
+  def client_color_name
+    self.client.color_name
+  end
+  
   def self.searchkick_index
     index_name = [Apartment::Tenant.current, model_name.plural, Rails.env].join('_')
     Searchkick::Index.new(index_name)

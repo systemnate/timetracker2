@@ -19,7 +19,7 @@ module TasksHelper
 
   def show_status(task)
     if task.status
-      task.status.name
+      task.status_name
     else
       'N/A'
     end
@@ -27,7 +27,7 @@ module TasksHelper
 
   def show_product(task)
     if task.product
-      task.product.name
+      task.product_name
     else
       'N/A'
     end
@@ -35,7 +35,7 @@ module TasksHelper
 
   def show_priority(task)
     if task.priority
-      task.priority.name
+      task.priority_name
     else
       'N/A'
     end
@@ -43,7 +43,7 @@ module TasksHelper
 
   def show_client(task)
     if task.client
-      task.client.name
+      task.client_name
     else
       'N/A'
     end
@@ -94,8 +94,8 @@ module TasksHelper
   end
 
   def label_status(task)
-    if task.status.color.name
-      class_name = 'label label-' + label_lookup(task.status.color.name)
+    if task.status_color_name
+      class_name = 'label label-' + label_lookup(task.status_color_name)
       content_tag(:span, class: class_name) do
         link_to(show_status(task), edit_task_path(task), style: 'color: white')
       end
@@ -105,8 +105,8 @@ module TasksHelper
   end
 
   def label_priority(task)
-    if task.priority.color.name
-      class_name = 'label label-' + label_lookup(task.priority.color.name)
+    if task.priority_color_name
+      class_name = 'label label-' + label_lookup(task.priority_color_name)
       content_tag(:span, class: class_name) do
         link_to(show_priority(task), edit_task_path(task),
                 style: 'color: white')
@@ -127,8 +127,8 @@ module TasksHelper
   end
 
   def label_product(task)
-    class_name = 'label label-' + label_lookup(task.product.color.name)
-    if task.product.color.name
+    class_name = 'label label-' + label_lookup(task.product_color_name)
+    if task.product_color_name
       content_tag(:span, class: class_name) do
         link_to(show_product(task), edit_task_path(task), style: 'color: white')
       end
