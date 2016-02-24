@@ -1,11 +1,13 @@
 # Users Helper
 module UsersHelper
   # Returns the Gravatar for the given user.
-  def gravatar_for(user)
+  def gravatar_for(user, large = false)
+    size       = large ? "60x60" : "25x25"
+    class_name = large ? "gravatar" : "gravatar img-circle"
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
     image_tag(gravatar_url, alt: user.name,
-                            class: 'gravatar img-circle', size: '25x25')
+                            class: class_name, size: size)
   end
 
   def gravatar_email(contact)
@@ -17,12 +19,6 @@ module UsersHelper
       gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
       image_tag(gravatar_url, class: 'gravatar', size: '75x75')
     end
-  end
-
-  def gravatar_for_large(user)
-    gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
-    gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
-    image_tag(gravatar_url, alt: user.name, class: 'gravatar', size: '60x60')
   end
 
   def email_for(task)
