@@ -18,14 +18,15 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Devise::TestHelpers, type: :controller
   config.order = "random"
+  config.use_transactional_fixtures = false
 
   config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
   end
 
   config.before(:each) do
     DatabaseCleaner.start
+    DatabaseCleaner.strategy = :transaction
     DeferredGarbageCollection.start
   end
 
@@ -44,4 +45,8 @@ Shoulda::Matchers.configure do |config|
     with.test_framework :rspec
     with.library :rails
   end
+end
+
+Devise.setup do |config|
+  config.stretches = 1
 end

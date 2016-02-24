@@ -13,6 +13,15 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  def sort
+    name = self.class.to_s.underscore.split("_").first.singularize
+    params[name.to_sym].each_with_index do |id, index|
+      value = eval(name.capitalize).find(id)
+      value.update_attribute(:position, index) if value
+    end
+    render nothing: true    
+  end
+
   protected
 
   def configure_permitted_parameters

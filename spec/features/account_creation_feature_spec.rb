@@ -11,7 +11,9 @@ describe 'account creation' do
     fill_in 'Password confirmation', with: 'password'
     fill_in 'Subdomain', with: 'testsubdomain'
     click_button 'Create Account'
-
-    expect(page).to have_content('Signed up successfully')
+    
+    within(".alert-message") do
+      expect(page).to have_content('Signed up successfully')
+    end
   end
 end

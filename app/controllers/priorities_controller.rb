@@ -37,13 +37,9 @@ class PrioritiesController < ApplicationController
   end
 
   def sort
-    params[:priority].each_with_index do |id, index|
-        priority = Priority.find(id)
-        priority.update_attribute(:position, index) if priority
-    end
-    render nothing: true    
+    super
   end
-
+  
   private
 
   def priority_params

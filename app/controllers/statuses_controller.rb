@@ -37,11 +37,7 @@ class StatusesController < ApplicationController
   end
 
   def sort
-    params[:status].each_with_index do |id, index|
-        status = Status.find(id)
-        status.update_attribute(:position, index) if status
-    end
-    render nothing: true    
+    super
   end
 
   private

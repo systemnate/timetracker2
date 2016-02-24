@@ -37,11 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def sort
-    params[:product].each_with_index do |id, index|
-        product = Product.find(id)
-        product.update_attribute(:position, index) if product
-    end
-    render nothing: true    
+    super
   end  
 
   private
