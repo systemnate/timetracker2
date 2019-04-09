@@ -4,7 +4,7 @@ class Task < ActiveRecord::Base
   attr_accessor :priority_name
   attr_accessor :product_name
   acts_as_taggable
-  #searchkick index_name: -> { [Apartment::Tenant.current, model_name.plural, Rails.env].join('_') }
+  searchkick index_name: -> { [Apartment::Tenant.current, model_name.plural, Rails.env].join('_') }
   belongs_to :status
   belongs_to :product
   belongs_to :priority
@@ -16,7 +16,7 @@ class Task < ActiveRecord::Base
   validates :notify_email, length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX }, allow_blank: true
   scope :alltasks, -> {}
-  
+ 
   delegate :name, :to => :status, :prefix => true
   delegate :name, :to => :priority, :prefix => true
   delegate :name, :to => :product, :prefix => true
@@ -37,7 +37,7 @@ class Task < ActiveRecord::Base
   def client_color_name
     self.client.color_name
   end
-  
+ 
   def self.searchkick_index
     index_name = [Apartment::Tenant.current, model_name.plural, Rails.env].join('_')
     Searchkick::Index.new(index_name)
